@@ -12,7 +12,7 @@ import {
     Typography,
 } from "@material-ui/core";
 
-import { Search } from "@material-ui/icons";
+import { GitHub, LinkedIn } from "@material-ui/icons";
 
 // Components
 import { Gin } from "../components/gin";
@@ -49,7 +49,10 @@ export const Header = () => {
                         m0ss
                     </Typography>
                     <IconButton>
-                        <Search />
+                        <GitHub />
+                    </IconButton>
+                    <IconButton>
+                        <LinkedIn />
                     </IconButton>
                 </Toolbar>
             </Container>

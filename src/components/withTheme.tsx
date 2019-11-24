@@ -1,8 +1,7 @@
 import React, { Component, ComponentClass, ComponentType } from "react";
 
 // MaterialUI
-import { CssBaseline } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
 
 // Components
 import theme from "./theme";
@@ -13,10 +12,10 @@ export default function withTheme<P extends object>(
     return class extends Component<P> {
         public render() {
             return (
-                <ThemeProvider theme={theme}>
+                <MuiThemeProvider theme={theme}>
                     <CssBaseline />
                     <WrappedComponent {...this.props} />
-                </ThemeProvider>
+                </MuiThemeProvider>
             );
         }
     };

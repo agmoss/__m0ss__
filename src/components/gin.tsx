@@ -21,4 +21,4 @@ export const Gin = () => {
             </IconButton>
         </React.Fragment>
     );
-}
+};
