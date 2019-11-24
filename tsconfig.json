@@ -21,5 +21,9 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "files": [
+    "./typings.d.ts"
+  ],
+  "allowSyntheticDefaultImports": true
 }

@@ -10,9 +10,9 @@ import withTheme from "../components/withTheme";
 import { Footer } from "../views/footer";
 import { Header } from "../views/header";
 import { Hero } from "../views/hero";
+import { MainContent } from "../views/mainContent";
 
 const Landing = () => {
-
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
@@ -20,7 +20,7 @@ const Landing = () => {
                 flexDirection: "column",
                 minHeight: "100vh",
             },
-        }),
+        })
     );
 
     const classes = useStyles();
@@ -29,9 +29,9 @@ const Landing = () => {
         <div className={classes.root}>
             <Header />
             <Hero />
+            <MainContent />
             <Footer />
         </div>
-
     );
 };
 
