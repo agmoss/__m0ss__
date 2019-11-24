@@ -5,14 +5,15 @@ import {
     Container,
     createStyles,
     CssBaseline,
-    IconButton,
     makeStyles,
     Theme,
     Toolbar,
     Typography,
 } from "@material-ui/core";
 
-import { GitHub, LinkedIn } from "@material-ui/icons";
+import IconButton from '../components/iconButton';
+
+import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 
 // Components
 import { Gin } from "../components/gin";
@@ -53,6 +54,9 @@ export const Header = () => {
                     </IconButton>
                     <IconButton>
                         <LinkedIn />
+                    </IconButton>
+                    <IconButton>
+                        <Mail />
                     </IconButton>
                 </Toolbar>
             </Container>

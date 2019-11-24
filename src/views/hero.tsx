@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         main: {
             backgroundRepeat: "no-repeat",
-            backgroundImage: "url(https://source.unsplash.com/user/erondu)",
+            backgroundImage: "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundColor: theme.palette.grey[800],
@@ -33,15 +33,15 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         mainContent: {
             position: "relative",
-            padding: theme.spacing(3),
+            padding: theme.spacing(6),
             marginBottom: "auto",
-            minHeight: "30vmin",
             overflow: "auto",
         },
     }),
 );
 
 export const Hero = () => {
+
     const classes = useStyles();
 
     return (
@@ -52,7 +52,7 @@ export const Hero = () => {
                     {
                         <img
                             style={{ display: "none" }}
-                            src="https://source.unsplash.com/user/erondu"
+                            src="https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG"
                             alt="background"
                         />
                     }
@@ -66,14 +66,23 @@ export const Hero = () => {
                                     color="inherit"
                                     gutterBottom={true}
                                 >
-                                    Something...
+                                    m0ss.dev
                                 </Typography>
                                 <Typography
                                     variant="h5"
                                     color="inherit"
                                     paragraph={true}
+                                    gutterBottom={true}
                                 >
-                                    Description
+                                    Hi, I'm a full stack developer with a focus on web applications, infrastructure, data visualization, and creative programming.
+                                </Typography>
+                                <Typography
+                                    variant="h5"
+                                    color="inherit"
+                                    paragraph={true}
+                                    gutterBottom={true}
+                                >
+                                    I am currently hard at work on the next big thing. You'll be hearing about it soon...
                                 </Typography>
                             </div>
                         </Grid>

@@ -1,4 +1,6 @@
-import { createStyles, IconButton, makeStyles, Theme } from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core";
+
+import IconButton from './iconButton';
 
 import { LocalDrink } from "@material-ui/icons";
 import React from "react";
