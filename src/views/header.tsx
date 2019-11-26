@@ -5,13 +5,16 @@ import {
     Container,
     createStyles,
     CssBaseline,
+    Link,
     makeStyles,
     Theme,
     Toolbar,
     Typography,
+    createMuiTheme,
+    MuiThemeProvider,
 } from "@material-ui/core";
 
-import IconButton from '../components/iconButton';
+import IconButton from "../components/iconButton";
 
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 
@@ -26,9 +29,20 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         toolbarTitle: {
             flex: 1,
+            color: theme.palette.secondary.main,
         },
-    }),
+    })
 );
+
+const theme = createMuiTheme({
+    typography: {
+        fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
+        fontSize: 25,
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+    },
+});
 
 export const Header = () => {
     const classes = useStyles();
@@ -39,25 +53,45 @@ export const Header = () => {
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
                     <Gin />
-                    <Typography
-                        component="h2"
-                        variant="h5"
-                        color="inherit"
-                        align="center"
-                        noWrap={true}
-                        className={classes.toolbarTitle}
+                    <MuiThemeProvider theme={theme}>
+                        <Typography
+                            component="h2"
+                            variant="h5"
+                            color="inherit"
+                            align="center"
+                            noWrap={true}
+                            className={classes.toolbarTitle}
+                        >
+                            m0ss
+                        </Typography>
+                    </MuiThemeProvider>
+                    <Link
+                        href="https://github.com/agmoss"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
-                        m0ss
-                    </Typography>
-                    <IconButton>
-                        <GitHub />
-                    </IconButton>
-                    <IconButton>
-                        <LinkedIn />
-                    </IconButton>
-                    <IconButton>
-                        <Mail />
-                    </IconButton>
+                        <IconButton>
+                            <GitHub />
+                        </IconButton>
+                    </Link>
+                    <Link
+                        href="https://www.linkedin.com/in/agmoss/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <IconButton>
+                            <LinkedIn />
+                        </IconButton>
+                    </Link>
+                    <Link
+                        href="mailto:business@m0ss.dev"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <IconButton>
+                            <Mail />
+                        </IconButton>
+                    </Link>
                 </Toolbar>
             </Container>
         </React.Fragment>

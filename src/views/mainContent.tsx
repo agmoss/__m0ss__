@@ -7,13 +7,13 @@ import {
     CssBaseline,
     Divider,
     Grid,
-    Link,
     makeStyles,
     Paper,
     Theme,
     Typography,
 } from "@material-ui/core";
 
+import Link from "../components/link";
 import MarkdownComponent from "../components/markdown";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -34,10 +34,14 @@ const useStyles = makeStyles((theme: Theme) =>
         mainGrid: {
             marginTop: theme.spacing(3),
         },
-    }),
+    })
 );
 
-const projects = ["Iced IoT", "Rentwiser", "The Calgary Project"];
+const projects = [
+    ["Iced IoT", "https://icediot.com/"],
+    ["Rentwiser", "https://rentwiser.azurewebsites.net"],
+    ["The Calgary Project", "https://calgaryproject.net/"],
+];
 
 export function MainContent() {
     const classes = useStyles();
@@ -46,12 +50,12 @@ export function MainContent() {
 
     React.useEffect(() => {
         fetch(
-            "https://ggantstorage.blob.core.windows.net/markdown/samplepost.md",
+            "https://ggantstorage.blob.core.windows.net/markdown/samplepost.md"
         )
-            .then((response) => {
+            .then(response => {
                 return response.text();
             })
-            .then((text) => setMd(text));
+            .then(text => setMd(text));
     }, []);
 
     return (
@@ -66,7 +70,7 @@ export function MainContent() {
                     >
                         <Grid item={true} xs={12} md={8}>
                             <Typography variant="h6" gutterBottom={true}>
-                                m0ss
+                                Opinions
                             </Typography>
                             <Divider />
                             <MarkdownComponent className={classes.markdown}>
@@ -87,25 +91,22 @@ export function MainContent() {
                                 </Typography>
                             </Paper>
                             <Box className={classes.sidebarSection}>
-                            <Typography
-                                variant="h6"
-                                gutterBottom={true}
-                            >
-                                Projects
-                            </Typography>
-                            {projects.map((project) => (
-                                <Link
-                                    display="block"
-                                    variant="body1"
-                                    href="#"
-                                    key={project}
-                                >
-                                    {project}
-                                </Link>
-                            ))}
-
+                                <Typography variant="h6" gutterBottom={true}>
+                                    Projects
+                                </Typography>
+                                {projects.map(project => (
+                                    <Link
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        display="block"
+                                        variant="body1"
+                                        href={project[1]}
+                                        key={project[0]}
+                                    >
+                                        {project[0]}
+                                    </Link>
+                                ))}
                             </Box>
-
                         </Grid>
                     </Grid>
                 </main>
