@@ -9,7 +9,7 @@ import withTheme from "../components/withTheme";
 // Views
 import { Footer } from "../views/footer";
 import { Header } from "../views/header";
-import { Hero } from "../views/hero";
+import { Hero } from "../views/heroPrimary";
 import { MainContent } from "../views/mainContent";
 
 const Landing = () => {
