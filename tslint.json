@@ -1,5 +1,9 @@
 {
-  "extends": ["tslint:latest"],
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
   "rules": {
     "jsx-wrap-multiline": false
   }

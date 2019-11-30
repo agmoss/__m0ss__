@@ -3,15 +3,15 @@ import React from "react";
 // MaterialUI
 import {
     Container,
+    createMuiTheme,
     createStyles,
     CssBaseline,
     Link,
     makeStyles,
+    MuiThemeProvider,
     Theme,
     Toolbar,
     Typography,
-    createMuiTheme,
-    MuiThemeProvider,
 } from "@material-ui/core";
 
 import IconButton from "../components/iconButton";
@@ -21,6 +21,7 @@ import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 // Components
 import { Gin } from "../components/gin";
 
+// tslint:disable-next-line: no-shadowed-variable
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         toolbar: {
@@ -28,8 +29,8 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
         },
         toolbarTitle: {
-            flex: 1,
             color: theme.palette.secondary.main,
+            flex: 1,
         },
     })
 );
@@ -40,6 +41,7 @@ const theme = createMuiTheme({
         fontSize: 25,
         fontWeightLight: 300,
         fontWeightRegular: 400,
+        // tslint:disable-next-line: object-literal-sort-keys
         fontWeightMedium: 500,
     },
 });

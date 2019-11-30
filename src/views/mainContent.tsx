@@ -20,19 +20,18 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         markdown: {
             ...theme.typography.body2,
-            padding: theme.spacing(5, 0, 5),
         },
         sidebarSection: {
-            padding: theme.spacing(5, 0, 5),
+            padding: theme.spacing(2),
         },
         // tslint:disable-next-line: object-literal-sort-keys
         sidebarAboutBox: {
             padding: theme.spacing(2),
-            // tslint:disable-next-line: object-literal-sort-keys
-            backgroundColor: theme.palette.grey[900],
         },
         mainGrid: {
             marginTop: theme.spacing(3),
+            // tslint:disable-next-line: object-literal-sort-keys
+            marginBottom: theme.spacing(3)
         },
     })
 );

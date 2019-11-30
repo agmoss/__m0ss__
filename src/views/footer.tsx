@@ -25,7 +25,7 @@ export const Footer = () => {
             <CssBaseline />
             <footer className={classes.footer}>
                 <Container maxWidth="lg">
-                    <Typography variant="h6" align="center" gutterBottom>
+                    <Typography variant="h6" align="center" gutterBottom={true}>
                         m0ss
                     </Typography>
                     <Typography
@@ -33,7 +33,7 @@ export const Footer = () => {
                         align="center"
                         color="textSecondary"
                         component="p"
-                        gutterBottom
+                        gutterBottom={true}
                     >
                         Drink this
                     </Typography>

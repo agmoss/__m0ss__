@@ -14,11 +14,11 @@ import {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         main: {
-            backgroundRepeat: "no-repeat",
-            backgroundImage: "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             backgroundColor: theme.palette.grey[800],
+            backgroundImage: "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             color: theme.palette.common.white,
             marginBottom: theme.spacing(4),
             position: "relative",
@@ -26,16 +26,18 @@ const useStyles = makeStyles((theme: Theme) =>
         overlay: {
             position: "absolute",
             top: 0,
+            // tslint:disable-next-line: object-literal-sort-keys
             bottom: 0,
             right: 0,
             left: 0,
             backgroundColor: "rgba(0,0,0,.3)",
         },
+        // tslint:disable-next-line: object-literal-sort-keys
         mainContent: {
-            position: "relative",
-            padding: theme.spacing(6),
             marginBottom: "auto",
             overflow: "auto",
+            padding: theme.spacing(6),
+            position: "relative",
         },
     }),
 );

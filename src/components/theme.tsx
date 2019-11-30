@@ -19,11 +19,17 @@ const theme = createMuiTheme({
     },
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-        fontSize: 14,
-        fontWeightLight: 300,
-        fontWeightRegular: 400,
-        fontWeightMedium: 500,
     },
 });
+
+theme.typography.h5 = {
+    ...theme.typography.h5,
+    [theme.breakpoints.down("md")]: {
+        fontSize: "1rem",
+    },
+    [theme.breakpoints.down("lg")]: {
+        fontSize: "1rem",
+    },
+};
 
 export default responsiveFontSizes(theme);

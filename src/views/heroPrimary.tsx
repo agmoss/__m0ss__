@@ -1,6 +1,7 @@
 import React from "react";
 
 import {
+    Box,
     Container,
     createStyles,
     CssBaseline,
@@ -9,52 +10,45 @@ import {
     Paper,
     Theme,
     Typography,
-    Box,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         main: {
-            backgroundRepeat: "no-repeat",
-            backgroundImage: "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
             backgroundColor: theme.palette.grey[800],
+            backgroundImage:
+                "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             color: theme.palette.common.white,
+            height: "100%",
             marginBottom: theme.spacing(4),
-            position: "relative",
-            minHeight: '30vmin',
-            height:"100%"
+            minHeight: "30vmin",
+            position: "relative",  
         },
         mainContent: {
-            position: "relative",
-            padding: theme.spacing(6),
+            backgroundColor: theme.palette.grey[900],
+            height: "100%",
             marginBottom: "auto",
             overflow: "auto",
-            height: "100%",
-            backgroundColor: theme.palette.grey[900],
+            padding: theme.spacing(6),
+            position: "relative",
         },
-        hei:{
-            height: "100%",
-        },
-    }),
+    })
 );
 
 export const Hero = () => {
-
     const classes = useStyles();
 
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Grid
-                    container={true}
-                    spacing={5}
-                >
-                    <Grid item={true} xs={12} md={4}>
+                <Grid container={true} spacing={5}>
+                    <Grid item={true} xs={12} sm={4} md={4}>
                         <Paper className={classes.main}>
-                            <Box >
+                            <Box>
                                 {
                                     <img
                                         style={{ display: "none" }}
@@ -65,33 +59,32 @@ export const Hero = () => {
                             </Box>
                         </Paper>
                     </Grid>
-                    <Grid item={true} xs={12} md={8}>
+                    <Grid item={true} xs={12} sm={8} md={8}>
                         <Paper className={classes.mainContent}>
-                            <Typography
-                                component="h1"
-                                variant="h3"
-                                gutterBottom={true}
-                            >
+                            <Typography variant="h3" gutterBottom={true}>
                                 m0ss.dev
-                                </Typography>
+                            </Typography>
                             <Typography
                                 variant="h5"
                                 paragraph={true}
                                 gutterBottom={true}
                             >
-                                Hi, I'm a full stack developer with a focus on web applications, infrastructure, data visualization, and creative programming.
-                                </Typography>
+                                Hi, I'm a full stack developer with a focus on
+                                web applications, infrastructure, data
+                                visualization, and creative programming.
+                            </Typography>
                             <Typography
                                 variant="h5"
                                 paragraph={true}
                                 gutterBottom={true}
                             >
-                                I am currently hard at work on the next big thing. You'll be hearing about it soon...
+                                I am currently hard at work on the next big
+                                thing. You'll be hearing about it soon...
                             </Typography>
                         </Paper>
                     </Grid>
                 </Grid>
             </Container>
-        </React.Fragment >
+        </React.Fragment>
     );
 };
