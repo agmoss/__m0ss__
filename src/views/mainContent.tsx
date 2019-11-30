@@ -49,7 +49,7 @@ export function MainContent() {
 
     React.useEffect(() => {
         fetch(
-            "https://ggantstorage.blob.core.windows.net/markdown/samplepost.md"
+            "https://ggantstorage.blob.core.windows.net/markdown/landing.md"
         )
             .then(response => {
                 return response.text();
