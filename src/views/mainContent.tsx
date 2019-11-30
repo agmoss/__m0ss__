@@ -18,9 +18,6 @@ import MarkdownComponent from "../components/markdown";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        markdown: {
-            ...theme.typography.body2,
-        },
         sidebarSection: {
             padding: theme.spacing(2),
         },
@@ -31,6 +28,9 @@ const useStyles = makeStyles((theme: Theme) =>
         mainGrid: {
             marginTop: theme.spacing(3),
             // tslint:disable-next-line: object-literal-sort-keys
+            marginBottom: theme.spacing(3),
+        },
+        divider: {
             marginBottom: theme.spacing(3)
         },
     })
@@ -45,7 +45,7 @@ const projects = [
 export function MainContent() {
     const classes = useStyles();
 
-    const [md, setMd] = React.useState();
+    const [md, setMd] = React.useState('');
 
     React.useEffect(() => {
         fetch(
@@ -71,8 +71,8 @@ export function MainContent() {
                             <Typography variant="h6" gutterBottom={true}>
                                 Opinions
                             </Typography>
-                            <Divider />
-                            <MarkdownComponent className={classes.markdown}>
+                            <Divider className={classes.divider} />
+                            <MarkdownComponent>
                                 {md}
                             </MarkdownComponent>
                         </Grid>
