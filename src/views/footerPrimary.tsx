@@ -1,0 +1,93 @@
+import React from "react";
+
+import { logoTheme } from "../components/theme";
+
+import {
+    Grid,
+    Link,
+    Container,
+    Typography,
+    makeStyles,
+    createStyles,
+    Theme,
+    MuiThemeProvider,
+    CssBaseline,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            backgroundColor: theme.palette.secondary.light,
+            marginTop: "auto",
+        },
+        container: {
+            marginTop: theme.spacing(8),
+            marginBottom: theme.spacing(8),
+        },
+        list: {
+            margin: 0,
+            listStyle: "none",
+            paddingLeft: 0,
+        },
+    })
+);
+
+export const Footer = () => {
+    const classes = useStyles();
+
+    return (
+        <React.Fragment>
+            <CssBaseline />
+            <Typography component="footer" className={classes.root}>
+                <Container className={classes.container}>
+                    <Grid container={true}>
+                        <Grid item={true} xs={12}>
+                            <Grid
+                                container={true}
+                                justify="center"
+                                alignItems="center"
+                                alignContent="center"
+                                spacing={6}
+                            >
+                                <Grid item={true}>
+                                    <MuiThemeProvider theme={logoTheme}>
+                                        <Typography
+                                            component="h2"
+                                            variant="h5"
+                                            color="inherit"
+                                            noWrap={true}
+                                        >
+                                            m0ss
+                                        </Typography>
+                                    </MuiThemeProvider>
+                                </Grid>
+                                <Grid item={true}>
+                                    <Typography
+                                        variant="h6"
+                                        gutterBottom={true}
+                                    >
+                                        About
+                                    </Typography>
+                                    <ul className={classes.list}>
+                                        <li>
+                                            <Link
+                                                href="https://github.com/agmoss/m0ss"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                Source
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="#">README</Link>
+                                        </li>
+                                    </ul>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Container>
+            </Typography>
+        </React.Fragment>
+    );
+};

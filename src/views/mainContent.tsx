@@ -21,17 +21,15 @@ const useStyles = makeStyles((theme: Theme) =>
         sidebarSection: {
             padding: theme.spacing(2),
         },
-        // tslint:disable-next-line: object-literal-sort-keys
         sidebarAboutBox: {
             padding: theme.spacing(2),
         },
         mainGrid: {
             marginTop: theme.spacing(3),
-            // tslint:disable-next-line: object-literal-sort-keys
             marginBottom: theme.spacing(3),
         },
         divider: {
-            marginBottom: theme.spacing(3)
+            marginBottom: theme.spacing(3),
         },
     })
 );
@@ -45,12 +43,10 @@ const projects = [
 export function MainContent() {
     const classes = useStyles();
 
-    const [md, setMd] = React.useState('');
+    const [md, setMd] = React.useState("");
 
     React.useEffect(() => {
-        fetch(
-            "https://ggantstorage.blob.core.windows.net/markdown/landing.md"
-        )
+        fetch("https://ggantstorage.blob.core.windows.net/markdown/landing.md")
             .then(response => {
                 return response.text();
             })
@@ -72,9 +68,7 @@ export function MainContent() {
                                 Opinions
                             </Typography>
                             <Divider className={classes.divider} />
-                            <MarkdownComponent>
-                                {md}
-                            </MarkdownComponent>
+                            <MarkdownComponent>{md}</MarkdownComponent>
                         </Grid>
                         <Grid item={true} xs={12} md={4}>
                             <Paper

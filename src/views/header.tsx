@@ -3,7 +3,6 @@ import React from "react";
 // MaterialUI
 import {
     Container,
-    createMuiTheme,
     createStyles,
     CssBaseline,
     Link,
@@ -15,14 +14,11 @@ import {
 } from "@material-ui/core";
 
 import IconButton from "../components/iconButton";
-
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
-
 import { useHistory } from "react-router-dom";
-
 import { Gin } from "../components/gin";
+import { logoTheme } from "../components/theme";
 
-// tslint:disable-next-line: no-shadowed-variable
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         toolbar: {
@@ -30,22 +26,11 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
         },
         toolbarTitle: {
-            color: theme.palette.secondary.main,
+            color: theme.palette.secondary.light,
             flex: 1,
         },
     })
 );
-
-const theme = createMuiTheme({
-    typography: {
-        fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
-        fontSize: 25,
-        fontWeightLight: 300,
-        fontWeightRegular: 400,
-        // tslint:disable-next-line: object-literal-sort-keys
-        fontWeightMedium: 500,
-    },
-});
 
 export const Header = () => {
     const classes = useStyles();
@@ -62,7 +47,7 @@ export const Header = () => {
                     >
                         <Gin />
                     </Link>
-                    <MuiThemeProvider theme={theme}>
+                    <MuiThemeProvider theme={logoTheme}>
                         <Typography
                             component="h2"
                             variant="h5"

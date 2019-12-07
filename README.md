@@ -1,7 +1,7 @@
 <h1 align="center">m0ss.dev</h1>
 
 <div align="center">
-  <img src="public/martini.svg" alt="Logo" width="100" height="100"/>
+  <img src="https://ggantstorage.blob.core.windows.net/images/martini.svg" alt="Logo" width="100" height="100"/>
 </div>
 <div align="center">
   <strong>Personal Website</strong>
@@ -21,9 +21,17 @@
   <a>
     <img src="https://img.shields.io/github/languages/code-size/agmoss/m0ss" alt="Code Size" />
   </a>
+    <!-- Repo Size -->
+  <a>
+    <img src="https://img.shields.io/github/repo-size/agmoss/m0ss" alt="Repo Size" />
+  </a>
   <!-- Style -->
   <a>
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
+  </a>
+    <!-- Up -->
+  <a>
+    <img alt="up" src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fm0ss.dev%2F">
   </a>
   <!-- Language -->
   <a>

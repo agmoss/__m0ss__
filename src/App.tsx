@@ -1,8 +1,8 @@
 import React from "react";
 
 import Landing from "./pages/landing";
-
 import { Circles } from "./pages/circles";
+import Readme from "./pages/readme";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -14,6 +14,9 @@ const App: React.FC = () => {
             </Switch>
             <Switch>
                 <Route path="/circles" component={Circles} />
+            </Switch>
+            <Switch>
+                <Route path="/README" component={Readme} />
             </Switch>
         </BrowserRouter>
     );

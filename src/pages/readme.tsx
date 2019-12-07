@@ -9,10 +9,9 @@ import withTheme from "../components/withTheme";
 // Views
 import { Footer } from "../views/footerPrimary";
 import { Header } from "../views/header";
-import { Hero } from "../views/heroPrimary";
-import { MainContent } from "../views/mainContent";
+import { README } from "../views/readme";
 
-const Landing = () => {
+const Readme = () => {
     const useStyles = makeStyles(() =>
         createStyles({
             root: {
@@ -28,11 +27,10 @@ const Landing = () => {
     return (
         <div className={classes.root}>
             <Header />
-            <Hero />
-            <MainContent />
+            <README />
             <Footer />
         </div>
     );
 };
 
-export default withTheme(Landing);
+export default withTheme(Readme);

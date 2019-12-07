@@ -32,4 +32,14 @@ theme.typography.h5 = {
     },
 };
 
+export const logoTheme = createMuiTheme({
+    typography: {
+        fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
+        fontSize: 25,
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+    },
+});
+
 export default responsiveFontSizes(theme);
