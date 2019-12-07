@@ -14,6 +14,8 @@ import {
     CssBaseline,
 } from "@material-ui/core";
 
+import { useHistory } from "react-router-dom";
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
@@ -34,6 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Footer = () => {
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <React.Fragment>
@@ -79,7 +82,14 @@ export const Footer = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="#">README</Link>
+                                            <Link
+                                                noWrap={true}
+                                                onClick={() =>
+                                                    history.push("/README")
+                                                }
+                                            >
+                                                README
+                                            </Link>
                                         </li>
                                     </ul>
                                 </Grid>

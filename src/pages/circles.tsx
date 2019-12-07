@@ -118,14 +118,28 @@ export const Circles = ({ width, height }: IProps) => {
     window.addEventListener("resize", setDimensions);
 
     // style
-    const css = `body {
-        overflow: hidden;
+    const css = `.canvasCircles {
         background-color:black;
+        overflow:hidden;
     }`;
+
+    const element = document.querySelector("body");
+    if (element) {
+        element.classList.add("canvasCircles");
+    }
 
     const style = document.createElement("style");
     style.appendChild(document.createTextNode(css));
-    document.getElementsByTagName("head")[0].appendChild(style);
+    document.getElementsByTagName("body")[0].appendChild(style);
+
+    // Remove the style
+    useEffect(() => {
+        return () => {
+            if (element) {
+                element.classList.remove("canvasCircles");
+            }
+        };
+    }, [element]);
 
     return <canvas ref={canvasRef} height={height} width={width} />;
 };
