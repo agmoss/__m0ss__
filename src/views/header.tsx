@@ -18,7 +18,8 @@ import IconButton from "../components/iconButton";
 
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 
-// Components
+import { useHistory } from "react-router-dom";
+
 import { Gin } from "../components/gin";
 
 // tslint:disable-next-line: no-shadowed-variable
@@ -48,13 +49,19 @@ const theme = createMuiTheme({
 
 export const Header = () => {
     const classes = useStyles();
+    const history = useHistory();
 
     return (
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
-                    <Gin />
+                    <Link
+                        noWrap={true}
+                        onClick={() => history.push("/circles")}
+                    >
+                        <Gin />
+                    </Link>
                     <MuiThemeProvider theme={theme}>
                         <Typography
                             component="h2"
