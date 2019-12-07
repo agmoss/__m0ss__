@@ -45,15 +45,11 @@ export const Circles = ({ width, height }: IProps) => {
         const c: HTMLCanvasElement = canvasRef.current;
         const ctx = c.getContext("2d");
 
-        const getRandomArbitrary = (min: number, max: number) => {
-            return Math.random() * (max - min) + min;
-        };
+        let r = 255;
+        let g = 0;
+        let b = 0;
 
         if (ctx) {
-            let r = getRandomArbitrary(1, 255);
-            let g = getRandomArbitrary(1, 255);
-            let b = getRandomArbitrary(1, 255);
-
             setInterval(() => {
                 if (r > 0 && b === 0) {
                     r--;
