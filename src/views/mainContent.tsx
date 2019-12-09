@@ -40,18 +40,12 @@ const projects = [
     ["The Calgary Project", "https://calgaryproject.net/"],
 ];
 
-export function MainContent() {
+interface IProps {
+    md: string;
+}
+
+export const MainContent: React.FC<IProps> = ({ md }) => {
     const classes = useStyles();
-
-    const [md, setMd] = React.useState("");
-
-    React.useEffect(() => {
-        fetch("https://ggantstorage.blob.core.windows.net/markdown/landing.md")
-            .then(response => {
-                return response.text();
-            })
-            .then(text => setMd(text));
-    }, []);
 
     return (
         <React.Fragment>
@@ -106,4 +100,4 @@ export function MainContent() {
             </Container>
         </React.Fragment>
     );
-}
+};

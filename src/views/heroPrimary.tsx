@@ -16,8 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         main: {
             backgroundColor: theme.palette.grey[800],
-            backgroundImage:
-                "url(https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG)",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -25,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
             height: "100%",
             marginBottom: theme.spacing(4),
             minHeight: "30vmin",
-            position: "relative",  
+            position: "relative",
         },
         mainContent: {
             backgroundColor: theme.palette.grey[900],
@@ -38,7 +36,11 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const Hero = () => {
+interface IProps {
+    img: Blob;
+}
+
+export const Hero: React.FC<IProps> = ({ img }) => {
     const classes = useStyles();
 
     return (
@@ -47,12 +49,19 @@ export const Hero = () => {
             <Container maxWidth="lg">
                 <Grid container={true} spacing={5}>
                     <Grid item={true} xs={12} sm={4} md={4}>
-                        <Paper className={classes.main}>
+                        <Paper
+                            className={classes.main}
+                            style={{
+                                backgroundImage: `url(${URL.createObjectURL(
+                                    img
+                                )})`,
+                            }}
+                        >
                             <Box>
                                 {
                                     <img
                                         style={{ display: "none" }}
-                                        src="https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG"
+                                        src={URL.createObjectURL(img)}
                                         alt="background"
                                     />
                                 }
