@@ -1,7 +1,5 @@
 import React from "react";
 
-import { logoTheme } from "../components/theme";
-
 import {
     Grid,
     Link,
@@ -10,7 +8,6 @@ import {
     makeStyles,
     createStyles,
     Theme,
-    MuiThemeProvider,
     CssBaseline,
 } from "@material-ui/core";
 
@@ -53,16 +50,14 @@ export const Footer = () => {
                                 spacing={6}
                             >
                                 <Grid item={true}>
-                                    <MuiThemeProvider theme={logoTheme}>
-                                        <Typography
-                                            component="h2"
-                                            variant="h5"
-                                            color="inherit"
-                                            noWrap={true}
-                                        >
-                                            m0ss
-                                        </Typography>
-                                    </MuiThemeProvider>
+                                    <Typography
+                                        component="h3"
+                                        variant="h3"
+                                        color="inherit"
+                                        noWrap={true}
+                                    >
+                                        m0ss
+                                    </Typography>
                                 </Grid>
                                 <Grid item={true}>
                                     <Typography

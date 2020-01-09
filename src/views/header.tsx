@@ -1,13 +1,11 @@
 import React from "react";
 
-// MaterialUI
 import {
     Container,
     createStyles,
     CssBaseline,
     Link,
     makeStyles,
-    MuiThemeProvider,
     Theme,
     Toolbar,
     Typography,
@@ -17,7 +15,6 @@ import IconButton from "../components/iconButton";
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { Gin } from "../components/gin";
-import { logoTheme } from "../components/theme";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -47,18 +44,16 @@ export const Header = () => {
                     >
                         <Gin />
                     </Link>
-                    <MuiThemeProvider theme={logoTheme}>
-                        <Typography
-                            component="h2"
-                            variant="h5"
-                            color="inherit"
-                            align="center"
-                            noWrap={true}
-                            className={classes.toolbarTitle}
-                        >
-                            m0ss
-                        </Typography>
-                    </MuiThemeProvider>
+                    <Typography
+                        component="h1"
+                        variant="h4"
+                        color="inherit"
+                        align="center"
+                        noWrap={true}
+                        className={classes.toolbarTitle}
+                    >
+                        m0ss
+                    </Typography>
                     <Link
                         href="https://github.com/agmoss"
                         target="_blank"
