@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-// MaterialUI
 import { createStyles, makeStyles, Grid } from "@material-ui/core";
 
-// Components
 import withTheme from "../components/withTheme";
 
-// Views
 import { Footer } from "../views/footerPrimary";
 import { Header } from "../views/header";
 import { Hero } from "../views/heroPrimary";
