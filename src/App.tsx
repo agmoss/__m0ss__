@@ -2,6 +2,7 @@ import React from "react";
 import Landing from "./containers/landing";
 import { Circles } from "./pages/circles";
 import Readme from "./pages/readme";
+import withFade from "./components/withFade";
 
 import { CSSTransition } from "react-transition-group";
 
@@ -17,24 +18,17 @@ const routes = [
 
 const App: React.FC = () => {
     return (
-        <Router>
-            {routes.map(({ path, Component }) => (
-                <Route key={path} exact={true} path={path}>
-                    {({ match }) => (
-                        <CSSTransition
-                            in={match != null}
-                            timeout={300}
-                            classNames="page"
-                            unmountOnExit={true}
-                        >
-                            <div className="page">
-                                <Component />
-                            </div>
-                        </CSSTransition>
-                    )}
-                </Route>
-            ))}
-        </Router>
+        <BrowserRouter>
+            <Switch>
+                <Route exact={true} path="/" component={withFade(Landing)} />
+            </Switch>
+            <Switch>
+                <Route path="/circles" component={withFade(Circles)} />
+            </Switch>
+            <Switch>
+                <Route path="/README" component={withFade(Readme)} />
+            </Switch>
+        </BrowserRouter>
     );
 };
 

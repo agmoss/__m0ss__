@@ -1,6 +1,8 @@
 import React from "react";
 
-import { createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles, Grid } from "@material-ui/core";
+
+import withTheme from "../components/withTheme";
 
 import { Footer } from "../views/footerPrimary";
 import { Header } from "../views/header";
