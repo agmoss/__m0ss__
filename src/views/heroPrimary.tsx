@@ -12,10 +12,11 @@ import {
     Typography,
 } from "@material-ui/core";
 
+import { Card } from "./card";
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         main: {
-            backgroundColor: theme.palette.grey[800],
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface IProps {
-    img: Blob;
+    img: Blob[];
 }
 
 export const Hero: React.FC<IProps> = ({ img }) => {
@@ -49,24 +50,9 @@ export const Hero: React.FC<IProps> = ({ img }) => {
             <Container maxWidth="lg">
                 <Grid container={true} spacing={5}>
                     <Grid item={true} xs={12} sm={4} md={4}>
-                        <Paper
-                            className={classes.main}
-                            style={{
-                                backgroundImage: `url(${URL.createObjectURL(
-                                    img
-                                )})`,
-                            }}
-                        >
-                            <Box>
-                                {
-                                    <img
-                                        style={{ display: "none" }}
-                                        src={URL.createObjectURL(img)}
-                                        alt="background"
-                                    />
-                                }
-                            </Box>
-                        </Paper>
+                        <Box className={classes.main}>
+                            <Card primary={img[0]} secondary={img[1]} />
+                        </Box>
                     </Grid>
                     <Grid item={true} xs={12} sm={8} md={8}>
                         <Paper className={classes.mainContent}>

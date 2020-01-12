@@ -26,7 +26,7 @@ const Landing = () => {
     );
 
     const [md, setMd] = useState<string>("");
-    const [img, setImg] = useState<Blob>(new Blob());
+    const [img] = useState<Blob[]>(new Array<Blob>());
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -76,9 +76,15 @@ const Landing = () => {
                     "https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG",
                     FileType.Image
                 );
-                setImg(i);
+
+                const s = await getFile(
+                    "https://source.unsplash.com/random/600x600",
+                    FileType.Image
+                );
+
+                img.push(i, s);
             } catch {
-                setImg(
+                img.push(
                     await getFile(
                         "https://source.unsplash.com/random/600x600",
                         FileType.Image
@@ -86,11 +92,10 @@ const Landing = () => {
                 );
             }
         };
-
         Promise.all([setText(), setFile()]).then(() => {
             setLoading(false);
         });
-    }, []);
+    }, [img]);
 
     const classes = useStyles();
 
