@@ -9,7 +9,7 @@ export default function withFade<P extends object>(
         public render() {
             return (
                 <div>
-                    <Fade in={true} timeout={1000}>
+                    <Fade in={true} timeout={2000}>
                         <div>
                             <WrappedComponent {...this.props} />
                         </div>

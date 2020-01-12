@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from "react";
 
-// MaterialUI
-import { createStyles, makeStyles, Grid } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core";
 
-// Components
-import withTheme from "../components/withTheme";
-
-// Views
 import { Footer } from "../views/footerPrimary";
 import { Header } from "../views/header";
 import { Hero } from "../views/heroPrimary";
 import { MainContent } from "../views/mainContent";
-
-import ReactLoading from "react-loading";
+import { withLoading } from "../components/withLoading";
+import withFade from "../components/withFade";
+import withTheme from "../components/withTheme";
 
 const Landing = () => {
     const useStyles = makeStyles(() =>
@@ -99,31 +95,22 @@ const Landing = () => {
 
     const classes = useStyles();
 
-    return (
-        <div className={classes.root}>
-            {loading ? (
-                <Grid
-                    container={true}
-                    spacing={0}
-                    direction="column"
-                    alignItems="center"
-                    justify="center"
-                    style={{ minHeight: "100vh" }}
-                >
-                    <Grid item={true}>
-                        <ReactLoading type={"bars"} color={"white"} />
-                    </Grid>
-                </Grid>
-            ) : (
+    const LandingPage: React.FC = () => {
+        return (
+            <div className={classes.root}>
                 <React.Fragment>
                     <Header />
                     <Hero img={img} />
                     <MainContent md={md} />
                     <Footer />
                 </React.Fragment>
-            )}
-        </div>
-    );
+            </div>
+        );
+    };
+
+    const LoadingLandingPage = withLoading(withFade(LandingPage));
+
+    return <LoadingLandingPage loading={loading} />;
 };
 
 export default withTheme(Landing);

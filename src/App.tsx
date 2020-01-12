@@ -10,7 +10,7 @@ const App: React.FC = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact={true} path="/" component={withFade(Landing)} />
+                <Route exact={true} path="/" component={Landing} />
             </Switch>
             <Switch>
                 <Route path="/circles" component={withFade(Circles)} />
