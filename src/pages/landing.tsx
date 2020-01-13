@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles, Container, Grid, LinearProgress, CssBaseline } from "@material-ui/core";
 
 import { Footer } from "../views/footerPrimary";
 import { Header } from "../views/header";
@@ -30,6 +30,9 @@ const LandingContainer: React.FC<ILanding> = ({
                 flexDirection: "column",
                 minHeight: "100vh",
             },
+            prog: {
+                width: "100%"
+            }
         })
     );
 
@@ -59,7 +62,31 @@ const LandingContainer: React.FC<ILanding> = ({
         );
     };
 
-    const LoadingLandingPage = withLoading(withFade(LandingView));
+    const LoadingView: React.FC = () => {
+        return (
+            <div className={classes.root}>
+                <CssBaseline /> 
+                <React.Fragment>
+                    <Container>
+                        <Grid
+                            className={classes.root}
+                            container={true}
+                            spacing={0}
+                            direction="column"
+                            alignItems="center"
+                            justify="center"
+                        >
+                            <Grid item={true} spacing={0} className={classes.prog}>
+                                <LinearProgress color="secondary" />
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </React.Fragment>
+            </div>
+        );
+    };
+
+    const LoadingLandingPage = withLoading(LoadingView)(withFade(LandingView));
 
     return React.createElement(LoadingLandingPage, {
         img: imgs,
