@@ -12,7 +12,7 @@ import {
     Typography,
 } from "@material-ui/core";
 
-import { Card } from "./card";
+import { Card } from "../components/card";
 import { withPull } from "../components/withPull";
 
 const useStyles = makeStyles((theme: Theme) =>
