@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 
-import { createStyles, makeStyles, Container, Grid, LinearProgress, CssBaseline } from "@material-ui/core";
+import {
+    createStyles,
+    makeStyles,
+    Container,
+    Grid,
+    LinearProgress,
+    CssBaseline,
+} from "@material-ui/core";
 
 import { Footer } from "../views/footerPrimary";
-import { Header } from "../views/header";
+import Header from "../views/header";
 import { Hero } from "../views/heroPrimary";
 import { MainContent } from "../views/mainContent";
 import withTheme from "../components/withTheme";
@@ -31,8 +38,8 @@ const LandingContainer: React.FC<ILanding> = ({
                 minHeight: "100vh",
             },
             prog: {
-                width: "100%"
-            }
+                width: "100%",
+            },
         })
     );
 
@@ -65,7 +72,7 @@ const LandingContainer: React.FC<ILanding> = ({
     const LoadingView: React.FC = () => {
         return (
             <div className={classes.root}>
-                <CssBaseline /> 
+                <CssBaseline />
                 <React.Fragment>
                     <Container>
                         <Grid
@@ -76,7 +83,11 @@ const LandingContainer: React.FC<ILanding> = ({
                             alignItems="center"
                             justify="center"
                         >
-                            <Grid item={true} spacing={0} className={classes.prog}>
+                            <Grid
+                                item={true}
+                                spacing={0}
+                                className={classes.prog}
+                            >
                                 <LinearProgress color="secondary" />
                             </Grid>
                         </Grid>

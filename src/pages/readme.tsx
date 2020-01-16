@@ -8,7 +8,7 @@ import withTheme from "../components/withTheme";
 
 // Views
 import { Footer } from "../views/footerPrimary";
-import { Header } from "../views/header";
+import Header from "../views/header";
 import { README } from "../views/readme";
 
 const Readme = () => {

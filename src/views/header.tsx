@@ -15,6 +15,7 @@ import IconButton from "../components/iconButton";
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import { Gin } from "../components/gin";
+import { withPull } from "../components/withPull";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const Header = () => {
+const Header = () => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -86,3 +87,5 @@ export const Header = () => {
         </React.Fragment>
     );
 };
+
+export default withPull(Header);
