@@ -1,7 +1,6 @@
 import React from "react";
 
 import {
-    Box,
     Container,
     createStyles,
     CssBaseline,
@@ -13,7 +12,6 @@ import {
     Typography,
 } from "@material-ui/core";
 
-import Link from "../components/link";
 import MarkdownComponent from "../components/markdown";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -33,12 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     })
 );
-
-const projects = [
-    ["Iced IoT", "https://icediot.com/"],
-    ["Rentwiser", "https://rentwiser.azurewebsites.net"],
-    ["The Calgary Project", "https://calgaryproject.net/"],
-];
 
 interface IProps {
     md: string;
@@ -77,23 +69,6 @@ export const MainContent: React.FC<IProps> = ({ md }) => {
                                     get to hear all of my ridiculousness
                                 </Typography>
                             </Paper>
-                            <Box className={classes.sidebarSection}>
-                                <Typography variant="h6" gutterBottom={true}>
-                                    Projects
-                                </Typography>
-                                {projects.map(project => (
-                                    <Link
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        display="block"
-                                        variant="body1"
-                                        href={project[1]}
-                                        key={project[0]}
-                                    >
-                                        {project[0]}
-                                    </Link>
-                                ))}
-                            </Box>
                         </Grid>
                     </Grid>
                 </main>

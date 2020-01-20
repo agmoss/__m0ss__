@@ -13,6 +13,10 @@
 <br />
 
 <div align="center">
+  <!--CircleCI Build -->
+  <a>
+    <img src="https://img.shields.io/circleci/build/github/agmoss/m0ss/master" alt="Built Status">
+  </a>
   <!-- Dependencies -->
   <a>
     <img src="https://img.shields.io/david/agmoss/m0ss" alt="Dependencies" />

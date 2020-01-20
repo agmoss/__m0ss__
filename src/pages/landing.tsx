@@ -9,13 +9,13 @@ import {
     CssBaseline,
 } from "@material-ui/core";
 
-import { Footer } from "../views/footerPrimary";
+import { Footer } from "../views/footer";
 import Header from "../views/header";
-import { Hero } from "../views/heroPrimary";
+import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
-import withTheme from "../components/withTheme";
+import { withTheme } from "../components/withTheme";
 import { withLoading } from "../components/withLoading";
-import withFade from "../components/withFade";
+import { withFade } from "../components/withFade";
 
 interface ILanding {
     text: string;

@@ -1,17 +1,17 @@
 import React, { ComponentType } from "react";
 
-import { Fade } from "@material-ui/core";
+import { Slide } from "@material-ui/core";
 
-export const withFade = <T extends object>(
+export const withSlide = <T extends object>(
     WrappedComponent: ComponentType<T>
 ): React.FC<T> => ({ ...props }) => {
     return (
         <div>
-            <Fade in={true} timeout={2000}>
+            <Slide direction="up" in={true}>
                 <div>
                     <WrappedComponent {...(props as T)} />
                 </div>
-            </Fade>
+            </Slide>
         </div>
     );
 };

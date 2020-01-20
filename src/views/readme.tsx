@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
     Container,
@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
 export function README() {
     const classes = useStyles();
 
-    const [md, setMd] = React.useState("");
+    const [md, setMd] = useState("");
 
-    React.useEffect(() => {
+    useEffect(() => {
         fetch("https://raw.githubusercontent.com/agmoss/m0ss/master/README.md")
             .then(response => {
                 return response.text();

@@ -4,10 +4,10 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core";
 
 // Components
-import withTheme from "../components/withTheme";
+import { withTheme } from "../components/withTheme";
 
 // Views
-import { Footer } from "../views/footerPrimary";
+import { Footer } from "../views/footer";
 import Header from "../views/header";
 import { README } from "../views/readme";
 

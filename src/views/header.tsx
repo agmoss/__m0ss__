@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
     Container,
@@ -10,12 +10,12 @@ import {
     Toolbar,
     Typography,
 } from "@material-ui/core";
-
-import IconButton from "../components/iconButton";
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
+
+import { useHistory } from "react-router-dom";
+import IconButton from "../components/iconButton";
 import { Gin } from "../components/gin";
 import { withPull } from "../components/withPull";
-import { MainDialog } from "./dialog";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -32,19 +32,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Header = () => {
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
+    const history = useHistory();
 
     return (
         <React.Fragment>
             <CssBaseline />
-            <MainDialog open={open} setOpen={setOpen} />
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
-                    <Link noWrap={true} onClick={handleClickOpen}>
+                    <Link
+                        noWrap={true}
+                        onClick={() => {
+                            history.push("/content");
+                        }}
+                    >
                         <Gin />
                     </Link>
                     <Typography
