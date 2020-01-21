@@ -16,7 +16,7 @@
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.3.0",
     "react-with-gesture": "^4.0.8",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
