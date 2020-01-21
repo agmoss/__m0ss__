@@ -10,6 +10,7 @@ import { withTheme } from "../components/withTheme";
 import { Footer } from "../views/footer";
 import Header from "../views/header";
 import { README } from "../views/readme";
+import { withFade } from "../components/withFade";
 
 const Readme = () => {
     const useStyles = makeStyles(() =>
@@ -33,4 +34,4 @@ const Readme = () => {
     );
 };
 
-export default withTheme(Readme);
+export default withFade(withTheme(Readme));

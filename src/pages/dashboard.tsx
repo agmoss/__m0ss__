@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {
     ListItemText,
@@ -14,6 +14,7 @@ import {
     createStyles,
     makeStyles,
     Theme,
+    Slide,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import { withTheme } from "../components/withTheme";
@@ -35,83 +36,114 @@ const Dashboard = () => {
     const classes = useStyles();
     const history = useHistory();
 
+    const [checked, setChecked] = React.useState(true);
+
+    const exitTimeout = 300;
+    const [enterTimeout, setEnterTimeout] = useState(300);
+
+    const handleChange = () => {
+        setChecked(prev => !prev);
+        setTimeout(() => {
+            history.goBack();
+        }, exitTimeout);
+    };
+
+    useEffect(() => {
+        if (history.action === "POP") {
+            setEnterTimeout(0);
+        }
+    }, [history.action]);
+
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar className={classes.appBar}>
-                <Toolbar>
-                    <Typography variant="h6" className={classes.title}>
-                        Content
-                    </Typography>
-                    <IconButton
-                        edge="start"
-                        color="inherit"
-                        onClick={() => {
-                            history.goBack();
-                        }}
-                        aria-label="close"
-                    >
-                        <Close />
-                    </IconButton>
-                </Toolbar>
-            </AppBar>
-            <List>
-                <ListItem
-                    button={true}
-                    onClick={() => history.push("/circles")}
+            <div>
+                <Slide
+                    direction="up"
+                    in={checked}
+                    timeout={{ enter: enterTimeout, exit: exitTimeout }}
                 >
-                    <ListItemText
-                        primary="Circles"
-                        secondary="SVG Canvas Art"
-                    />
-                </ListItem>
-                <Divider />
-                <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={"https://icediot.com/"}
-                    style={{ textDecoration: "none" }}
-                    color="inherit"
-                >
-                    <ListItem button={true}>
-                        <ListItemText
-                            primary="Iced IoT"
-                            secondary="IoT Platform"
-                        />
-                    </ListItem>
-                </Link>
-                <Divider />
-                <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={"https://rentwiser.azurewebsites.net"}
-                    style={{ textDecoration: "none" }}
-                    color="inherit"
-                >
-                    <ListItem button={true}>
-                        <ListItemText
-                            primary="RentWiser"
-                            secondary="Analysis service for rental data"
-                        />
-                    </ListItem>
-                </Link>
-                <Divider />
-                <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={"https://calgaryproject.net/"}
-                    style={{ textDecoration: "none" }}
-                    color="inherit"
-                >
-                    <ListItem button={true}>
-                        <ListItemText
-                            primary="The Calgary Project"
-                            secondary="Original rental data anaylsis platform"
-                        />
-                    </ListItem>
-                </Link>
-                <Divider />
-            </List>
+                    <div>
+                        <AppBar className={classes.appBar}>
+                            <Toolbar>
+                                <Typography
+                                    variant="h6"
+                                    className={classes.title}
+                                >
+                                    Content
+                                </Typography>
+                                <IconButton
+                                    edge="start"
+                                    color="inherit"
+                                    onClick={() => {
+                                        handleChange();
+                                    }}
+                                    aria-label="close"
+                                >
+                                    <Close />
+                                </IconButton>
+                            </Toolbar>
+                        </AppBar>
+                        <List>
+                            <ListItem
+                                button={true}
+                                onClick={() => history.push("/circles")}
+                            >
+                                <ListItemText
+                                    primary="Circles"
+                                    secondary="SVG Canvas Art"
+                                />
+                            </ListItem>
+                            <Divider />
+                            <Link
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={"https://icediot.com/"}
+                                style={{ textDecoration: "none" }}
+                                color="inherit"
+                            >
+                                <ListItem button={true}>
+                                    <ListItemText
+                                        primary="Iced IoT"
+                                        secondary="IoT Platform"
+                                    />
+                                </ListItem>
+                            </Link>
+                            <Divider />
+                            <Link
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={"https://rentwiser.azurewebsites.net"}
+                                style={{ textDecoration: "none" }}
+                                color="inherit"
+                            >
+                                <ListItem button={true}>
+                                    <ListItemText
+                                        primary="RentWiser"
+                                        secondary="Analysis service for rental data"
+                                    />
+                                </ListItem>
+                            </Link>
+                            <Divider />
+                            <Link
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={"https://calgaryproject.net/"}
+                                style={{ textDecoration: "none" }}
+                                color="inherit"
+                            >
+                                <ListItem button={true}>
+                                    <ListItemText
+                                        primary="The Calgary Project"
+                                        secondary="Original rental data anaylsis platform"
+                                    />
+                                </ListItem>
+                            </Link>
+                            <Divider />
+                        </List>
+                    </div>
+                </Slide>
+            </div>
         </React.Fragment>
     );
 };

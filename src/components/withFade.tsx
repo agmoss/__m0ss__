@@ -7,7 +7,7 @@ export const withFade = <T extends object>(
 ): React.FC<T> => ({ ...props }) => {
     return (
         <div>
-            <Fade in={true} timeout={2000}>
+            <Fade in={true} timeout={{ enter: 1000, exit: 1000 }}>
                 <div>
                     <WrappedComponent {...(props as T)} />
                 </div>

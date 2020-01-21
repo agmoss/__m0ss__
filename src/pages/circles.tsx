@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { withFade } from "../components/withFade";
 
 interface IProps {
     width: number;
@@ -12,7 +13,7 @@ interface IProps {
  * @param {height} [optionalArg] - Width of the canvas div
  * @return {canvas} Styled HTML5 canvas div
  */
-export const Circles = ({ width, height }: IProps) => {
+const Circles = ({ width, height }: IProps) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     let cx: number;
     let cy: number;
@@ -148,3 +149,5 @@ Circles.defaultProps = {
     height: window.innerHeight,
     width: window.innerWidth,
 };
+
+export default withFade(Circles);
