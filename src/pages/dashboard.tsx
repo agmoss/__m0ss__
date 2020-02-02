@@ -44,7 +44,7 @@ const Dashboard = () => {
     const handleChange = () => {
         setChecked(prev => !prev);
         setTimeout(() => {
-            history.goBack();
+            history.push("/");
         }, exitTimeout);
     };
 
@@ -139,6 +139,16 @@ const Dashboard = () => {
                                     />
                                 </ListItem>
                             </Link>
+                            <Divider />
+                            <ListItem
+                                button={true}
+                                onClick={() => history.push("/card")}
+                            >
+                                <ListItemText
+                                    primary="Card"
+                                    secondary="Generative Art Business Card"
+                                />
+                            </ListItem>
                             <Divider />
                         </List>
                     </div>

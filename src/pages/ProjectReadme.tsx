@@ -5,12 +5,11 @@ import { createStyles, makeStyles } from "@material-ui/core";
 
 // Components
 import { withTheme } from "../components/withTheme";
+import { withMarkdownView } from "../components/withMarkdownView";
 
 // Views
 import { Footer } from "../views/footer";
 import Header from "../views/header";
-import { README } from "../views/readme";
-import { withFade } from "../components/withFade";
 
 const Readme = () => {
     const useStyles = makeStyles(() =>
@@ -23,15 +22,19 @@ const Readme = () => {
         })
     );
 
+    const ProjectReadme = withMarkdownView(
+        "https://raw.githubusercontent.com/agmoss/m0ss/master/README.md"
+    );
+
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <Header />
-            <README />
+            <ProjectReadme />
             <Footer />
         </div>
     );
 };
 
-export default withFade(withTheme(Readme));
+export default withTheme(Readme);

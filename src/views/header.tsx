@@ -40,6 +40,22 @@ const Header = () => {
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
                     <Link
+                        onClick={() => {
+                            history.push("/");
+                        }}
+                        className={classes.toolbarTitle}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Typography
+                            component="h1"
+                            variant="h4"
+                            color="inherit"
+                            noWrap={true}
+                        >
+                            m0ss
+                        </Typography>
+                    </Link>
+                    <Link
                         noWrap={true}
                         onClick={() => {
                             history.push("/content");
@@ -47,16 +63,6 @@ const Header = () => {
                     >
                         <Gin />
                     </Link>
-                    <Typography
-                        component="h1"
-                        variant="h4"
-                        color="inherit"
-                        align="center"
-                        noWrap={true}
-                        className={classes.toolbarTitle}
-                    >
-                        m0ss
-                    </Typography>
                     <Link
                         href="https://github.com/agmoss"
                         target="_blank"

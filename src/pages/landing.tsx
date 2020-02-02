@@ -83,11 +83,7 @@ const LandingContainer: React.FC<ILanding> = ({
                             alignItems="center"
                             justify="center"
                         >
-                            <Grid
-                                item={true}
-                                spacing={0}
-                                className={classes.prog}
-                            >
+                            <Grid item={true} className={classes.prog}>
                                 <LinearProgress color="secondary" />
                             </Grid>
                         </Grid>
@@ -97,7 +93,9 @@ const LandingContainer: React.FC<ILanding> = ({
         );
     };
 
-    const LoadingLandingPage = withLoading(LoadingView)(withFade(LandingView));
+    const LoadingLandingPage = withLoading(LoadingView)(
+        withFade(1000, 1000)(LandingView)
+    );
 
     return React.createElement(LoadingLandingPage, {
         img: imgs,

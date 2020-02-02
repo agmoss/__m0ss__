@@ -3,11 +3,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
 
 import Circles from "./pages/circles";
-import Readme from "./pages/readme";
+import Readme from "./pages/ProjectReadme";
 import Landing from "./pages/landing";
-import Dashboard from "./pages/dashboard";
+import Dashboard from "./containers/dashboard";
+import CardReadme from "./pages/CardReadme";
 
 import { getText, getImgs } from "./getData";
+import { withFade } from "./components/withFade";
 
 const App: React.FC = () => {
     const [loading, setLoading] = useState(true);
@@ -43,13 +45,25 @@ const App: React.FC = () => {
                 </Route>
             </Switch>
             <Switch>
+                <Route
+                    path="/card"
+                    component={withFade(1000, 1000)(CardReadme)}
+                />
+            </Switch>
+            <Switch>
                 <Route path="/content" component={Dashboard} />
             </Switch>
             <Switch>
-                <Route path="/circles" component={Circles} />
+                <Route
+                    path="/circles"
+                    component={withFade(1000, 1000)(Circles)}
+                />
             </Switch>
             <Switch>
-                <Route path="/README" component={Readme} />
+                <Route
+                    path="/README"
+                    component={withFade(1000, 1000)(Readme)}
+                />
             </Switch>
         </BrowserRouter>
     );
