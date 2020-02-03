@@ -4,13 +4,10 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core";
 
 // Components
-import { withTheme } from "../components/withTheme";
+import { withMarkdownView } from "../components/withMarkdownView";
 
 // Views
 import { Footer } from "../views/footer";
-import Header from "../views/header";
-import { README } from "../views/readme";
-import { withFade } from "../components/withFade";
 
 const Readme = () => {
     const useStyles = makeStyles(() =>
@@ -23,15 +20,18 @@ const Readme = () => {
         })
     );
 
+    const CardReadme = withMarkdownView(
+        "https://raw.githubusercontent.com/agmoss/card/master/README.md"
+    );
+
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Header />
-            <README />
+            <CardReadme />
             <Footer />
         </div>
     );
 };
 
-export default withFade(withTheme(Readme));
+export default Readme;

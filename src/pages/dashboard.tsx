@@ -17,7 +17,6 @@ import {
     Slide,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
-import { withTheme } from "../components/withTheme";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -44,7 +43,7 @@ const Dashboard = () => {
     const handleChange = () => {
         setChecked(prev => !prev);
         setTimeout(() => {
-            history.goBack();
+            history.push("/");
         }, exitTimeout);
     };
 
@@ -140,6 +139,16 @@ const Dashboard = () => {
                                 </ListItem>
                             </Link>
                             <Divider />
+                            <ListItem
+                                button={true}
+                                onClick={() => history.push("/card")}
+                            >
+                                <ListItemText
+                                    primary="Card"
+                                    secondary="Generative Art Business Card"
+                                />
+                            </ListItem>
+                            <Divider />
                         </List>
                     </div>
                 </Slide>
@@ -148,4 +157,4 @@ const Dashboard = () => {
     );
 };
 
-export default withTheme(Dashboard);
+export default Dashboard;

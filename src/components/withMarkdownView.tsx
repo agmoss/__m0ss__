@@ -20,13 +20,13 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function README() {
+export const withMarkdownView = (url: string): React.FC => () => {
     const classes = useStyles();
 
     const [md, setMd] = useState("");
 
     useEffect(() => {
-        fetch("https://raw.githubusercontent.com/agmoss/m0ss/master/README.md")
+        fetch(url)
             .then(response => {
                 return response.text();
             })
@@ -53,4 +53,4 @@ export function README() {
             </Container>
         </React.Fragment>
     );
-}
+};

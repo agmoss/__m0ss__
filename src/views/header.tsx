@@ -9,6 +9,7 @@ import {
     Theme,
     Toolbar,
     Typography,
+    Switch,
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 
@@ -30,7 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Header = () => {
+interface IHeader {
+    checked: boolean;
+    onChange: () => void;
+}
+
+const Header = ({ checked, onChange }: IHeader) => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -40,6 +46,22 @@ const Header = () => {
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
                     <Link
+                        onClick={() => {
+                            history.push("/");
+                        }}
+                        className={classes.toolbarTitle}
+                        style={{ textDecoration: "none" }}
+                    >
+                        <Typography
+                            component="h1"
+                            variant="h4"
+                            color="inherit"
+                            noWrap={true}
+                        >
+                            m0ss
+                        </Typography>
+                    </Link>
+                    <Link
                         noWrap={true}
                         onClick={() => {
                             history.push("/content");
@@ -47,16 +69,7 @@ const Header = () => {
                     >
                         <Gin />
                     </Link>
-                    <Typography
-                        component="h1"
-                        variant="h4"
-                        color="inherit"
-                        align="center"
-                        noWrap={true}
-                        className={classes.toolbarTitle}
-                    >
-                        m0ss
-                    </Typography>
+                    <Switch checked={checked} onChange={onChange} />
                     <Link
                         href="https://github.com/agmoss"
                         target="_blank"

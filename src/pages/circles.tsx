@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import { withFade } from "../components/withFade";
 
 interface IProps {
     width: number;
@@ -150,4 +149,4 @@ Circles.defaultProps = {
     width: window.innerWidth,
 };
 
-export default withFade(Circles);
+export default Circles;

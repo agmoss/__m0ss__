@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
     Container,
@@ -12,7 +12,15 @@ import {
     Typography,
 } from "@material-ui/core";
 
+import IconButton from "../components/iconButton";
+import { Snacks, severity } from "../components/Snacks";
+import { ThumbUp } from "@material-ui/icons";
+
 import MarkdownComponent from "../components/markdown";
+import { withPull } from "../components/withPull";
+
+// tslint:disable-next-line: no-var-requires
+const randomWords = require("random-words");
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -39,9 +47,65 @@ interface IProps {
 export const MainContent: React.FC<IProps> = ({ md }) => {
     const classes = useStyles();
 
+    const [openSnack, setOpenSnack] = useState(false);
+    const [message, setMessage] = useState(
+        randomWords({ exactly: 5, join: " " })
+    );
+    const [level, setLevel] = useState(Math.floor(Math.random() * 4) + 1);
+
+    const handleOpen = () => {
+        setOpenSnack(!openSnack);
+        if (openSnack === false) {
+            setMessage(
+                randomWords({
+                    exactly: Math.floor(Math.random() * 6) + 1,
+                    join: " ",
+                })
+            );
+            setLevel(Math.floor(Math.random() * 4) + 1);
+        }
+    };
+
+    const AboutPaper = () => {
+        return (
+            <Paper elevation={0} className={classes.sidebarAboutBox}>
+                <Grid container={true} spacing={2}>
+                    <Grid item={true} xs={12}>
+                        <Grid container={true} justify="space-between">
+                            <Grid item={true}>
+                                <Typography variant="h6" gutterBottom={true}>
+                                    About
+                                </Typography>
+                                <Typography>Welcome to my account</Typography>
+                            </Grid>
+                            <Grid item={true}>
+                                <IconButton
+                                    onClick={() => {
+                                        handleOpen();
+                                    }}
+                                >
+                                    <ThumbUp />
+                                </IconButton>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Paper>
+        );
+    };
+
+    const AboutPaperPull = withPull(AboutPaper);
+
     return (
         <React.Fragment>
             <CssBaseline />
+
+            <Snacks
+                open={openSnack}
+                setOpen={setOpenSnack}
+                message={message}
+                level={severity[level]}
+            />
             <Container maxWidth="lg">
                 <main>
                     <Grid
@@ -54,21 +118,10 @@ export const MainContent: React.FC<IProps> = ({ md }) => {
                                 Opinions
                             </Typography>
                             <Divider className={classes.divider} />
-                            <MarkdownComponent>{md}</MarkdownComponent>
+                            {MarkdownComponent(md)}
                         </Grid>
                         <Grid item={true} xs={12} md={4}>
-                            <Paper
-                                elevation={0}
-                                className={classes.sidebarAboutBox}
-                            >
-                                <Typography variant="h6" gutterBottom={true}>
-                                    About
-                                </Typography>
-                                <Typography>
-                                    At some point this will be a blog where you
-                                    get to hear all of my ridiculousness
-                                </Typography>
-                            </Paper>
+                            <AboutPaperPull />
                         </Grid>
                     </Grid>
                 </main>

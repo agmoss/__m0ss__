@@ -1,13 +1,17 @@
 import React, { ComponentType } from "react";
-
 import { Fade } from "@material-ui/core";
 
-export const withFade = <T extends object>(
+export const withFade = (enterTimeout: number, exitTimeout: number) => <
+    T extends object
+>(
     WrappedComponent: ComponentType<T>
 ): React.FC<T> => ({ ...props }) => {
     return (
         <div>
-            <Fade in={true} timeout={{ enter: 1000, exit: 1000 }}>
+            <Fade
+                in={true}
+                timeout={{ enter: enterTimeout, exit: exitTimeout }}
+            >
                 <div>
                     <WrappedComponent {...(props as T)} />
                 </div>

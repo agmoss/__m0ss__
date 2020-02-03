@@ -1,15 +1,28 @@
 import React, { ComponentType } from "react";
 
-import { MuiThemeProvider } from "@material-ui/core";
+import { createMuiTheme, Theme, ThemeProvider } from "@material-ui/core";
 
-import theme from "./theme";
+import CustomTheme from "./theme";
 
-export const withTheme = <T extends object>(
+import { PaletteType } from "../App";
+
+export const withTheme = (paletteType: PaletteType) => <T extends object>(
     WrappedComponent: ComponentType<T>
 ): React.FC<T> => ({ ...props }) => {
     return (
-        <MuiThemeProvider theme={theme}>
-            <WrappedComponent {...(props as T)} />
-        </MuiThemeProvider>
+        <ThemeProvider theme={CustomTheme}>
+            <ThemeProvider
+                theme={(theme: Theme) =>
+                    createMuiTheme({
+                        ...theme,
+                        palette: {
+                            type: paletteType,
+                        },
+                    })
+                }
+            >
+                <WrappedComponent {...(props as T)} />
+            </ThemeProvider>
+        </ThemeProvider>
     );
 };
