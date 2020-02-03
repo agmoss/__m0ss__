@@ -18,10 +18,10 @@ interface ISnacksProps {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     message: string;
-    severity: Severity;
+    level: Severity;
 }
 
-export const Snacks = ({ open, setOpen, message, severity }: ISnacksProps) => {
+export const Snacks = ({ open, setOpen, message, level }: ISnacksProps) => {
     return (
         <Snackbar
             open={open}
@@ -34,7 +34,7 @@ export const Snacks = ({ open, setOpen, message, severity }: ISnacksProps) => {
                 onClose={() => {
                     setOpen(false);
                 }}
-                severity={severity}
+                severity={level}
             >
                 {message}
             </Alert>

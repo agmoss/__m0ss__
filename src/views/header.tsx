@@ -9,6 +9,7 @@ import {
     Theme,
     Toolbar,
     Typography,
+    Switch,
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
 
@@ -30,7 +31,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Header = () => {
+interface IHeader {
+    checked: boolean;
+    onChange: () => void;
+}
+
+const Header = ({ checked, onChange }: IHeader) => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -63,6 +69,7 @@ const Header = () => {
                     >
                         <Gin />
                     </Link>
+                    <Switch checked={checked} onChange={onChange} />
                     <Link
                         href="https://github.com/agmoss"
                         target="_blank"

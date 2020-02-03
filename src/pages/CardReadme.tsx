@@ -4,12 +4,10 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core";
 
 // Components
-import { withTheme } from "../components/withTheme";
 import { withMarkdownView } from "../components/withMarkdownView";
 
 // Views
 import { Footer } from "../views/footer";
-import Header from "../views/header";
 
 const Readme = () => {
     const useStyles = makeStyles(() =>
@@ -30,11 +28,10 @@ const Readme = () => {
 
     return (
         <div className={classes.root}>
-            <Header />
             <CardReadme />
             <Footer />
         </div>
     );
 };
 
-export default withTheme(Readme);
+export default Readme;

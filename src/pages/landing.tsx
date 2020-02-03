@@ -10,10 +10,8 @@ import {
 } from "@material-ui/core";
 
 import { Footer } from "../views/footer";
-import Header from "../views/header";
 import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
-import { withTheme } from "../components/withTheme";
 import { withLoading } from "../components/withLoading";
 import { withFade } from "../components/withFade";
 
@@ -60,7 +58,6 @@ const LandingContainer: React.FC<ILanding> = ({
         return (
             <div className={classes.root}>
                 <React.Fragment>
-                    <Header />
                     <Hero img={img} />
                     <MainContent md={md} />
                     <Footer />
@@ -104,4 +101,4 @@ const LandingContainer: React.FC<ILanding> = ({
     });
 };
 
-export default withTheme(LandingContainer);
+export default LandingContainer;

@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
             position: "relative",
         },
         mainContent: {
-            backgroundColor: theme.palette.grey[900],
             height: "100%",
             marginBottom: "auto",
             overflow: "auto",

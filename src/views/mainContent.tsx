@@ -104,7 +104,7 @@ export const MainContent: React.FC<IProps> = ({ md }) => {
                 open={openSnack}
                 setOpen={setOpenSnack}
                 message={message}
-                severity={severity[level]}
+                level={severity[level]}
             />
             <Container maxWidth="lg">
                 <main>

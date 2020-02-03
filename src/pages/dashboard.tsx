@@ -17,7 +17,6 @@ import {
     Slide,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
-import { withTheme } from "../components/withTheme";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -158,4 +157,4 @@ const Dashboard = () => {
     );
 };
 
-export default withTheme(Dashboard);
+export default Dashboard;
