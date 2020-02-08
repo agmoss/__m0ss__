@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             backgroundColor: theme.palette.secondary.light,
             marginTop: "auto",
+            width: "100%",
         },
         container: {
             marginTop: theme.spacing(8),

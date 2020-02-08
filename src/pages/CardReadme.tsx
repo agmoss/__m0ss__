@@ -9,6 +9,8 @@ import { withMarkdownView } from "../components/withMarkdownView";
 // Views
 import { Footer } from "../views/footer";
 
+import "./card.css";
+
 const Readme = () => {
     const useStyles = makeStyles(() =>
         createStyles({
@@ -16,6 +18,7 @@ const Readme = () => {
                 display: "flex",
                 flexDirection: "column",
                 minHeight: "100vh",
+                overflowX: "hidden",
             },
         })
     );

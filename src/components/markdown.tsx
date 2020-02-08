@@ -1,6 +1,9 @@
 import { Typography, Link } from "@material-ui/core";
 import ReactMarkdown from "markdown-to-jsx";
 import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+// tslint:disable-next-line: no-submodule-imports
+import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const options = {
     overrides: {
@@ -29,6 +32,11 @@ const options = {
         },
         p: { component: Typography, props: { paragraph: true } },
         a: { component: Link },
+        code: {
+            component: SyntaxHighlighter,
+            props: { language: "python", style: monokai },
+        },
+        img: { props: {} },
     },
     forceBlock: true,
 };
