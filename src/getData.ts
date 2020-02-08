@@ -34,10 +34,13 @@ export const getText = async (url: string) => {
     }
 };
 
-// TODO: Add error handling
 export const getImgs = async (urls: string[]) => {
-    const adder = async (item: string) => {
-        return getFile(item, FileType.Image);
+    const adder = async (url: string) => {
+        try {
+            return getFile(url, FileType.Image);
+        } catch (err) {
+            return getFile("#", FileType.Image);
+        }
     };
     return Promise.all(urls.map(adder));
 };

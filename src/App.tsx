@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 import Circles from "./pages/circles";
 import Readme from "./pages/ProjectReadme";
-import Landing from "./pages/landing";
+import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
 import CardReadme from "./pages/CardReadme";
 
@@ -41,11 +41,9 @@ const App: React.FC = () => {
 
     const dataGetter = () => {
         Promise.all([
-            getText(
-                "https://ggantstorage.blob.core.windows.net/markdown/landing.md"
-            ),
+            getText("https://m0ss.blob.core.windows.net/media/landing.md"),
             getImgs([
-                "https://ggantstorage.blob.core.windows.net/images/DSC_7024.JPG",
+                "https://m0ss.blob.core.windows.net/media/DSC_7024.JPG",
                 "https://source.unsplash.com/random/600x600",
             ]),
         ]).then(responses => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Snackbar } from "@material-ui/core";
+// tslint:disable-next-line: no-submodule-imports
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 export enum Severity {
