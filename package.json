@@ -8,7 +8,7 @@
     "@material-ui/lab": "^4.0.0-alpha.41",
     "emailjs-com": "^2.4.1",
     "lodash-es": "^4.17.15",
-    "markdown-to-jsx": "^6.10.3",
+    "markdown-to-jsx": "^6.11.0",
     "random-words": "^1.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
