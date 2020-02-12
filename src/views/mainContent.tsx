@@ -99,7 +99,6 @@ export const MainContent: React.FC<IProps> = ({ md }) => {
     return (
         <React.Fragment>
             <CssBaseline />
-
             <Snacks
                 open={openSnack}
                 setOpen={setOpenSnack}

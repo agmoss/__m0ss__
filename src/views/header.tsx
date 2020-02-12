@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
     Container,
@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 import IconButton from "../components/iconButton";
 import { Gin } from "../components/gin";
 import { withPull } from "../components/withPull";
+import { ContactDialog } from "../views/contactDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -39,10 +40,12 @@ interface IHeader {
 const Header = ({ checked, onChange }: IHeader) => {
     const classes = useStyles();
     const history = useHistory();
+    const [open, setOpen] = useState(false);
 
     return (
         <React.Fragment>
             <CssBaseline />
+            <ContactDialog open={open} setOpen={setOpen} />
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
                     <Link
@@ -69,6 +72,13 @@ const Header = ({ checked, onChange }: IHeader) => {
                     >
                         <Gin />
                     </Link>
+                    <IconButton
+                        onClick={() => {
+                            setOpen(true);
+                        }}
+                    >
+                        <Mail />
+                    </IconButton>
                     <Switch checked={checked} onChange={onChange} />
                     <Link
                         href="https://github.com/agmoss"
@@ -86,15 +96,6 @@ const Header = ({ checked, onChange }: IHeader) => {
                     >
                         <IconButton>
                             <LinkedIn />
-                        </IconButton>
-                    </Link>
-                    <Link
-                        href="mailto:business@m0ss.dev"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconButton>
-                            <Mail />
                         </IconButton>
                     </Link>
                 </Toolbar>
