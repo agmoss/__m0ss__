@@ -11,17 +11,16 @@ const getFile = async (url: string, fileType: FileType) => {
                 const data = await response.blob();
                 const blob = new Blob([data], { type: "image/jpeg" });
                 return blob;
-            } else {
-                throw new Error("error");
             }
+            throw new Error("error");
+
         case FileType.Markdown:
             if (response.ok) {
                 const data = await response.blob();
                 const blob = new Blob([data], { type: "text/plain" });
                 return blob;
-            } else {
-                throw new Error("error");
             }
+            throw new Error("error");
     }
 };
 

@@ -54,7 +54,7 @@ const Dashboard = () => {
     }, [history.action]);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <div>
                 <Slide
@@ -85,7 +85,7 @@ const Dashboard = () => {
                         </AppBar>
                         <List>
                             <ListItem
-                                button={true}
+                                button
                                 onClick={() => history.push("/circles")}
                             >
                                 <ListItemText
@@ -97,11 +97,11 @@ const Dashboard = () => {
                             <Link
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href={"https://icediot.com/"}
+                                href="https://icediot.com/"
                                 style={{ textDecoration: "none" }}
                                 color="inherit"
                             >
-                                <ListItem button={true}>
+                                <ListItem button>
                                     <ListItemText
                                         primary="Iced IoT"
                                         secondary="IoT Platform"
@@ -112,11 +112,11 @@ const Dashboard = () => {
                             <Link
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href={"https://rentwiser.azurewebsites.net"}
+                                href="https://rentwiser.azurewebsites.net"
                                 style={{ textDecoration: "none" }}
                                 color="inherit"
                             >
-                                <ListItem button={true}>
+                                <ListItem button>
                                     <ListItemText
                                         primary="RentWiser"
                                         secondary="Analysis service for rental data"
@@ -127,11 +127,11 @@ const Dashboard = () => {
                             <Link
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href={"https://calgaryproject.net/"}
+                                href="https://calgaryproject.net/"
                                 style={{ textDecoration: "none" }}
                                 color="inherit"
                             >
-                                <ListItem button={true}>
+                                <ListItem button>
                                     <ListItemText
                                         primary="The Calgary Project"
                                         secondary="Original rental data anaylsis platform"
@@ -140,7 +140,7 @@ const Dashboard = () => {
                             </Link>
                             <Divider />
                             <ListItem
-                                button={true}
+                                button
                                 onClick={() => history.push("/card")}
                             >
                                 <ListItemText
@@ -153,7 +153,7 @@ const Dashboard = () => {
                     </div>
                 </Slide>
             </div>
-        </React.Fragment>
+        </>
     );
 };
 

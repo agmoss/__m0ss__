@@ -1,6 +1,5 @@
 import React from "react";
 import { Snackbar } from "@material-ui/core";
-// tslint:disable-next-line: no-submodule-imports
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
 
 export enum Severity {
@@ -12,9 +11,9 @@ export enum Severity {
 
 export const severity = Object.values(Severity);
 
-const Alert = (props: AlertProps) => {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = (props: AlertProps) => (
+    <MuiAlert elevation={6} variant="filled" {...props} />
+);
 interface ISnacksProps {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,23 +21,21 @@ interface ISnacksProps {
     level: Severity;
 }
 
-export const Snacks = ({ open, setOpen, message, level }: ISnacksProps) => {
-    return (
-        <Snackbar
-            open={open}
-            autoHideDuration={6000}
+export const Snacks = ({ open, setOpen, message, level }: ISnacksProps) => (
+    <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => {
+            setOpen(false);
+        }}
+    >
+        <Alert
             onClose={() => {
                 setOpen(false);
             }}
+            severity={level}
         >
-            <Alert
-                onClose={() => {
-                    setOpen(false);
-                }}
-                severity={level}
-            >
-                {message}
-            </Alert>
-        </Snackbar>
-    );
-};
+            {message}
+        </Alert>
+    </Snackbar>
+);

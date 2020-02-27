@@ -2,7 +2,6 @@ import { Typography, Link } from "@material-ui/core";
 import ReactMarkdown from "markdown-to-jsx";
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-// tslint:disable-next-line: no-submodule-imports
 import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const options = {
@@ -41,8 +40,8 @@ const options = {
     forceBlock: true,
 };
 
-const _Markdown = (md: string, ...props: any) => {
-    return <ReactMarkdown options={options} children={md} {...props} />;
-}
+const _Markdown = (md: string, ...props: any) => (
+    <ReactMarkdown options={options} children={md} {...props} />
+);
 
-export default _Markdown
+export default _Markdown;

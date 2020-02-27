@@ -42,7 +42,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact={true} path="/">
+                <Route exact path="/">
                     <Landing
                         text={state.text}
                         imgs={state.imgs}
@@ -69,10 +69,7 @@ const App = () => {
             <Switch>
                 <Route
                     path="/circles"
-                    component={withFade(
-                        1000,
-                        1000
-                    )(Circles)}
+                    component={withFade(1000, 1000)(Circles)}
                 />
             </Switch>
         </BrowserRouter>

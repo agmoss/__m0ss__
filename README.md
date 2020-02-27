@@ -33,6 +33,10 @@
   <a>
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
   </a>
+  <!-- Airbnb -->
+  <a>
+    <img alt="code style: airbnb" src="https://badgen.net/badge/code%20style/Airbnb/ff5a5f?icon=airbnb">
+  </a>
     <!-- Up -->
   <a>
     <img alt="up" src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fm0ss.dev%2F">

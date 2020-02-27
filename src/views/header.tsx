@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 import IconButton from "../components/iconButton";
 import { Gin } from "../components/gin";
 import { withPull } from "../components/withPull";
-import { ContactDialog } from "../views/contactDialog";
+import { ContactDialog } from "./contactDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,14 +31,13 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-
 const Header = () => {
     const classes = useStyles();
     const history = useHistory();
     const [open, setOpen] = useState(false);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <ContactDialog open={open} setOpen={setOpen} />
             <Container maxWidth="lg">
@@ -54,13 +53,13 @@ const Header = () => {
                             component="h1"
                             variant="h4"
                             color="inherit"
-                            noWrap={true}
+                            noWrap
                         >
                             m0ss
                         </Typography>
                     </Link>
                     <Link
-                        noWrap={true}
+                        noWrap
                         onClick={() => {
                             history.push("/content");
                         }}
@@ -94,7 +93,7 @@ const Header = () => {
                     </Link>
                 </Toolbar>
             </Container>
-        </React.Fragment>
+        </>
     );
 };
 

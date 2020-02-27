@@ -12,14 +12,13 @@ import {
     Typography,
 } from "@material-ui/core";
 
+import { ThumbUp } from "@material-ui/icons";
 import IconButton from "../components/iconButton";
 import { Snacks, severity } from "../components/Snacks";
-import { ThumbUp } from "@material-ui/icons";
 
 import MarkdownComponent from "../components/markdown";
 import { withPull } from "../components/withPull";
 
-// tslint:disable-next-line: no-var-requires
 const randomWords = require("random-words");
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -44,7 +43,7 @@ interface IProps {
     md: string;
 }
 
-export const MainContent = ({ md }:IProps) => {
+export const MainContent = ({ md }: IProps) => {
     const classes = useStyles();
 
     const [openSnack, setOpenSnack] = useState(false);
@@ -66,38 +65,36 @@ export const MainContent = ({ md }:IProps) => {
         }
     };
 
-    const AboutPaper = () => {
-        return (
-            <Paper elevation={0} className={classes.sidebarAboutBox}>
-                <Grid container={true} spacing={2}>
-                    <Grid item={true} xs={12}>
-                        <Grid container={true} justify="space-between">
-                            <Grid item={true}>
-                                <Typography variant="h6" gutterBottom={true}>
-                                    About
-                                </Typography>
-                                <Typography>Welcome to my account</Typography>
-                            </Grid>
-                            <Grid item={true}>
-                                <IconButton
-                                    onClick={() => {
-                                        handleOpen();
-                                    }}
-                                >
-                                    <ThumbUp />
-                                </IconButton>
-                            </Grid>
+    const AboutPaper = () => (
+        <Paper elevation={0} className={classes.sidebarAboutBox}>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <Grid container justify="space-between">
+                        <Grid item>
+                            <Typography variant="h6" gutterBottom>
+                                About
+                            </Typography>
+                            <Typography>Welcome to my account</Typography>
+                        </Grid>
+                        <Grid item>
+                            <IconButton
+                                onClick={() => {
+                                    handleOpen();
+                                }}
+                            >
+                                <ThumbUp />
+                            </IconButton>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Paper>
-        );
-    };
+            </Grid>
+        </Paper>
+    );
 
     const AboutPaperPull = withPull(AboutPaper);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Snacks
                 open={openSnack}
@@ -107,24 +104,20 @@ export const MainContent = ({ md }:IProps) => {
             />
             <Container maxWidth="lg">
                 <main>
-                    <Grid
-                        container={true}
-                        spacing={5}
-                        className={classes.mainGrid}
-                    >
-                        <Grid item={true} xs={12} md={8}>
-                            <Typography variant="h6" gutterBottom={true}>
+                    <Grid container spacing={5} className={classes.mainGrid}>
+                        <Grid item xs={12} md={8}>
+                            <Typography variant="h6" gutterBottom>
                                 Opinions
                             </Typography>
                             <Divider className={classes.divider} />
                             {MarkdownComponent(md)}
                         </Grid>
-                        <Grid item={true} xs={12} md={4}>
+                        <Grid item xs={12} md={4}>
                             <AboutPaperPull />
                         </Grid>
                     </Grid>
                 </main>
             </Container>
-        </React.Fragment>
+        </>
     );
 };

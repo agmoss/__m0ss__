@@ -40,45 +40,42 @@ interface IProps {
     img: Blob[];
 }
 
-export const Hero = ({ img }:IProps) => {
+export const Hero = ({ img }: IProps) => {
     const classes = useStyles();
 
-    const CtaCard = () => {
-        return (
-            <Paper className={classes.mainContent}>
-                <Typography variant="h3" gutterBottom={true}>
-                    m0ss.dev
-                </Typography>
-                <Typography variant="h5" paragraph={true} gutterBottom={true}>
-                    Hi, I'm a full stack developer with a focus on web
-                    applications, infrastructure, data visualization, and
-                    creative programming.
-                </Typography>
-                <Typography variant="h5" paragraph={true} gutterBottom={true}>
-                    I am currently hard at work on the next big thing. You'll be
-                    hearing about it soon...
-                </Typography>
-            </Paper>
-        );
-    };
+    const CtaCard = () => (
+        <Paper className={classes.mainContent}>
+            <Typography variant="h3" gutterBottom>
+                m0ss.dev
+            </Typography>
+            <Typography variant="h5" paragraph gutterBottom>
+                Hi, I'm a full stack developer with a focus on web applications,
+                infrastructure, data visualization, and creative programming.
+            </Typography>
+            <Typography variant="h5" paragraph gutterBottom>
+                I am currently hard at work on the next big thing. You'll be
+                hearing about it soon...
+            </Typography>
+        </Paper>
+    );
 
     const PullCtaCard = withPull(CtaCard);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Grid container={true} spacing={5}>
-                    <Grid item={true} xs={12} sm={4} md={4}>
+                <Grid container spacing={5}>
+                    <Grid item xs={12} sm={4} md={4}>
                         <Box className={classes.main}>
                             <Card primary={img[0]} secondary={img[1]} />
                         </Box>
                     </Grid>
-                    <Grid item={true} xs={12} sm={8} md={8}>
+                    <Grid item xs={12} sm={8} md={8}>
                         <PullCtaCard />
                     </Grid>
                 </Grid>
             </Container>
-        </React.Fragment>
+        </>
     );
 };

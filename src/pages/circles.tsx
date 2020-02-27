@@ -64,7 +64,7 @@ const Circles = ({ width, height }: IProps) => {
                     b--;
                 }
 
-                const color = "rgb(" + r + "," + g + "," + b + ")";
+                const color = `rgb(${r},${g},${b})`;
 
                 // Change the canvas circle color
                 ctx.strokeStyle = color;
@@ -133,13 +133,14 @@ const Circles = ({ width, height }: IProps) => {
     document.getElementsByTagName("body")[0].appendChild(style);
 
     // Remove the style
-    useEffect(() => {
-        return () => {
+    useEffect(
+        () => () => {
             if (element) {
                 element.classList.remove("canvasCircles");
             }
-        };
-    }, [element]);
+        },
+        [element]
+    );
 
     return <canvas ref={canvasRef} height={height} width={width} />;
 };

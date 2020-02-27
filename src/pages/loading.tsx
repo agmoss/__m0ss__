@@ -28,22 +28,22 @@ export const Loading = () => {
     return (
         <div className={classes.root}>
             <CssBaseline />
-            <React.Fragment>
+            <>
                 <Container>
                     <Grid
                         className={classes.root}
-                        container={true}
+                        container
                         spacing={0}
                         direction="column"
                         alignItems="center"
                         justify="center"
                     >
-                        <Grid item={true} className={classes.prog}>
+                        <Grid item className={classes.prog}>
                             <LinearProgress color="secondary" />
                         </Grid>
                     </Grid>
                 </Container>
-            </React.Fragment>
+            </>
         </div>
     );
 };

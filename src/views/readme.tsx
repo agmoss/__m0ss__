@@ -27,30 +27,28 @@ export const README = () => {
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/agmoss/m0ss/master/README.md")
-            .then(response => {
-                return response.text();
-            })
+            .then(response => response.text())
             .then(text => setMd(text));
     }, []);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Container maxWidth="lg">
                 <main>
                     <Grid
-                        container={true}
+                        container
                         spacing={5}
                         justify="center"
                         direction="column"
                         className={classes.mainGrid}
                     >
-                        <Grid item={true} xs={12}>
+                        <Grid item xs={12}>
                             {MarkdownComponent(md)}
                         </Grid>
                     </Grid>
                 </main>
             </Container>
-        </React.Fragment>
+        </>
     );
-}
+};

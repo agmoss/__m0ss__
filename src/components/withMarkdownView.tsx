@@ -9,7 +9,7 @@ import {
     Theme,
 } from "@material-ui/core";
 
-import MarkdownComponent from "../components/markdown";
+import MarkdownComponent from "./markdown";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -27,30 +27,28 @@ export const withMarkdownView = (url: string): React.FC => () => {
 
     useEffect(() => {
         fetch(url)
-            .then(response => {
-                return response.text();
-            })
+            .then(response => response.text())
             .then(text => setMd(text));
     }, []);
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Container maxWidth="lg">
                 <main>
                     <Grid
-                        container={true}
+                        container
                         spacing={5}
                         justify="center"
                         direction="column"
                         className={classes.mainGrid}
                     >
-                        <Grid item={true} xs={12}>
+                        <Grid item xs={12}>
                             {MarkdownComponent(md)}
                         </Grid>
                     </Grid>
                 </main>
             </Container>
-        </React.Fragment>
+        </>
     );
 };

@@ -27,12 +27,12 @@ export const Landing = ({ img, md }: ILanding) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <React.Fragment>
-            <Header/>
+            <>
+                <Header />
                 <Hero img={img} />
                 <MainContent md={md} />
                 <Footer />
-            </React.Fragment>
+            </>
         </div>
     );
 };

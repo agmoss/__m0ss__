@@ -12,12 +12,7 @@ interface ILanding {
     loading: boolean;
 }
 
-const LandingContainer = ({
-    text,
-    imgs,
-    fetchData,
-    loading,
-}: ILanding) => {
+const LandingContainer = ({ text, imgs, fetchData, loading }: ILanding) => {
     useEffect(() => {
         if (text.length < 10 || imgs.length < 1) {
             fetchData();

@@ -18,10 +18,9 @@ import {
 
 import { Person, Email, Close as CloseIcon } from "@material-ui/icons";
 
+import emailjs from "emailjs-com";
 import TextField from "../components/TextField";
 import { Snacks, Severity } from "../components/Snacks";
-
-import emailjs from "emailjs-com";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -51,11 +50,7 @@ const DialogTitle = (props: IDialogTitleProps) => {
     const classes = useStyles();
     const { children, onClose, ...other } = props;
     return (
-        <MuiDialogTitle
-            disableTypography={true}
-            className={classes.root}
-            {...other}
-        >
+        <MuiDialogTitle disableTypography className={classes.root} {...other}>
             <Typography variant="h6">{children}</Typography>
             {onClose ? (
                 <IconButton
@@ -92,7 +87,7 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
     const classes = useStyles();
 
     const [openSnack, setOpenSnack] = useState(false);
-    const [message, setMessage] = useState(``);
+    const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
     const [fromName, setFromName] = useState("");
     const [snackMessage, setSnackMessage] = useState("");
@@ -152,7 +147,7 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
                 onClose={handleClose}
                 aria-labelledby="contact-m0ss"
                 open={open}
-                fullWidth={true}
+                fullWidth
                 maxWidth="md"
             >
                 <Snacks
@@ -164,15 +159,15 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
                 <DialogTitle id="contact-m0ss" onClose={handleClose}>
                     Contact Andrew Moss
                 </DialogTitle>
-                <DialogContent dividers={true}>
-                    <FormControl fullWidth={true}>
+                <DialogContent dividers>
+                    <FormControl fullWidth>
                         <TextField
                             className={classes.margin}
                             multiline={false}
                             onChange={handleNameChange}
                             defaultValue={fromName}
                             label="Your Name"
-                            autoFocus={true}
+                            autoFocus
                             InputProps={{
                                 startAdornment: (
                                     <InputAdornment position="start">
@@ -201,7 +196,7 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
                             className={classes.margin}
                             label="Your Message"
                             rows="20"
-                            multiline={true}
+                            multiline
                             defaultValue={message}
                             onChange={handleMessageChange}
                         />

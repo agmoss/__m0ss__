@@ -1,9 +1,8 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 
-import IconButton from "./iconButton";
-
 import { Apps } from "@material-ui/icons";
 import React from "react";
+import IconButton from "./iconButton";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -17,10 +16,10 @@ export const Gin = () => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <>
             <IconButton className={classes.button} aria-label="-">
                 <Apps />
             </IconButton>
-        </React.Fragment>
+        </>
     );
 };

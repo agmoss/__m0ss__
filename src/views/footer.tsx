@@ -37,34 +37,31 @@ export const Footer = () => {
     const history = useHistory();
 
     return (
-        <React.Fragment>
+        <>
             <CssBaseline />
             <Typography component="footer" className={classes.root}>
                 <Container className={classes.container}>
-                    <Grid container={true}>
-                        <Grid item={true} xs={12}>
+                    <Grid container>
+                        <Grid item xs={12}>
                             <Grid
-                                container={true}
+                                container
                                 justify="center"
                                 alignItems="center"
                                 alignContent="center"
                                 spacing={6}
                             >
-                                <Grid item={true}>
+                                <Grid item>
                                     <Typography
                                         component="h3"
                                         variant="h3"
                                         color="inherit"
-                                        noWrap={true}
+                                        noWrap
                                     >
                                         m0ss
                                     </Typography>
                                 </Grid>
-                                <Grid item={true}>
-                                    <Typography
-                                        variant="h6"
-                                        gutterBottom={true}
-                                    >
+                                <Grid item>
+                                    <Typography variant="h6" gutterBottom>
                                         About
                                     </Typography>
                                     <ul className={classes.list}>
@@ -79,7 +76,7 @@ export const Footer = () => {
                                         </li>
                                         <li>
                                             <Link
-                                                noWrap={true}
+                                                noWrap
                                                 onClick={() =>
                                                     history.push("/README")
                                                 }
@@ -94,6 +91,6 @@ export const Footer = () => {
                     </Grid>
                 </Container>
             </Typography>
-        </React.Fragment>
+        </>
     );
 };

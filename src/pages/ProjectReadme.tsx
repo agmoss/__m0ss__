@@ -26,7 +26,7 @@ const Readme = () => {
 
     return (
         <div className={classes.root}>
-            <Header/>
+            <Header />
             <ProjectReadme />
             <Footer />
         </div>
