@@ -41,6 +41,8 @@ const options = {
     forceBlock: true,
 };
 
-export default function _Markdown(md: string, ...props: any) {
+const _Markdown = (md: string, ...props: any) => {
     return <ReactMarkdown options={options} children={md} {...props} />;
 }
+
+export default _Markdown

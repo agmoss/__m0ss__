@@ -40,7 +40,7 @@ interface IProps {
     img: Blob[];
 }
 
-export const Hero: React.FC<IProps> = ({ img }) => {
+export const Hero = ({ img }:IProps) => {
     const classes = useStyles();
 
     const CtaCard = () => {

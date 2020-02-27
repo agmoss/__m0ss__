@@ -1,12 +1,10 @@
 import React from "react";
 
-// MaterialUI
 import { createStyles, makeStyles } from "@material-ui/core";
 
-// Components
 import { withMarkdownView } from "../components/withMarkdownView";
 
-// Views
+import Header from "../views/header";
 import { Footer } from "../views/footer";
 
 const Readme = () => {
@@ -28,6 +26,7 @@ const Readme = () => {
 
     return (
         <div className={classes.root}>
+            <Header/>
             <ProjectReadme />
             <Footer />
         </div>

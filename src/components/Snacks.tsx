@@ -12,7 +12,7 @@ export enum Severity {
 
 export const severity = Object.values(Severity);
 
-function Alert(props: AlertProps) {
+const Alert = (props: AlertProps) => {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 interface ISnacksProps {

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export function README() {
+export const README = () => {
     const classes = useStyles();
 
     const [md, setMd] = useState("");

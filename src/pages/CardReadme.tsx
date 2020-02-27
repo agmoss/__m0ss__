@@ -1,12 +1,10 @@
 import React from "react";
 
-// MaterialUI
 import { createStyles, makeStyles } from "@material-ui/core";
 
-// Components
+import Header from "../views/header";
 import { withMarkdownView } from "../components/withMarkdownView";
 
-// Views
 import { Footer } from "../views/footer";
 
 import "./card.css";
@@ -31,6 +29,7 @@ const Readme = () => {
 
     return (
         <div className={classes.root}>
+            <Header />
             <CardReadme />
             <Footer />
         </div>

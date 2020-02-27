@@ -44,7 +44,7 @@ interface IProps {
     md: string;
 }
 
-export const MainContent: React.FC<IProps> = ({ md }) => {
+export const MainContent = ({ md }:IProps) => {
     const classes = useStyles();
 
     const [openSnack, setOpenSnack] = useState(false);

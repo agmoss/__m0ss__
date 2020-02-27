@@ -12,7 +12,7 @@ interface ILanding {
     loading: boolean;
 }
 
-const LandingContainer: React.FC<ILanding> = ({
+const LandingContainer = ({
     text,
     imgs,
     fetchData,
