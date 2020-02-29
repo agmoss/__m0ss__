@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0fa8e922aca544ae90e535e5d684e181)](https://app.codacy.com/manual/agmoss/m0ss?utm_source=github.com&utm_medium=referral&utm_content=agmoss/m0ss&utm_campaign=Badge_Grade_Dashboard)
+
 <h1 align="center">m0ss.dev</h1>
 
 <div align="center">
