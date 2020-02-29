@@ -32,10 +32,10 @@ export const withPull = <P extends object>(
 
     const [{ xy }, set] = useSpring(() => ({ xy: [0, 0] }));
     const bind = useGesture(({ down, delta, velocity }) => {
-        velocity = clamp(velocity, 1, 8);
+        const clampVel = clamp(velocity, 1, 8);
         set({
             xy: down ? delta : [0, 0],
-            config: { mass: velocity, tension: 500 * velocity, friction: 50 },
+            config: { mass: clampVel, tension: 500 * clampVel, friction: 50 },
         });
     });
 
@@ -46,6 +46,7 @@ export const withPull = <P extends object>(
         <animated.div
             className={classes.cursorInteract}
             {...bind()}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             style={{ transform: xy.interpolate(translate as any) }}
         >
             <WrappedComponent {...(props as P)} />

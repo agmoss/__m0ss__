@@ -5,6 +5,7 @@ enum FileType {
 
 const getFile = async (url: string, fileType: FileType) => {
     const response = await fetch(url);
+
     switch (fileType) {
         case FileType.Image:
             if (response.ok) {
@@ -13,13 +14,15 @@ const getFile = async (url: string, fileType: FileType) => {
                 return blob;
             }
             throw new Error("error");
-
         case FileType.Markdown:
             if (response.ok) {
                 const data = await response.blob();
                 const blob = new Blob([data], { type: "text/plain" });
                 return blob;
             }
+            throw new Error("error");
+
+        default:
             throw new Error("error");
     }
 };

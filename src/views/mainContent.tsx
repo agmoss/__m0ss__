@@ -19,6 +19,7 @@ import { Snacks, severity } from "../components/Snacks";
 import MarkdownComponent from "../components/markdown";
 import { withPull } from "../components/withPull";
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const randomWords = require("random-words");
 
 const useStyles = makeStyles((theme: Theme) =>

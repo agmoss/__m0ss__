@@ -49,12 +49,16 @@ export const Hero = ({ img }: IProps) => {
                 m0ss.dev
             </Typography>
             <Typography variant="h5" paragraph gutterBottom>
-                Hi, I'm a full stack developer with a focus on web applications,
-                infrastructure, data visualization, and creative programming.
+                {
+                    "Hi, I'm a full stack developer with a focus on web applications, \
+                infrastructure, data visualization, and creative programming."
+                }
             </Typography>
             <Typography variant="h5" paragraph gutterBottom>
-                I am currently hard at work on the next big thing. You'll be
-                hearing about it soon...
+                {
+                    "I am currently hard at work on the next big thing. You'll be \
+                hearing about it soon..."
+                }
             </Typography>
         </Paper>
     );

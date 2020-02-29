@@ -85,7 +85,6 @@ interface IDialogProps {
 
 export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
     const classes = useStyles();
-
     const [openSnack, setOpenSnack] = useState(false);
     const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
@@ -112,9 +111,11 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
     };
 
     const sendFeedback = () => {
-        const templateParams: any = {
+        const templateParams = {
             message,
+            // eslint-disable-next-line @typescript-eslint/camelcase
             reply_to: email,
+            // eslint-disable-next-line @typescript-eslint/camelcase
             from_name: fromName,
         };
 

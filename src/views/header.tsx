@@ -10,11 +10,10 @@ import {
     Toolbar,
     Typography,
 } from "@material-ui/core";
-import { GitHub, LinkedIn, Mail } from "@material-ui/icons";
+import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
 
 import { useHistory } from "react-router-dom";
 import IconButton from "../components/iconButton";
-import { Gin } from "../components/gin";
 import { withPull } from "../components/withPull";
 import { ContactDialog } from "./contactDialog";
 
@@ -42,12 +41,17 @@ const Header = () => {
             <ContactDialog open={open} setOpen={setOpen} />
             <Container maxWidth="lg">
                 <Toolbar className={classes.toolbar}>
-                    <Link
+                    <div
+                        role="menuitem"
+                        tabIndex={0}
                         onClick={() => {
                             history.push("/");
                         }}
+                        onKeyPress={() => {
+                            history.push("/");
+                        }}
                         className={classes.toolbarTitle}
-                        style={{ textDecoration: "none" }}
+                        style={{ textDecoration: "none", outline: 0 }}
                     >
                         <Typography
                             component="h1"
@@ -57,15 +61,14 @@ const Header = () => {
                         >
                             m0ss
                         </Typography>
-                    </Link>
-                    <Link
-                        noWrap
+                    </div>
+                    <IconButton
                         onClick={() => {
                             history.push("/content");
                         }}
                     >
-                        <Gin />
-                    </Link>
+                        <Apps />
+                    </IconButton>
                     <IconButton
                         onClick={() => {
                             setOpen(true);

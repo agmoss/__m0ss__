@@ -24,7 +24,11 @@ export const Card = ({ primary, secondary }: IProps) => {
     };
 
     return (
-        <div onClick={() => set(state => !state)}>
+        <div
+            onClick={() => set(state => !state)}
+            role="presentation"
+            onKeyPress={() => set(state => !state)}
+        >
             <a.div
                 className="c back"
                 style={{

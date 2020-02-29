@@ -19,8 +19,8 @@ const useStyles = makeStyles(() =>
 );
 
 interface ILanding {
-    img: any;
-    md: any;
+    img: Blob[];
+    md: string;
 }
 
 export const Landing = ({ img, md }: ILanding) => {

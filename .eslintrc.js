@@ -40,6 +40,7 @@ module.exports = {
         "react/jsx-props-no-spreading": "off",
         "import/prefer-default-export": "off",
         "react-hooks/rules-of-hooks": "error",
+        'no-plusplus': 'off',
         "@typescript-eslint/interface-name-prefix": [
             "error",
             {

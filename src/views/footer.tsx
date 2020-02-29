@@ -2,13 +2,13 @@ import React from "react";
 
 import {
     Grid,
-    Link,
     Container,
     Typography,
     makeStyles,
     createStyles,
     Theme,
     CssBaseline,
+    Button,
 } from "@material-ui/core";
 
 import { useHistory } from "react-router-dom";
@@ -61,28 +61,25 @@ export const Footer = () => {
                                     </Typography>
                                 </Grid>
                                 <Grid item>
-                                    <Typography variant="h6" gutterBottom>
-                                        About
-                                    </Typography>
                                     <ul className={classes.list}>
                                         <li>
-                                            <Link
+                                            <Button
                                                 href="https://github.com/agmoss/m0ss"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
                                                 Source
-                                            </Link>
+                                            </Button>
                                         </li>
                                         <li>
-                                            <Link
-                                                noWrap
+                                            <Button
                                                 onClick={() =>
                                                     history.push("/README")
                                                 }
+                                                role="link"
                                             >
                                                 README
-                                            </Link>
+                                            </Button>
                                         </li>
                                     </ul>
                                 </Grid>

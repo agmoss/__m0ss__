@@ -7,8 +7,8 @@ import { Loading as LoadingPage } from "../pages/loading";
 
 interface ILanding {
     text: string;
-    imgs: any;
-    fetchData: any;
+    imgs: Blob[];
+    fetchData: () => void;
     loading: boolean;
 }
 
