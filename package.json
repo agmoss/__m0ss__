@@ -20,7 +20,7 @@
     "react-syntax-highlighter": "^12.2.1",
     "react-transition-group": "^4.3.0",
     "react-with-gesture": "^4.0.8",
-    "typescript": "^3.8.2"
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
