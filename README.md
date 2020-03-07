@@ -1,7 +1,7 @@
 <h1 align="center">m0ss.dev</h1>
 
 <div align="center">
-  <img src="https://ggantstorage.blob.core.windows.net/images/martini.svg" alt="Logo" width="100" height="100"/>
+  <img src="https://m0ss.blob.core.windows.net/media/m0ss_v1.svg" alt="Logo" width="150" height="150"/>
 </div>
 <div align="center">
   <strong>Personal Website</strong>
