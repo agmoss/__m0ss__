@@ -9,6 +9,7 @@ import {
     Theme,
     Toolbar,
     Typography,
+    AppBar
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
 
@@ -40,6 +41,7 @@ const Header = () => {
             <CssBaseline />
             <ContactDialog open={open} setOpen={setOpen} />
             <Container maxWidth="lg">
+            <AppBar position="static" color="transparent" elevation={0}>
                 <Toolbar className={classes.toolbar}>
                     <div
                         role="menuitem"
@@ -95,6 +97,7 @@ const Header = () => {
                         </IconButton>
                     </Link>
                 </Toolbar>
+                </AppBar>
             </Container>
         </>
     );
