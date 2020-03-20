@@ -9,24 +9,28 @@ import {
     Theme,
     Toolbar,
     Typography,
-    AppBar
+    AppBar,
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
-
 import { useHistory } from "react-router-dom";
 import IconButton from "../components/iconButton";
-import { withPull } from "../components/withPull";
+
 import { ContactDialog } from "./contactDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         toolbar: {
-            borderBottom: `1px solid ${theme.palette.divider}`,
             marginBottom: theme.spacing(2),
         },
         toolbarTitle: {
             color: theme.palette.secondary.light,
             flex: 1,
+        },
+        appBar: {
+            backgroundColor: "#303030",
+        },
+        padding: {
+            paddingBottom: theme.spacing(2),
         },
     })
 );
@@ -37,70 +41,72 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <>
+        <div className={classes.padding}>
             <CssBaseline />
             <ContactDialog open={open} setOpen={setOpen} />
-            <Container maxWidth="lg">
-            <AppBar position="static" color="transparent" elevation={0}>
-                <Toolbar className={classes.toolbar}>
-                    <div
-                        role="menuitem"
-                        tabIndex={0}
-                        onClick={() => {
-                            history.push("/");
-                        }}
-                        onKeyPress={() => {
-                            history.push("/");
-                        }}
-                        className={classes.toolbarTitle}
-                        style={{ textDecoration: "none", outline: 0 }}
-                    >
-                        <Typography
-                            component="h1"
-                            variant="h4"
-                            color="inherit"
-                            noWrap
+
+            <AppBar className={classes.appBar} position="fixed" elevation={0}>
+                <Container maxWidth="lg">
+                    <Toolbar>
+                        <div
+                            role="menuitem"
+                            tabIndex={0}
+                            onClick={() => {
+                                history.push("/");
+                            }}
+                            onKeyPress={() => {
+                                history.push("/");
+                            }}
+                            className={classes.toolbarTitle}
+                            style={{ textDecoration: "none", outline: 0 }}
                         >
-                            m0ss
-                        </Typography>
-                    </div>
-                    <IconButton
-                        onClick={() => {
-                            history.push("/content");
-                        }}
-                    >
-                        <Apps />
-                    </IconButton>
-                    <IconButton
-                        onClick={() => {
-                            setOpen(true);
-                        }}
-                    >
-                        <Mail />
-                    </IconButton>
-                    <Link
-                        href="https://github.com/agmoss"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconButton>
-                            <GitHub />
+                            <Typography
+                                component="h1"
+                                variant="h4"
+                                color="inherit"
+                                noWrap
+                            >
+                                m0ss
+                            </Typography>
+                        </div>
+                        <IconButton
+                            onClick={() => {
+                                history.push("/content");
+                            }}
+                        >
+                            <Apps />
                         </IconButton>
-                    </Link>
-                    <Link
-                        href="https://www.linkedin.com/in/agmoss/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconButton>
-                            <LinkedIn />
+                        <IconButton
+                            onClick={() => {
+                                setOpen(true);
+                            }}
+                        >
+                            <Mail />
                         </IconButton>
-                    </Link>
-                </Toolbar>
-                </AppBar>
-            </Container>
-        </>
+                        <Link
+                            href="https://github.com/agmoss"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconButton>
+                                <GitHub />
+                            </IconButton>
+                        </Link>
+                        <Link
+                            href="https://www.linkedin.com/in/agmoss/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconButton>
+                                <LinkedIn />
+                            </IconButton>
+                        </Link>
+                    </Toolbar>
+                </Container>
+            </AppBar>
+            <Toolbar />
+        </div>
     );
 };
 
-export default withPull(Header);
+export default Header;
