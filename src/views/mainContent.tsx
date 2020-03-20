@@ -17,7 +17,6 @@ import IconButton from "../components/iconButton";
 import { Snacks, severity } from "../components/Snacks";
 
 import MarkdownComponent from "../components/markdown";
-import { withPull } from "../components/withPull";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const randomWords = require("random-words");
@@ -67,9 +66,9 @@ export const MainContent = ({ md }: IProps) => {
     };
 
     const AboutPaper = () => (
-        <Paper elevation={0} className={classes.sidebarAboutBox}>
-            <Grid container spacing={2}>
-                <Grid item xs={12}>
+        <Grid container spacing={2}>
+            <Grid item xs={12}>
+                <Paper elevation={0} className={classes.sidebarAboutBox}>
                     <Grid container justify="space-between">
                         <Grid item>
                             <Typography variant="h6" gutterBottom>
@@ -87,13 +86,10 @@ export const MainContent = ({ md }: IProps) => {
                             </IconButton>
                         </Grid>
                     </Grid>
-                </Grid>
+                </Paper>
             </Grid>
-        </Paper>
+        </Grid>
     );
-
-    const AboutPaperPull = withPull(AboutPaper);
-
     return (
         <>
             <CssBaseline />
@@ -104,20 +100,18 @@ export const MainContent = ({ md }: IProps) => {
                 level={severity[level]}
             />
             <Container maxWidth="lg">
-                <main>
-                    <Grid container spacing={5} className={classes.mainGrid}>
-                        <Grid item xs={12} md={8}>
-                            <Typography variant="h6" gutterBottom>
-                                Opinions
-                            </Typography>
-                            <Divider className={classes.divider} />
-                            {MarkdownComponent(md)}
-                        </Grid>
-                        <Grid item xs={12} md={4}>
-                            <AboutPaperPull />
-                        </Grid>
+                <Grid container spacing={5} className={classes.mainGrid}>
+                    <Grid item xs={12} md={4}>
+                        <AboutPaper />
                     </Grid>
-                </main>
+                    <Grid item xs={12} md={8}>
+                        <Typography variant="h6" gutterBottom>
+                            Rant
+                        </Typography>
+                        <Divider className={classes.divider} />
+                        {MarkdownComponent(md)}
+                    </Grid>
+                </Grid>
             </Container>
         </>
     );
