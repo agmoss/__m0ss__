@@ -33,6 +33,23 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
         },
+        landingTypography: {
+            "@global": {
+                h2: {
+                    ...theme.typography.h4,
+                },
+                h3: {
+                    ...theme.typography.h5,
+                    fontWeight: theme.typography.fontWeightBold,
+                    paddingTop: theme.spacing(1),
+                    paddingBottom: theme.spacing(1),
+                },
+                h4: {
+                    ...theme.typography.body1,
+                    paddingBottom: theme.spacing(1.5),
+                },
+            },
+        },
         divider: {
             marginBottom: theme.spacing(3),
         },
@@ -71,7 +88,7 @@ export const MainContent = ({ md }: IProps) => {
                 <Paper elevation={0} className={classes.sidebarAboutBox}>
                     <Grid container justify="space-between">
                         <Grid item>
-                            <Typography variant="h6" gutterBottom>
+                            <Typography variant="h5" gutterBottom>
                                 About
                             </Typography>
                             <Typography>Welcome to my account</Typography>
@@ -104,8 +121,13 @@ export const MainContent = ({ md }: IProps) => {
                     <Grid item xs={12} md={4}>
                         <AboutPaper />
                     </Grid>
-                    <Grid item xs={12} md={8}>
-                        <Typography variant="h6" gutterBottom>
+                    <Grid
+                        item
+                        xs={12}
+                        md={8}
+                        className={classes.landingTypography}
+                    >
+                        <Typography variant="h5" gutterBottom>
                             Rant
                         </Typography>
                         <Divider className={classes.divider} />

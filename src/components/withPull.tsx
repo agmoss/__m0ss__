@@ -8,13 +8,13 @@ import { makeStyles } from "@material-ui/core";
 const useStyles = makeStyles(() => ({
     cursorInteract: {
         cursor: "pointer",
-        // cursor: "-webkit-grab",
         "&:hover": {
-            cursor: "-webkit-grabbing",
+            cursor: "grab",
         },
         "&:active": {
             overflow: "hidden",
             zIndex: 10000,
+            cursor: "grabbing",
         },
         WebkitTouchCallout: "none",
         WebkitUserSelect: "none",

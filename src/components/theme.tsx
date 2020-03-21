@@ -16,6 +16,11 @@ const rawTheme = createMuiTheme({
     },
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+        // fontSize: 16,
+        fontWeightLight: 300,
+        fontWeightRegular: 400,
+        fontWeightMedium: 500,
+        fontWeightBold: 700,
     },
 });
 
@@ -44,40 +49,26 @@ const theme = {
         },
         h5: {
             ...rawTheme.typography.h5,
+            fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
         },
         h6: {
             ...rawTheme.typography.h6,
+            fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
         },
         subtitle1: {
             ...rawTheme.typography.subtitle1,
         },
+        subtitle2: {
+            ...rawTheme.typography.subtitle2,
+        },
         body1: {
             ...rawTheme.typography.body1,
+            fontSize: 18,
         },
         body2: {
             ...rawTheme.typography.body2,
         },
     },
 };
-
-// theme.typography.h5 = {
-//     ...theme.typography.h5,
-//     [theme.breakpoints.down("md")]: {
-//         fontSize: "1rem",
-//     },
-//     [theme.breakpoints.down("lg")]: {
-//         fontSize: "1rem",
-//     },
-// };
-
-// export const logoTheme = createMuiTheme({
-//     typography: {
-//         fontFamily: '"Ubuntu Mono", "Helvetica", "Arial", sans-serif',
-//         fontSize: 25,
-//         fontWeightLight: 300,
-//         fontWeightRegular: 400,
-//         fontWeightMedium: 500,
-//     },
-// });
 
 export default responsiveFontSizes(theme);

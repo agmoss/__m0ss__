@@ -25,7 +25,6 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.secondary.light,
         },
         title: {
-            marginLeft: theme.spacing(2),
             flex: 1,
         },
     })
@@ -66,7 +65,7 @@ const Dashboard = () => {
                         <AppBar className={classes.appBar}>
                             <Toolbar>
                                 <Typography
-                                    variant="h6"
+                                    variant="h4"
                                     className={classes.title}
                                 >
                                     Content
@@ -93,6 +92,7 @@ const Dashboard = () => {
                                     secondary="SVG Canvas Art"
                                 />
                             </ListItem>
+                            <Divider />
                             <Divider />
                             <Link
                                 target="_blank"

@@ -21,13 +21,19 @@ const useStyles = makeStyles((theme: Theme) =>
             width: "100%",
         },
         container: {
-            marginTop: theme.spacing(8),
-            marginBottom: theme.spacing(8),
+            marginTop: theme.spacing(10),
+            marginBottom: theme.spacing(10),
         },
         list: {
             margin: 0,
             listStyle: "none",
             paddingLeft: 0,
+        },
+        button: {
+            "&:hover": {
+                background: theme.palette.primary.contrastText,
+                color: theme.palette.secondary.light,
+            },
         },
     })
 );
@@ -64,6 +70,8 @@ export const Footer = () => {
                                     <ul className={classes.list}>
                                         <li>
                                             <Button
+                                                size="large"
+                                                className={classes.button}
                                                 href="https://github.com/agmoss/m0ss"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -73,6 +81,8 @@ export const Footer = () => {
                                         </li>
                                         <li>
                                             <Button
+                                                size="large"
+                                                className={classes.button}
                                                 onClick={() =>
                                                     history.push("/README")
                                                 }

@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(4),
             minHeight: "30vmin",
             position: "relative",
+            [theme.breakpoints.down("sm")]: {
+                minHeight: "40vmin",
+            },
         },
         mainContent: {
             height: "100%",
@@ -70,12 +73,12 @@ export const Hero = ({ img }: IProps) => {
             <CssBaseline />
             <Container maxWidth="lg">
                 <Grid container spacing={5}>
-                    <Grid item xs={12} sm={4} md={4}>
+                    <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Box className={classes.main}>
                             <Card primary={img[0]} secondary={img[1]} />
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={8} md={8}>
+                    <Grid item xs={12} sm={12} md={6} lg={8}>
                         <PullCtaCard />
                     </Grid>
                 </Grid>

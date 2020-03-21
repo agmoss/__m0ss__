@@ -25,11 +25,13 @@ const useStyles = makeStyles((theme: Theme) =>
         toolbarTitle: {
             color: theme.palette.secondary.light,
             flex: 1,
+            textDecoration: "none",
+            outline: 0,
         },
         appBar: {
             backgroundColor: "#303030",
         },
-        padding: {
+        root: {
             paddingBottom: theme.spacing(2),
         },
     })
@@ -41,10 +43,9 @@ const Header = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className={classes.padding}>
+        <div className={classes.root}>
             <CssBaseline />
             <ContactDialog open={open} setOpen={setOpen} />
-
             <AppBar className={classes.appBar} position="fixed" elevation={0}>
                 <Container maxWidth="lg">
                     <Toolbar>
@@ -58,13 +59,15 @@ const Header = () => {
                                 history.push("/");
                             }}
                             className={classes.toolbarTitle}
-                            style={{ textDecoration: "none", outline: 0 }}
                         >
                             <Typography
                                 component="h1"
                                 variant="h4"
                                 color="inherit"
                                 noWrap
+                                style={{
+                                    cursor: "pointer",
+                                }}
                             >
                                 m0ss
                             </Typography>
