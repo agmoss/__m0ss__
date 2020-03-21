@@ -14,6 +14,7 @@ const Readme = () => {
                 display: "flex",
                 flexDirection: "column",
                 minHeight: "100vh",
+                overflowX: "hidden",
                 "@global": {
                     h1: {
                         ...theme.typography.h4,

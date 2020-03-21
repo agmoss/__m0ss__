@@ -7,7 +7,6 @@ import {
     Divider,
     AppBar,
     Toolbar,
-    IconButton,
     Typography,
     CssBaseline,
     Link,
@@ -17,6 +16,8 @@ import {
     Slide,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
+
+import IconButton from "../components/iconButton";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -72,7 +73,7 @@ const Dashboard = () => {
                                 </Typography>
                                 <IconButton
                                     edge="start"
-                                    color="inherit"
+                                    color="secondary"
                                     onClick={() => {
                                         handleChange();
                                     }}
