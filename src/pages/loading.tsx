@@ -7,9 +7,10 @@ import {
     Grid,
     LinearProgress,
     CssBaseline,
+    Theme,
 } from "@material-ui/core";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
             display: "flex",
@@ -18,6 +19,7 @@ const useStyles = makeStyles(() =>
         },
         prog: {
             width: "100%",
+            color: theme.palette.primary.main,
         },
     })
 );
@@ -39,7 +41,7 @@ export const Loading = () => {
                         justify="center"
                     >
                         <Grid item className={classes.prog}>
-                            <LinearProgress color="secondary" />
+                            <LinearProgress />
                         </Grid>
                     </Grid>
                 </Container>

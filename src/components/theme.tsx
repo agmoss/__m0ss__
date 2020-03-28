@@ -4,19 +4,12 @@ const rawTheme = createMuiTheme({
     palette: {
         type: "dark",
         primary: {
-            light: "#7072ff",
-            main: "#2151ff",
-            dark: "#2151ff",
-        },
-        secondary: {
-            light: "#ff3087",
-            main: "#fc036b",
-            dark: "#fc036b",
+            main: "#00ffb7",
+            contrastText: "#ffffff",
         },
     },
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-        // fontSize: 16,
         fontWeightLight: 300,
         fontWeightRegular: 400,
         fontWeightMedium: 500,

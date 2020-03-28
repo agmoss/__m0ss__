@@ -10,6 +10,7 @@ import {
     Toolbar,
     Typography,
     AppBar,
+    Switch,
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
         },
         toolbarTitle: {
-            color: theme.palette.secondary.light,
+            color: theme.palette.primary.main,
             flex: 1,
             textDecoration: "none",
             outline: 0,
@@ -37,7 +38,12 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Header = () => {
+interface IHeader {
+    checked: boolean;
+    toggleTheme: Function;
+}
+
+const Header = ({ checked, toggleTheme }: IHeader) => {
     const classes = useStyles();
     const history = useHistory();
     const [open, setOpen] = useState(false);
@@ -72,6 +78,13 @@ const Header = () => {
                                 m0ss
                             </Typography>
                         </div>
+                        <Switch
+                            checked={checked}
+                            onChange={() => {
+                                toggleTheme();
+                            }}
+                            color="default"
+                        />
                         <IconButton
                             onClick={() => {
                                 history.push("/content");

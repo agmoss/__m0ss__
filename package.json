@@ -1,6 +1,7 @@
 {
   "name": "m0ss",
   "version": "0.1.0",
+  "description": "Personal Site",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.9.5",
@@ -27,10 +28,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install",
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agmoss/m0ss.git"
+  },
+  "keywords": [],
+  "author": "Andrew Moss <andrew@m0ss.dev> (https://m0ss.dev/)",
+  "license": "MIT",
   "eslintConfig": {
     "extends": "react-app"
   },

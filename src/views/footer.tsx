@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            backgroundColor: theme.palette.secondary.light,
+            backgroundColor: theme.palette.primary.main,
             marginTop: "auto",
             width: "100%",
         },
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
         button: {
             "&:hover": {
                 background: theme.palette.primary.contrastText,
-                color: theme.palette.secondary.light,
+                color: theme.palette.primary.main,
             },
         },
     })
