@@ -27,12 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-interface ICardReadme {
-    checked: boolean;
-    toggleTheme: Function;
-}
-
-const CardReadme = ({ checked, toggleTheme }: ICardReadme) => {
+const CardReadme = () => {
     const CardReadmeView = withMarkdownView(
         "https://raw.githubusercontent.com/agmoss/card/master/README.md"
     );
@@ -41,7 +36,7 @@ const CardReadme = ({ checked, toggleTheme }: ICardReadme) => {
 
     return (
         <div className={classes.root}>
-            <Header checked={checked} toggleTheme={toggleTheme} />
+            <Header />
             <CardReadmeView />
             <Footer />
         </div>

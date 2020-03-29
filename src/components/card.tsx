@@ -25,15 +25,15 @@ export const Card = ({ primary, secondary }: IProps) => {
 
     return (
         <div
-            onClick={() => set(state => !state)}
+            onClick={() => set((state) => !state)}
             role="presentation"
-            onKeyPress={() => set(state => !state)}
+            onKeyPress={() => set((state) => !state)}
         >
             <a.div
                 className="c back"
                 style={{
                     ...common,
-                    opacity: opacity.interpolate(o => {
+                    opacity: opacity.interpolate((o) => {
                         const on = o as number;
                         return 1 - on;
                     }),
@@ -47,7 +47,7 @@ export const Card = ({ primary, secondary }: IProps) => {
                     ...common,
                     opacity,
                     transform: transform.interpolate(
-                        t => `${t} rotateX(180deg)`
+                        (t) => `${t} rotateX(180deg)`
                     ),
                     backgroundImage: `url(${URL.createObjectURL(secondary)})`,
                 }}

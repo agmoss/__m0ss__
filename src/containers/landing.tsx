@@ -9,8 +9,7 @@ interface ILanding {
     imgs: Blob[];
     fetchData: () => void;
     loading: boolean;
-    checked: boolean;
-    toggleTheme: Function;
+    setColor: (color: string) => void;
 }
 
 const LandingContainer = ({
@@ -18,8 +17,7 @@ const LandingContainer = ({
     imgs,
     fetchData,
     loading,
-    checked,
-    toggleTheme,
+    setColor,
 }: ILanding) => {
     useEffect(() => {
         if (text.length < 10 || imgs.length < 1) {
@@ -33,8 +31,7 @@ const LandingContainer = ({
         img: imgs,
         md: text,
         loading,
-        checked,
-        toggleTheme,
+        setColor,
     });
 };
 

@@ -1,11 +1,11 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core";
+import * as colors from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
     palette: {
         type: "dark",
         primary: {
-            main: "#00ffb7",
-            contrastText: "#ffffff",
+            main: colors.pink[500],
         },
     },
     typography: {

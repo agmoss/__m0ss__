@@ -27,8 +27,8 @@ export const README = () => {
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/agmoss/m0ss/master/README.md")
-            .then(response => response.text())
-            .then(text => setMd(text));
+            .then((response) => response.text())
+            .then((text) => setMd(text));
     }, []);
 
     return (

@@ -27,8 +27,8 @@ export const withMarkdownView = (url: string): React.FC => () => {
 
     useEffect(() => {
         fetch(url)
-            .then(response => response.text())
-            .then(text => setMd(text));
+            .then((response) => response.text())
+            .then((text) => setMd(text));
     }, []);
 
     return (

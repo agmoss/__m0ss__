@@ -20,18 +20,17 @@ const useStyles = makeStyles(() =>
 interface ILanding {
     img: Blob[];
     md: string;
-    checked: boolean;
-    toggleTheme: Function;
+    setColor: (color: string) => void;
 }
 
-export const Landing = ({ img, md, checked, toggleTheme }: ILanding) => {
+export const Landing = ({ img, md, setColor }: ILanding) => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <Header checked={checked} toggleTheme={toggleTheme} />
+            <Header />
             <Hero img={img} />
-            <MainContent md={md} />
+            <MainContent md={md} setColor={setColor} />
             <Footer />
         </div>
     );

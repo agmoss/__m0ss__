@@ -13,10 +13,11 @@ import {
 } from "@material-ui/core";
 
 import { ThumbUp } from "@material-ui/icons";
+
 import IconButton from "../components/iconButton";
 import { Snacks, severity } from "../components/Snacks";
-
 import MarkdownComponent from "../components/markdown";
+import ColorPicker from "../components/ColorPicker";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const randomWords = require("random-words");
@@ -51,16 +52,18 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         divider: {
+            backgroundColor: theme.palette.primary.main,
             marginBottom: theme.spacing(3),
         },
     })
 );
 
-interface IProps {
+interface IMainContent {
     md: string;
+    setColor: (color: string) => void;
 }
 
-export const MainContent = ({ md }: IProps) => {
+export const MainContent = ({ md, setColor }: IMainContent) => {
     const classes = useStyles();
 
     const [openSnack, setOpenSnack] = useState(false);
@@ -104,6 +107,9 @@ export const MainContent = ({ md }: IProps) => {
                         </Grid>
                     </Grid>
                 </Paper>
+            </Grid>
+            <Grid item xs={12}>
+                <ColorPicker setColor={setColor} />
             </Grid>
         </Grid>
     );

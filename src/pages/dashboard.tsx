@@ -41,7 +41,7 @@ const Dashboard = () => {
     const [enterTimeout, setEnterTimeout] = useState(300);
 
     const handleChange = () => {
-        setChecked(prev => !prev);
+        setChecked((prev) => !prev);
         setTimeout(() => {
             history.push("/");
         }, exitTimeout);

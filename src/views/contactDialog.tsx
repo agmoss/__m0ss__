@@ -126,7 +126,7 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
                 templateParams,
                 "user_EhcGuuTTlPVyvTXyrF9L4"
             )
-            .then(response => {
+            .then((response) => {
                 if (response.status === 200) {
                     setSnackMessage("Message Sent!");
                     setLevel(Severity.success);

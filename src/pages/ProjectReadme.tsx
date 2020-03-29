@@ -22,12 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-interface IProjectReadMe {
-    checked: boolean;
-    toggleTheme: Function;
-}
-
-const ProjectReadme = ({ checked, toggleTheme }: IProjectReadMe) => {
+const ProjectReadme = () => {
     const ProjectReadmeView = withMarkdownView(
         "https://raw.githubusercontent.com/agmoss/m0ss/master/README.md"
     );
@@ -36,7 +31,7 @@ const ProjectReadme = ({ checked, toggleTheme }: IProjectReadMe) => {
 
     return (
         <div className={classes.root}>
-            <Header checked={checked} toggleTheme={toggleTheme} />
+            <Header />
             <ProjectReadmeView />
             <Footer />
         </div>

@@ -8,25 +8,23 @@ import ProjectReadme from "./pages/ProjectReadme";
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
 import CardReadme from "./pages/CardReadme";
+import { ColorPage } from "./pages/color";
 
 import { getText, getImgs } from "./getData";
 import { withFade } from "./components/withFade";
 import customTheme from "./components/theme";
-import Header from "./views/header";
 
 const App = () => {
     const [loading, setLoading] = useState(true);
     const [state, setState] = useState({ text: "", imgs: new Array<Blob>() });
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
-    const [checked, setChecked] = useState(true);
 
-    const toggleTheme = () => {
-        setChecked(!checked);
-        const color = checked ? "#ff0077" : "#00ffb7";
+    const setColor = (color: string) => {
         setTheme({
             ...theme,
             palette: {
                 ...theme.palette,
+                type: "light",
                 primary: {
                     ...theme.palette.primary,
                     main: color,
@@ -42,7 +40,7 @@ const App = () => {
                 "https://m0ss.blob.core.windows.net/media/DSC_7024.JPG",
                 "https://source.unsplash.com/random/600x600",
             ]),
-        ]).then(responses => {
+        ]).then((responses) => {
             ReactDOM.unstable_batchedUpdates(() => {
                 setState({ text: responses[0], imgs: responses[1] });
                 setLoading(false);
@@ -57,7 +55,6 @@ const App = () => {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <BrowserRouter>
-                <Header checked={checked} toggleTheme={toggleTheme} />
                 <Switch>
                     <Route exact path="/">
                         <Landing
@@ -65,37 +62,26 @@ const App = () => {
                             imgs={state.imgs}
                             fetchData={dataGetter}
                             loading={loading}
-                            checked={checked}
-                            toggleTheme={toggleTheme}
+                            setColor={setColor}
                         />
                     </Route>
-                </Switch>
-                <Switch>
-                    <Route path="/card">
-                        <WrappedCardReadme
-                            checked={checked}
-                            toggleTheme={toggleTheme}
-                        />
-                    </Route>
-                </Switch>
-                <Switch>
-                    <Route path="/README">
-                        <WrappedProjectReadme
-                            checked={checked}
-                            toggleTheme={toggleTheme}
-                        />
-                    </Route>
-                </Switch>
-                <Switch>
                     <Route path="/content">
                         <Dashboard />
                     </Route>
-                </Switch>
-                <Switch>
                     <Route
                         path="/circles"
                         component={withFade(1000, 1000)(Circles)}
                     />
+                    <Route path="/color">
+                        <ColorPage setColor={setColor} />
+                    </Route>
+                    <Route path="/card">
+                        <WrappedCardReadme />
+                    </Route>
+                    <Route path="/README">
+                        <WrappedProjectReadme />
+                    </Route>
+                    <Route component={withFade(1000, 1000)(Circles)} />
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>
