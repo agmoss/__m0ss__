@@ -87,7 +87,7 @@ const Header = () => {
                             <Mail />
                         </IconButton>
                         <Link
-                            href="https://github.com/agmoss"
+                            href="https://www.npmjs.com/~agmoss"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
