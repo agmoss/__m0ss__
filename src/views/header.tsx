@@ -10,6 +10,7 @@ import {
     Toolbar,
     Typography,
     AppBar,
+    SvgIcon,
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
@@ -85,6 +86,28 @@ const Header = () => {
                         >
                             <Mail />
                         </IconButton>
+                        <Link
+                            href="https://github.com/agmoss"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IconButton>
+                                <SvgIcon>
+                                    <svg viewBox="0 0 27.23 27.23">
+                                        <rect
+                                            fill="#fff"
+                                            width="27.23"
+                                            height="27.23"
+                                            rx="2"
+                                        />
+                                        <polygon
+                                            fill="#333333"
+                                            points="5.8 21.75 13.66 21.75 13.67 9.98 17.59 9.98 17.58 21.76 21.51 21.76 21.52 6.06 5.82 6.04 5.8 21.75"
+                                        />
+                                    </svg>
+                                </SvgIcon>
+                            </IconButton>
+                        </Link>
                         <Link
                             href="https://github.com/agmoss"
                             target="_blank"

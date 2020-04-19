@@ -86,14 +86,48 @@ const Dashboard = () => {
                         <List>
                             <ListItem
                                 button
-                                onClick={() => history.push("/circles")}
+                                onClick={() => history.push("/react-circles")}
                             >
                                 <ListItemText
-                                    primary="Circles"
+                                    primary="react-circles"
                                     secondary="SVG Canvas Art"
                                 />
                             </ListItem>
                             <Divider />
+                            <ListItem
+                                button
+                                onClick={() => history.push("/offcircle")}
+                            >
+                                <ListItemText
+                                    primary="offcircle"
+                                    secondary="Recreation of Matplotlib ellipse demo"
+                                />
+                            </ListItem>
+                            <Divider />
+                            <Link
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://www.npmjs.com/package/twohundred"
+                                style={{ textDecoration: "none" }}
+                                color="inherit"
+                            >
+                                <ListItem button>
+                                    <ListItemText
+                                        primary="twohundred"
+                                        secondary="Node.js CLI for checking the HTTP status of Urls"
+                                    />
+                                </ListItem>
+                            </Link>
+                            <Divider />
+                            <ListItem
+                                button
+                                onClick={() => history.push("/card")}
+                            >
+                                <ListItemText
+                                    primary="Card"
+                                    secondary="Generative Art Business Card"
+                                />
+                            </ListItem>
                             <Divider />
                             <Link
                                 target="_blank"
@@ -139,16 +173,6 @@ const Dashboard = () => {
                                     />
                                 </ListItem>
                             </Link>
-                            <Divider />
-                            <ListItem
-                                button
-                                onClick={() => history.push("/card")}
-                            >
-                                <ListItemText
-                                    primary="Card"
-                                    secondary="Generative Art Business Card"
-                                />
-                            </ListItem>
                             <Divider />
                         </List>
                     </div>

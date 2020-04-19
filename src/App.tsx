@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
-import Circles from "./pages/circles";
+import Circles from "react-circles";
+import OffCircleWeb from "./pages/offcircleweb";
 import ProjectReadme from "./pages/ProjectReadme";
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
@@ -68,10 +69,31 @@ const App = () => {
                     <Route path="/content">
                         <Dashboard />
                     </Route>
-                    <Route
-                        path="/circles"
-                        component={withFade(1000, 1000)(Circles)}
-                    />
+                    <Route path="/react-circles">
+                        <div
+                            style={{
+                                height: window.innerHeight,
+                                width: window.innerWidth,
+                                maxWidth: "100%",
+                                maxHeight: "100%",
+                                overflowX: "hidden",
+                                overflowY: "hidden",
+                                backgroundColor: "black",
+                            }}
+                        >
+                            <Circles numCircles={60} speed="slow" />
+                        </div>
+                    </Route>
+                    <Route path="/offcircle">
+                        <div
+                            style={{
+                                overflowX: "hidden",
+                                overflowY: "hidden",
+                            }}
+                        >
+                            <OffCircleWeb />
+                        </div>
+                    </Route>
                     <Route path="/color">
                         <ColorPage setColor={setColor} />
                     </Route>
