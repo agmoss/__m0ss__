@@ -11,7 +11,7 @@
     "lodash-es": "^4.17.15",
     "markdown-to-jsx": "^6.11.0",
     "prop-types": "^15.7.2",
-    "random-words": "^1.1.0",
+    "random-words": "^1.1.1",
     "react": "^16.13.1",
     "react-color": "^2.18.0",
     "react-dom": "^16.13.0",
