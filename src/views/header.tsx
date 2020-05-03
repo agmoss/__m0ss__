@@ -35,6 +35,20 @@ const useStyles = makeStyles((theme: Theme) =>
         root: {
             paddingBottom: theme.spacing(2),
         },
+        npm: {
+            "@global": {
+                button: {
+                    "&:hover": {
+                        "& rect": {
+                            fill: "white",
+                        },
+                        "& polygon": {
+                            fill: theme.palette.primary.main,
+                        },
+                    },
+                },
+            },
+        },
     })
 );
 
@@ -90,6 +104,7 @@ const Header = () => {
                             href="https://www.npmjs.com/~agmoss"
                             target="_blank"
                             rel="noopener noreferrer"
+                            className={classes.npm}
                         >
                             <IconButton>
                                 <SvgIcon>
