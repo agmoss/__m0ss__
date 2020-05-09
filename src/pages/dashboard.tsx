@@ -144,36 +144,6 @@ const Dashboard = () => {
                                 </ListItem>
                             </Link>
                             <Divider />
-                            <Link
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://rentwiser.azurewebsites.net"
-                                style={{ textDecoration: "none" }}
-                                color="inherit"
-                            >
-                                <ListItem button>
-                                    <ListItemText
-                                        primary="RentWiser"
-                                        secondary="Analysis service for rental data"
-                                    />
-                                </ListItem>
-                            </Link>
-                            <Divider />
-                            <Link
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://calgaryproject.net/"
-                                style={{ textDecoration: "none" }}
-                                color="inherit"
-                            >
-                                <ListItem button>
-                                    <ListItemText
-                                        primary="The Calgary Project"
-                                        secondary="Original rental data anaylsis platform"
-                                    />
-                                </ListItem>
-                            </Link>
-                            <Divider />
                         </List>
                     </div>
                 </Slide>
