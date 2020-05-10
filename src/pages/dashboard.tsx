@@ -14,10 +14,12 @@ import {
     makeStyles,
     Theme,
     Slide,
+    Button,
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
 import IconButton from "../components/iconButton";
+import { IArticleTarget } from "../gqlQuery";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -31,7 +33,58 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const Dashboard = () => {
+interface IArticleCard {
+    article: IArticleTarget;
+}
+
+const ArticleCard = ({ article }: IArticleCard) => {
+    const history = useHistory();
+
+    return (
+        <>
+            <Divider />
+            <ListItem>
+                <ListItemText
+                    primary={article.title}
+                    secondary={article.description}
+                />
+
+                {article.markdown.content ? (
+                    <Button
+                        onClick={() => history.push(`article/${article.id}`)}
+                    >
+                        About
+                    </Button>
+                ) : null}
+                {article.internalLink ? (
+                    <Button
+                        onClick={() => history.push(`/${article.internalLink}`)}
+                    >
+                        Live
+                    </Button>
+                ) : null}
+                {article.externalLink ? (
+                    <Link
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={article.externalLink}
+                        style={{ textDecoration: "none" }}
+                        color="inherit"
+                    >
+                        <Button> External</Button>
+                    </Link>
+                ) : null}
+            </ListItem>
+            <Divider />
+        </>
+    );
+};
+
+interface IDashboard {
+    articles: IArticleTarget[];
+}
+
+const Dashboard = ({ articles }: IDashboard) => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -84,66 +137,9 @@ const Dashboard = () => {
                             </Toolbar>
                         </AppBar>
                         <List>
-                            <ListItem
-                                button
-                                onClick={() => history.push("/react-circles")}
-                            >
-                                <ListItemText
-                                    primary="react-circles"
-                                    secondary="SVG Canvas Art"
-                                />
-                            </ListItem>
-                            <Divider />
-                            <ListItem
-                                button
-                                onClick={() => history.push("/offcircle")}
-                            >
-                                <ListItemText
-                                    primary="offcircle"
-                                    secondary="Recreation of Matplotlib ellipse demo"
-                                />
-                            </ListItem>
-                            <Divider />
-                            <Link
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://www.npmjs.com/package/twohundred"
-                                style={{ textDecoration: "none" }}
-                                color="inherit"
-                            >
-                                <ListItem button>
-                                    <ListItemText
-                                        primary="twohundred"
-                                        secondary="Node.js CLI for checking the HTTP status of Urls"
-                                    />
-                                </ListItem>
-                            </Link>
-                            <Divider />
-                            <ListItem
-                                button
-                                onClick={() => history.push("/card")}
-                            >
-                                <ListItemText
-                                    primary="Card"
-                                    secondary="Generative Art Business Card"
-                                />
-                            </ListItem>
-                            <Divider />
-                            <Link
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                href="https://icediot.com/"
-                                style={{ textDecoration: "none" }}
-                                color="inherit"
-                            >
-                                <ListItem button>
-                                    <ListItemText
-                                        primary="Iced IoT"
-                                        secondary="IoT Platform"
-                                    />
-                                </ListItem>
-                            </Link>
-                            <Divider />
+                            {articles.map((a) => {
+                                return <ArticleCard key={a.id} article={a} />;
+                            })}
                         </List>
                     </div>
                 </Slide>

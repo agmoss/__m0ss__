@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import ReactDOM from "react-dom";
+import {
+    BrowserRouter,
+    Route,
+    Switch,
+    RouteComponentProps,
+} from "react-router-dom";
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
 import Circles from "react-circles";
@@ -8,17 +12,28 @@ import OffCircleWeb from "./pages/offcircleweb";
 import ProjectReadme from "./pages/ProjectReadme";
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
-import CardReadme from "./pages/CardReadme";
+import ArticleContainer from "./containers/article";
 import { ColorPage } from "./pages/color";
 
 import { getText, getImgs } from "./getData";
 import { withFade } from "./components/withFade";
 import customTheme from "./components/theme";
+import { client, getEndpoint } from "./gqlClient";
+import { IProfile, queryProfile } from "./gqlQuery";
+
+interface IMatchParams {
+    id: string;
+}
+type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
     const [loading, setLoading] = useState(true);
-    const [state, setState] = useState({ text: "", imgs: new Array<Blob>() });
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
+    const [state, setState] = useState<{
+        profile: IProfile | null;
+    }>({
+        profile: null,
+    });
 
     const setColor = (color: string) => {
         setTheme({
@@ -34,22 +49,41 @@ const App = () => {
         });
     };
 
-    const dataGetter = () => {
-        Promise.all([
-            getText("https://m0ss.blob.core.windows.net/media/landing.md"),
-            getImgs([
-                "https://m0ss.blob.core.windows.net/media/DSC_7024.JPG",
-                "https://source.unsplash.com/random/600x600",
-            ]),
-        ]).then((responses) => {
-            ReactDOM.unstable_batchedUpdates(() => {
-                setState({ text: responses[0], imgs: responses[1] });
-                setLoading(false);
-            });
+    const dataGetter = async () => {
+        const result = await client.request(queryProfile);
+
+        const prof: IProfile = result.profile;
+
+        const profilePhoto = await getImgs([
+            `${getEndpoint()}${prof.profilePhoto.url}`,
+            "https://source.unsplash.com/random/600x600",
+        ]);
+
+        const rant = await getText(`${getEndpoint()}${prof.rant.url}`);
+
+        const profi = {
+            firstName: prof.firstName,
+            lastName: prof.lastName,
+            profilePhoto: {
+                url: prof.profilePhoto.url,
+                blobs: profilePhoto,
+            },
+            email: prof.email,
+            rant: {
+                url: prof.rant.url,
+                content: rant,
+            },
+            bio: prof.bio,
+            color: prof.color,
+        };
+
+        setState({
+            profile: profi,
         });
+
+        setLoading(false);
     };
 
-    const WrappedCardReadme = withFade(1000, 1000)(CardReadme);
     const WrappedProjectReadme = withFade(1000, 1000)(ProjectReadme);
 
     return (
@@ -57,10 +91,17 @@ const App = () => {
             <CssBaseline />
             <BrowserRouter>
                 <Switch>
+                    <Route
+                        path="/article/:id"
+                        render={({ match }: IMatchProps) => {
+                            return <ArticleContainer id={match.params.id} />;
+                        }}
+                    />
+                </Switch>
+                <Switch>
                     <Route exact path="/">
                         <Landing
-                            text={state.text}
-                            imgs={state.imgs}
+                            profile={state.profile}
                             fetchData={dataGetter}
                             loading={loading}
                             setColor={setColor}
@@ -96,9 +137,6 @@ const App = () => {
                     </Route>
                     <Route path="/color">
                         <ColorPage setColor={setColor} />
-                    </Route>
-                    <Route path="/card">
-                        <WrappedCardReadme />
                     </Route>
                     <Route path="/README">
                         <WrappedProjectReadme />

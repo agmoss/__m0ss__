@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import {
     Container,
@@ -10,9 +10,27 @@ import {
 } from "@material-ui/core";
 
 import MarkdownComponent from "../components/markdown";
+import Header from "./header";
+import { Footer } from "./footer";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
+        root: {
+            display: "flex",
+            flexDirection: "column",
+            minHeight: "100vh",
+            overflowX: "hidden",
+            "@global": {
+                h1: {
+                    ...theme.typography.h4,
+                    paddingBottom: theme.spacing(2),
+                },
+                h2: {
+                    ...theme.typography.h5,
+                    paddingBottom: theme.spacing(2),
+                },
+            },
+        },
         mainGrid: {
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
@@ -20,20 +38,17 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-export const README = () => {
+interface IArticleView {
+    content: string;
+}
+
+export const Article = ({ content }: IArticleView) => {
     const classes = useStyles();
 
-    const [md, setMd] = useState("");
-
-    useEffect(() => {
-        fetch("https://raw.githubusercontent.com/agmoss/m0ss/master/README.md")
-            .then((response) => response.text())
-            .then((text) => setMd(text));
-    }, []);
-
     return (
-        <>
+        <div className={classes.root}>
             <CssBaseline />
+            <Header />
             <Container maxWidth="lg">
                 <main>
                     <Grid
@@ -44,11 +59,12 @@ export const README = () => {
                         className={classes.mainGrid}
                     >
                         <Grid item xs={12}>
-                            {MarkdownComponent(md)}
+                            {MarkdownComponent(content)}
                         </Grid>
                     </Grid>
                 </main>
             </Container>
-        </>
+            <Footer />
+        </div>
     );
 };

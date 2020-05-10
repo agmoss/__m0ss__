@@ -1,38 +1,33 @@
 import React, { useEffect } from "react";
 
-import { withLoading } from "../components/withLoading";
 import { Landing as LandingPage } from "../pages/landing";
 import { Loading as LoadingPage } from "../pages/loading";
+import { IProfile } from "../gqlQuery";
 
 interface ILanding {
-    text: string;
-    imgs: Blob[];
+    profile: IProfile | null;
     fetchData: () => void;
     loading: boolean;
     setColor: (color: string) => void;
 }
 
 const LandingContainer = ({
-    text,
-    imgs,
     fetchData,
     loading,
     setColor,
+    profile,
 }: ILanding) => {
     useEffect(() => {
-        if (text.length < 10 || imgs.length < 1) {
+        if (profile === null) {
             fetchData();
         }
     });
 
-    const LoadingLandingPage = withLoading(LoadingPage)(LandingPage);
+    if (profile === null) {
+        return <LoadingPage />;
+    }
 
-    return React.createElement(LoadingLandingPage, {
-        img: imgs,
-        md: text,
-        loading,
-        setColor,
-    });
+    return <LandingPage profile={profile} setColor={setColor} />;
 };
 
 export default LandingContainer;

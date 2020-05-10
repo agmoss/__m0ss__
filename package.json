@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.51",
     "emailjs-com": "^2.4.1",
+    "graphql-request": "^1.8.2",
     "lodash-es": "^4.17.15",
     "markdown-to-jsx": "^6.11.1",
     "offcircle": "^3.0.2",

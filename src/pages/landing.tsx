@@ -5,6 +5,7 @@ import Header from "../views/header";
 import { Footer } from "../views/footer";
 import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
+import { IProfile } from "../gqlQuery";
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -18,19 +19,18 @@ const useStyles = makeStyles(() =>
 );
 
 interface ILanding {
-    img: Blob[];
-    md: string;
+    profile: IProfile;
     setColor: (color: string) => void;
 }
 
-export const Landing = ({ img, md, setColor }: ILanding) => {
+export const Landing = ({ profile, setColor }: ILanding) => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <Header />
-            <Hero img={img} />
-            <MainContent md={md} setColor={setColor} />
+            <Hero img={profile.profilePhoto.blobs} bio={profile.bio} />
+            <MainContent md={profile.rant.content} setColor={setColor} />
             <Footer />
         </div>
     );

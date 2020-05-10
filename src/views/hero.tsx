@@ -41,9 +41,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IProps {
     img: Blob[];
+    bio: string;
 }
 
-export const Hero = ({ img }: IProps) => {
+export const Hero = ({ img, bio }: IProps) => {
     const classes = useStyles();
 
     const CtaCard = () => (
@@ -52,16 +53,7 @@ export const Hero = ({ img }: IProps) => {
                 m0ss.dev
             </Typography>
             <Typography variant="h5" paragraph gutterBottom>
-                {
-                    "Hi, I'm a full stack developer with a focus on web applications, \
-                infrastructure, data visualization, and creative programming."
-                }
-            </Typography>
-            <Typography variant="h5" paragraph gutterBottom>
-                {
-                    "I am currently hard at work on the next big thing. You'll be \
-                hearing about it soon..."
-                }
+                {bio}
             </Typography>
         </Paper>
     );
