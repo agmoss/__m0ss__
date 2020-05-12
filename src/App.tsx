@@ -86,18 +86,28 @@ const App = () => {
 
     const WrappedProjectReadme = withFade(1000, 1000)(ProjectReadme);
 
+    const ReactCirclesDemo = () => {
+        return (
+            <div
+                style={{
+                    height: window.innerHeight,
+                    width: window.innerWidth,
+                    maxWidth: "100%",
+                    maxHeight: "100%",
+                    overflowX: "hidden",
+                    overflowY: "hidden",
+                    backgroundColor: "black",
+                }}
+            >
+                <Circles numCircles={60} speed="slow" />
+            </div>
+        );
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <BrowserRouter>
-                <Switch>
-                    <Route
-                        path="/article/:id"
-                        render={({ match }: IMatchProps) => {
-                            return <ArticleContainer id={match.params.id} />;
-                        }}
-                    />
-                </Switch>
                 <Switch>
                     <Route exact path="/">
                         <Landing
@@ -111,19 +121,7 @@ const App = () => {
                         <Dashboard />
                     </Route>
                     <Route path="/react-circles">
-                        <div
-                            style={{
-                                height: window.innerHeight,
-                                width: window.innerWidth,
-                                maxWidth: "100%",
-                                maxHeight: "100%",
-                                overflowX: "hidden",
-                                overflowY: "hidden",
-                                backgroundColor: "black",
-                            }}
-                        >
-                            <Circles numCircles={60} speed="slow" />
-                        </div>
+                        <ReactCirclesDemo />
                     </Route>
                     <Route path="/offcircle">
                         <div
@@ -141,7 +139,15 @@ const App = () => {
                     <Route path="/README">
                         <WrappedProjectReadme />
                     </Route>
-                    <Route component={withFade(1000, 1000)(Circles)} />
+                    <Route
+                        path="/article/:id"
+                        render={({ match }: IMatchProps) => {
+                            return <ArticleContainer id={match.params.id} />;
+                        }}
+                    />
+                    <Route>
+                        <ReactCirclesDemo />
+                    </Route>
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>

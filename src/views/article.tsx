@@ -3,7 +3,6 @@ import React from "react";
 import {
     Container,
     createStyles,
-    CssBaseline,
     Grid,
     makeStyles,
     Theme,
@@ -20,18 +19,26 @@ const useStyles = makeStyles((theme: Theme) =>
             flexDirection: "column",
             minHeight: "100vh",
             overflowX: "hidden",
+        },
+        mainGrid: {
             "@global": {
                 h1: {
-                    ...theme.typography.h4,
+                    ...theme.typography.h2,
                     paddingBottom: theme.spacing(2),
                 },
                 h2: {
+                    ...theme.typography.h3,
+                    paddingBottom: theme.spacing(2),
+                },
+                h3: {
+                    ...theme.typography.h4,
+                    paddingBottom: theme.spacing(2),
+                },
+                h4: {
                     ...theme.typography.h5,
                     paddingBottom: theme.spacing(2),
                 },
             },
-        },
-        mainGrid: {
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
         },
@@ -47,13 +54,12 @@ export const Article = ({ content }: IArticleView) => {
 
     return (
         <div className={classes.root}>
-            <CssBaseline />
             <Header />
             <Container maxWidth="lg">
                 <main>
                     <Grid
                         container
-                        spacing={5}
+                        spacing={0}
                         justify="center"
                         direction="column"
                         className={classes.mainGrid}

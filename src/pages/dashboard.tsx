@@ -91,7 +91,7 @@ const Dashboard = ({ articles }: IDashboard) => {
     const [checked, setChecked] = React.useState(true);
 
     const exitTimeout = 300;
-    const [enterTimeout, setEnterTimeout] = useState(300);
+    const [enterTimeout, setEnterTimeout] = useState(400);
 
     const handleChange = () => {
         setChecked((prev) => !prev);

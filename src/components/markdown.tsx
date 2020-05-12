@@ -37,10 +37,14 @@ const options = {
             component: Typography,
             props: { paragraph: true, variant: "body1" },
         },
-        a: { component: Link, props: { paragraph: true, variant: "body1" } },
+        a: { component: Link, props: { variant: "body1" } },
         code: {
             component: SyntaxHighlighter,
-            props: { language: "python", style: monokai },
+            props: {
+                style: monokai,
+                showLineNumbers: true,
+                startingLineNumber: 1,
+            },
         },
         img: { props: {} },
     },
