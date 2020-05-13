@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme: Theme) =>
                     ...theme.typography.h5,
                     paddingBottom: theme.spacing(2),
                 },
+                img: {
+                    maxWidth: "100%",
+                    height: "auto",
+                },
             },
             marginTop: theme.spacing(3),
             marginBottom: theme.spacing(3),
