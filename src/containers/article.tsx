@@ -13,7 +13,6 @@ interface IArticleContainer {
 }
 
 const ArticleContainer = ({ id }: IArticleContainer) => {
-    const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState<IArticleTarget | null>(null);
 
     function fetcher(query: string, _id: string) {
@@ -25,7 +24,6 @@ const ArticleContainer = ({ id }: IArticleContainer) => {
     const dataFormatter = async (art: IArticle) => {
         const targetArticle = await convertArticleToTarget(art);
         setArticle(targetArticle);
-        setLoading(false);
     };
 
     if (error) {
@@ -34,11 +32,7 @@ const ArticleContainer = ({ id }: IArticleContainer) => {
     if (!data) {
         return <Loading />;
     }
-    if (
-        article === null ||
-        article.article.markdown.content === null ||
-        loading
-    ) {
+    if (article === null || article.article.markdown.content === null) {
         try {
             dataFormatter(data);
         } catch (e) {

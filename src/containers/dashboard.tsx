@@ -9,7 +9,6 @@ import DashboardPresentation from "../pages/dashboard";
 import { Loading, Error } from "../pages/placeholders";
 
 const Dashboard = () => {
-    const [loading, setLoading] = useState(true);
     const [articles, setArticles] = useState<IArticleTarget[] | null>(null);
 
     function fetcher(query: string) {
@@ -26,14 +25,13 @@ const Dashboard = () => {
         };
         const targetArticles = await createTargetArticles();
         setArticles(targetArticles);
-        setLoading(false);
     };
 
     if (error) return <Error />;
     if (!data) {
         return <Loading />;
     }
-    if (loading || articles === null) {
+    if (articles === null) {
         try {
             dataFormatter(data);
         } catch (e) {

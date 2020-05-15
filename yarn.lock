@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@abraham/remotedata@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@abraham/remotedata/-/remotedata-0.8.0.tgz#074db938bb295c9d86d1264cc1d6e83014cf8a24"
-  integrity sha512-oUKQlrfE8x7xwKatwfjDR+a6OAgqpZ0McJAMg19uBpJ6ljYhApOzqppUFn8zpDe1hNaRXsVvSVtuFBHC+od+vQ==
-
 "@babel/code-frame@7.8.3", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"

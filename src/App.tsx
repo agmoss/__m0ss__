@@ -29,7 +29,6 @@ interface IMatchParams {
 type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
-    const [loading, setLoading] = useState(true);
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
     const [profile, setProfile] = useState<ITargetProfile | null>(null);
 
@@ -76,8 +75,6 @@ const App = () => {
                         <Landing
                             profile={profile}
                             setProfile={setProfile}
-                            loading={loading}
-                            setLoading={setLoading}
                             setColor={setColor}
                         />
                     </Route>

@@ -11,18 +11,10 @@ import { getImgs, getText } from "../getData";
 interface ILanding {
     profile: ITargetProfile | null;
     setProfile: React.Dispatch<React.SetStateAction<ITargetProfile | null>>;
-    loading: boolean;
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>;
     setColor: (color: string) => void;
 }
 
-const LandingContainer = ({
-    loading,
-    setColor,
-    profile,
-    setProfile,
-    setLoading,
-}: ILanding) => {
+const LandingContainer = ({ setColor, profile, setProfile }: ILanding) => {
     function fetcher(query: string) {
         return client.request<IProfile>(query);
     }
@@ -34,6 +26,7 @@ const LandingContainer = ({
             `${getEndpoint()}${p.profile.profilePhoto.url}`,
             "https://source.unsplash.com/random/600x600",
         ]);
+
         const rant = await getText(`${getEndpoint()}${p.profile.rant.url}`);
 
         const prof = {
@@ -48,7 +41,6 @@ const LandingContainer = ({
             },
         };
         setProfile({ profile: prof });
-        setLoading(false);
     };
 
     if (error) {
@@ -57,7 +49,7 @@ const LandingContainer = ({
     if (!data) {
         return <Loading />;
     }
-    if (loading || profile === null) {
+    if (profile === null) {
         try {
             dataFormatter(data);
         } catch (e) {
