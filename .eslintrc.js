@@ -41,6 +41,7 @@ module.exports = {
         "import/prefer-default-export": "off",
         "react-hooks/rules-of-hooks": "error",
         'no-plusplus': 'off',
+        'no-shadow':'off',
         "@typescript-eslint/interface-name-prefix": [
             "error",
             {

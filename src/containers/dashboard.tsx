@@ -1,44 +1,46 @@
-import React, { useState, useEffect } from "react";
-import DashboardPresentation from "../pages/dashboard";
-import {
-    IArticleTarget,
-    queryArticles,
-    IArticle,
-    convertArticleToTarget,
-} from "../gqlQuery";
+import React, { useState } from "react";
+import useSWR from "swr";
+
+import { queryArticles, convertArticleToTarget } from "../gqlQuery";
+import { IArticleTarget, IArticles } from "../models";
 import { client } from "../gqlClient";
-import { Loading as LoadingPage } from "../pages/loading";
+
+import DashboardPresentation from "../pages/dashboard";
+import { Loading, Error } from "../pages/placeholders";
 
 const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [articles, setArticles] = useState<IArticleTarget[] | null>(null);
 
-    const dataGetter = async () => {
-        const articlesResult = await client.request(queryArticles);
+    function fetcher(query: string) {
+        return client.request<IArticles>(query);
+    }
 
-        const art: IArticle[] = articlesResult.articles;
+    const { data, error } = useSWR<IArticles>(queryArticles, fetcher);
 
+    const dataFormatter = async (art: IArticles) => {
         const createTargetArticles = async () => {
-            return Promise.all(art.map((a) => convertArticleToTarget(a)));
+            return Promise.all(
+                art.articles.map((a) => convertArticleToTarget({ article: a }))
+            );
         };
-
         const targetArticles = await createTargetArticles();
-
         setArticles(targetArticles);
-
         setLoading(false);
     };
 
-    useEffect(() => {
-        if (articles === null) {
-            dataGetter();
-        }
-    });
-
-    if (loading || articles === null) {
-        return <LoadingPage />;
+    if (error) return <Error />;
+    if (!data) {
+        return <Loading />;
     }
-
+    if (loading || articles === null) {
+        try {
+            dataFormatter(data);
+        } catch (e) {
+            return <Error />;
+        }
+        return <Loading />;
+    }
     return React.createElement(DashboardPresentation, { articles });
 };
 

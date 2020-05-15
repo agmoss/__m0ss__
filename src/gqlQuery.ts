@@ -1,21 +1,6 @@
 import { getText } from "./getData";
 import { getEndpoint } from "./gqlClient";
-
-export interface IProfile {
-    firstName: string;
-    lastName: string;
-    profilePhoto: {
-        blobs: Blob[];
-        url: string;
-    };
-    email: string;
-    rant: {
-        content: string;
-        url: string;
-    };
-    bio: string;
-    color: string;
-}
+import { IArticle, IArticleTarget } from "./models";
 
 export const queryProfile = `
     query {
@@ -35,32 +20,6 @@ export const queryProfile = `
         }
     }
 `;
-
-export interface IArticle {
-    id: string;
-    title: string;
-    description: string;
-    internalLink: string | null;
-    image: {
-        url: string;
-    };
-    markdown: {
-        url: string;
-    };
-    markdownLink: string | null;
-    externalLink: string | null;
-}
-
-export interface IArticleTarget {
-    id: string;
-    title: string;
-    description: string;
-    internalLink: string | null;
-    markdown: {
-        content: string | null;
-    };
-    externalLink: string | null;
-}
 
 export const queryArticles = `
     query {
@@ -104,21 +63,23 @@ export const queryArticle = `
 export const convertArticleToTarget = async (a: IArticle) => {
     let md = "";
 
-    if (a.markdownLink) {
-        md = await getText(a.markdownLink);
-    } else if (a.markdown.url) {
-        md = await getText(`${getEndpoint()}${a.markdown.url}`);
+    if (a.article.markdownLink) {
+        md = await getText(a.article.markdownLink);
+    } else if (a.article.markdown.url) {
+        md = await getText(`${getEndpoint()}${a.article.markdown.url}`);
     }
 
     const artTarget: IArticleTarget = {
-        id: a.id,
-        title: a.title,
-        description: a.description,
-        internalLink: a.internalLink,
-        markdown: {
-            content: md,
+        article: {
+            id: a.article.id,
+            title: a.article.title,
+            description: a.article.description,
+            internalLink: a.article.internalLink,
+            markdown: {
+                content: md,
+            },
+            externalLink: a.article.externalLink,
         },
-        externalLink: a.externalLink,
     };
 
     return artTarget;

@@ -19,7 +19,7 @@ import {
 import { Close } from "@material-ui/icons";
 
 import IconButton from "../components/iconButton";
-import { IArticleTarget } from "../gqlQuery";
+import { IArticleTarget } from "../models";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,29 +45,33 @@ const ArticleCard = ({ article }: IArticleCard) => {
             <Divider />
             <ListItem>
                 <ListItemText
-                    primary={article.title}
-                    secondary={article.description}
+                    primary={article.article.title}
+                    secondary={article.article.description}
                 />
 
-                {article.markdown.content ? (
+                {article.article.markdown.content ? (
                     <Button
-                        onClick={() => history.push(`article/${article.id}`)}
+                        onClick={() =>
+                            history.push(`article/${article.article.id}`)
+                        }
                     >
                         About
                     </Button>
                 ) : null}
-                {article.internalLink ? (
+                {article.article.internalLink ? (
                     <Button
-                        onClick={() => history.push(`/${article.internalLink}`)}
+                        onClick={() =>
+                            history.push(`/${article.article.internalLink}`)
+                        }
                     >
                         Live
                     </Button>
                 ) : null}
-                {article.externalLink ? (
+                {article.article.externalLink ? (
                     <Link
                         target="_blank"
                         rel="noopener noreferrer"
-                        href={article.externalLink}
+                        href={article.article.externalLink}
                         style={{ textDecoration: "none" }}
                         color="inherit"
                     >
@@ -138,7 +142,12 @@ const Dashboard = ({ articles }: IDashboard) => {
                         </AppBar>
                         <List>
                             {articles.map((a) => {
-                                return <ArticleCard key={a.id} article={a} />;
+                                return (
+                                    <ArticleCard
+                                        key={a.article.id}
+                                        article={a}
+                                    />
+                                );
                             })}
                         </List>
                     </div>

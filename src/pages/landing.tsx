@@ -5,7 +5,7 @@ import Header from "../views/header";
 import { Footer } from "../views/footer";
 import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
-import { IProfile } from "../gqlQuery";
+import { ITargetProfile } from "../models";
 
 const useStyles = makeStyles(() =>
     createStyles({
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() =>
 );
 
 interface ILanding {
-    profile: IProfile;
+    profile: ITargetProfile;
     setColor: (color: string) => void;
 }
 
@@ -29,8 +29,14 @@ export const Landing = ({ profile, setColor }: ILanding) => {
     return (
         <div className={classes.root}>
             <Header />
-            <Hero img={profile.profilePhoto.blobs} bio={profile.bio} />
-            <MainContent md={profile.rant.content} setColor={setColor} />
+            <Hero
+                img={profile.profile.profilePhoto.blobs}
+                bio={profile.profile.bio}
+            />
+            <MainContent
+                md={profile.profile.rant.content}
+                setColor={setColor}
+            />
             <Footer />
         </div>
     );

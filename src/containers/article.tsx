@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import useSWR from "swr";
 
 import { client } from "../gqlClient";
+import { queryArticle, convertArticleToTarget } from "../gqlQuery";
+import { IArticleTarget, IArticle } from "../models";
 
-import {
-    IArticleTarget,
-    queryArticle,
-    IArticle,
-    convertArticleToTarget,
-} from "../gqlQuery";
-
-import { Loading as LoadingPage } from "../pages/loading";
-
+import { Loading, Error } from "../pages/placeholders";
 import { Article } from "../views/article";
 
 interface IArticleContainer {
@@ -21,28 +16,40 @@ const ArticleContainer = ({ id }: IArticleContainer) => {
     const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState<IArticleTarget | null>(null);
 
-    const dataGetter = async () => {
-        const variables = {
-            id,
-        };
-        const articlesResult = await client.request(queryArticle, variables);
-        const art: IArticle = articlesResult.article;
-        const targetArticles = await convertArticleToTarget(art);
-        setArticle(targetArticles);
+    function fetcher(query: string, _id: string) {
+        return client.request<IArticle>(query, { id: _id });
+    }
+
+    const { data, error } = useSWR([queryArticle, id], fetcher);
+
+    const dataFormatter = async (art: IArticle) => {
+        const targetArticle = await convertArticleToTarget(art);
+        setArticle(targetArticle);
         setLoading(false);
     };
 
-    useEffect(() => {
-        if (article === null) {
-            dataGetter();
+    if (error) {
+        return <Error />;
+    }
+    if (!data) {
+        return <Loading />;
+    }
+    if (
+        article === null ||
+        article.article.markdown.content === null ||
+        loading
+    ) {
+        try {
+            dataFormatter(data);
+        } catch (e) {
+            return <Error />;
         }
-    });
-
-    if (article === null || article.markdown.content === null || loading) {
-        return <LoadingPage />;
+        return <Loading />;
     }
 
-    return <Article content={article.markdown.content} />;
+    return React.createElement(Article, {
+        content: article.article.markdown.content,
+    });
 };
 
 export default ArticleContainer;

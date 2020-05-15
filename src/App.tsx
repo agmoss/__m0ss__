@@ -1,25 +1,27 @@
 import React, { useState } from "react";
+
 import {
     BrowserRouter,
     Route,
     Switch,
     RouteComponentProps,
 } from "react-router-dom";
+
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
 import Circles from "react-circles";
 import OffCircleWeb from "./pages/offcircleweb";
-import ProjectReadme from "./pages/ProjectReadme";
+
+import { ITargetProfile } from "./models";
+import { withFade } from "./components/withFade";
+import customTheme from "./components/theme";
+
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
 import ArticleContainer from "./containers/article";
-import { ColorPage } from "./pages/color";
 
-import { getText, getImgs } from "./getData";
-import { withFade } from "./components/withFade";
-import customTheme from "./components/theme";
-import { client, getEndpoint } from "./gqlClient";
-import { IProfile, queryProfile } from "./gqlQuery";
+import { ColorPage } from "./pages/color";
+import ProjectReadme from "./pages/ProjectReadme";
 
 interface IMatchParams {
     id: string;
@@ -29,11 +31,7 @@ type IMatchProps = RouteComponentProps<IMatchParams>;
 const App = () => {
     const [loading, setLoading] = useState(true);
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
-    const [state, setState] = useState<{
-        profile: IProfile | null;
-    }>({
-        profile: null,
-    });
+    const [profile, setProfile] = useState<ITargetProfile | null>(null);
 
     const setColor = (color: string) => {
         setTheme({
@@ -47,41 +45,6 @@ const App = () => {
                 },
             },
         });
-    };
-
-    const dataGetter = async () => {
-        const result = await client.request(queryProfile);
-
-        const prof: IProfile = result.profile;
-
-        const profilePhoto = await getImgs([
-            `${getEndpoint()}${prof.profilePhoto.url}`,
-            "https://source.unsplash.com/random/600x600",
-        ]);
-
-        const rant = await getText(`${getEndpoint()}${prof.rant.url}`);
-
-        const profi = {
-            firstName: prof.firstName,
-            lastName: prof.lastName,
-            profilePhoto: {
-                url: prof.profilePhoto.url,
-                blobs: profilePhoto,
-            },
-            email: prof.email,
-            rant: {
-                url: prof.rant.url,
-                content: rant,
-            },
-            bio: prof.bio,
-            color: prof.color,
-        };
-
-        setState({
-            profile: profi,
-        });
-
-        setLoading(false);
     };
 
     const WrappedProjectReadme = withFade(1000, 1000)(ProjectReadme);
@@ -111,9 +74,10 @@ const App = () => {
                 <Switch>
                     <Route exact path="/">
                         <Landing
-                            profile={state.profile}
-                            fetchData={dataGetter}
+                            profile={profile}
+                            setProfile={setProfile}
                             loading={loading}
+                            setLoading={setLoading}
                             setColor={setColor}
                         />
                     </Route>
