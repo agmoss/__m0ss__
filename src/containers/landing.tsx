@@ -4,7 +4,7 @@ import useSWR from "swr";
 import { Landing as LandingPage } from "../pages/landing";
 import { Loading, Error } from "../pages/placeholders";
 import { IProfile, ITargetProfile } from "../models";
-import { getEndpoint, client } from "../gqlClient";
+import { client } from "../gqlClient";
 import { queryProfile } from "../gqlQuery";
 import { getImgs, getText } from "../getData";
 
@@ -23,11 +23,11 @@ const LandingContainer = ({ setColor, profile, setProfile }: ILanding) => {
 
     const dataFormatter = async (p: IProfile) => {
         const profilePhoto = await getImgs([
-            `${getEndpoint()}${p.profile.profilePhoto.url}`,
+            `${p.profile.profilePhoto.url}`,
             "https://source.unsplash.com/random/600x600",
         ]);
 
-        const rant = await getText(`${getEndpoint()}${p.profile.rant.url}`);
+        const rant = await getText(`${p.profile.rant.url}`);
 
         const prof = {
             ...p.profile,
