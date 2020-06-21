@@ -1,9 +1,12 @@
-import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core";
+import React, { useEffect } from "react";
+import { createStyles, makeStyles, Theme, Grid } from "@material-ui/core";
+import ReactJson from "react-json-view";
 
 import Header from "../views/header";
 import { withMarkdownView } from "../components/withMarkdownView";
 import { Footer } from "../views/footer";
+import packageJson from "../../package.json";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,10 +32,28 @@ const ProjectReadme = () => {
 
     const classes = useStyles();
 
+    const history = useHistory();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [history.location]);
+
     return (
         <div className={classes.root}>
             <Header />
             <ProjectReadmeView />
+            <Grid
+                container
+                spacing={5}
+                direction="column"
+                alignItems="center"
+                justify="center"
+            >
+                <Grid item xs={12}>
+                    <ReactJson src={packageJson} theme="monokai" />
+                </Grid>
+            </Grid>
+
             <Footer />
         </div>
     );
