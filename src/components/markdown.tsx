@@ -42,8 +42,6 @@ const options = {
             component: SyntaxHighlighter,
             props: {
                 style: monokai,
-                showLineNumbers: true,
-                startingLineNumber: 1,
             },
         },
         img: { props: {} },
