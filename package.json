@@ -70,7 +70,7 @@
     "babel-loader": "8.1.0",
     "copy-webpack-plugin": "^6.0.2",
     "css-loader": "^3.6.0",
-    "eslint": "^7.3.0",
+    "eslint": "^7.4.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-typescript": "^2.0.0",
