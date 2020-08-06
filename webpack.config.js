@@ -11,6 +11,12 @@ module.exports = {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
+    devtool: 'inline-source-map',
+    devServer: {
+        compress: true,
+        hot: true,
+        historyApiFallback: true
+    },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],
     },

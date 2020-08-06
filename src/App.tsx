@@ -19,9 +19,11 @@ import customTheme from "./components/theme";
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
 import ArticleContainer from "./containers/article";
+import MediaContainer from "./containers/media";
 
 import { ColorPage } from "./pages/color";
 import ProjectReadme from "./pages/ProjectReadme";
+import Signin from "./pages/signin";
 
 interface IMatchParams {
     id: string;
@@ -99,6 +101,12 @@ const App = () => {
                     </Route>
                     <Route path="/README">
                         <WrappedProjectReadme />
+                    </Route>
+                    <Route path="/signin">
+                        <Signin />
+                    </Route>
+                    <Route path="/media">
+                        <MediaContainer />
                     </Route>
                     <Route
                         path="/article/:id"

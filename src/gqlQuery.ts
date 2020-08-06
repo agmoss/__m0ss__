@@ -60,6 +60,17 @@ export const queryArticle = `
 
 `;
 
+export const queryMedia = `
+    query {
+        images {
+            Title
+            media {
+                id
+                url
+            }
+        }
+    }
+`;
 export const convertArticleToTarget = async (a: IArticle) => {
     let md = "";
 

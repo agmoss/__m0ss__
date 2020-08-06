@@ -80,3 +80,15 @@ export interface IArticleTarget {
         externalLink: string | null;
     };
 }
+
+export interface IMedia {
+    images: [
+        {
+            Title: string;
+            media: {
+                id: string;
+                url: string;
+            };
+        }
+    ];
+}
