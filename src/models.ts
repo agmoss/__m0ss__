@@ -84,8 +84,12 @@ export interface IArticleTarget {
 export interface IMedia {
     images: [
         {
-            Title: string;
-            media: {
+            title: string;
+            asset: {
+                id: string;
+                url: string;
+            };
+            preview: {
                 id: string;
                 url: string;
             };

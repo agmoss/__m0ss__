@@ -63,8 +63,12 @@ export const queryArticle = `
 export const queryMedia = `
     query {
         images {
-            Title
-            media {
+            title
+            asset {
+                id
+                url
+            }
+            preview {
                 id
                 url
             }

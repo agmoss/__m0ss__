@@ -27,7 +27,10 @@ const Dashboard = () => {
         setArticles(targetArticles);
     };
 
-    if (error) return <Error />;
+    if (error) {
+        console.log(error);
+        return <Error />;
+    }
     if (!data) {
         return <Loading />;
     }

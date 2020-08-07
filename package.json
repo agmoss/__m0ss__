@@ -34,7 +34,7 @@
   },
   "scripts": {
     "build": "webpack --progress --colors --mode=production",
-    "start": "webpack-dev-server --content-base ./dist --hot --inline --colors --port 3000 --open",
+    "start": "webpack-dev-server --content-base ./dist --hot --port 3000 --open",
     "install:clean": "rm -rf node_modules/ && rm -rf yarn.lock && yarn install",
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
