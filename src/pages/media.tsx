@@ -107,19 +107,19 @@ export default function Media({ media, downloader, loading }: IMediaPage) {
                                     </CardContent>
                                     {loading ? <LinearProgress /> : null}
                                     <CardActions>
-                                        <Button
-                                            disabled={loading}
-                                            size="small"
-                                            color="primary"
+                                        <a
+                                            href={m.asset.url}
+                                            title={"Download"}
+                                            download
                                         >
-                                            <a
-                                                href={m.asset.url}
-                                                title={"Download"}
-                                                download
+                                            <Button
+                                                disabled={loading}
+                                                size="small"
+                                                color="primary"
                                             >
                                                 Download
-                                            </a>
-                                        </Button>
+                                            </Button>
+                                        </a>
                                     </CardActions>
                                 </Card>
                             </Grid>
