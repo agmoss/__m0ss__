@@ -16,6 +16,7 @@ const MediaContainer = () => {
     const [media, setMedia] = useState<IMedia | null>(null);
     const [loading, setLoading] = useState(false);
 
+    // Not in use
     const downloader = async (url: string) => {
         setLoading(true);
         const response = await axios.get(url);

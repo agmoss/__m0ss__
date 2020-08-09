@@ -16,6 +16,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+import { Snacks, Severity } from "../components/Snacks";
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -66,6 +68,8 @@ export default function SignInSide() {
     const classes = useStyles();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [openSnack, setOpenSnack] = useState(false);
+    const [message, setMessage] = useState("Password Error");
 
     const history = useHistory();
     const cookies = new Cookies();
@@ -95,12 +99,19 @@ export default function SignInSide() {
             })
             .catch((error: { response: any }) => {
                 console.log("An error occurred:", error.response);
+                setOpenSnack(true)
             });
     };
 
     return (
         <Grid container component="main" className={classes.root}>
             <CssBaseline />
+            <Snacks
+                open={openSnack}
+                setOpen={setOpenSnack}
+                message={message}
+                level={Severity.error}
+            />
             <Grid item xs={false} sm={4} md={7} className={classes.image} />
             <Grid
                 item
