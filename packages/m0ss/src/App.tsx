@@ -10,7 +10,7 @@ import {
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
 import Circles from "react-circles";
-import {theme as customTheme, withFade} from "three-ui"
+import { theme as customTheme, withFade } from "three-ui";
 
 import OffCircleWeb from "./pages/offcircleweb";
 

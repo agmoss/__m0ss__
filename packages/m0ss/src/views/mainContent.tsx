@@ -17,7 +17,6 @@ import { ThumbUp } from "@material-ui/icons";
 import { IconButton, Snacks, severity, ColorPicker } from "three-ui";
 import MarkdownComponent from "../components/markdown";
 
-
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const randomWords = require("random-words");
 

@@ -1,10 +1,9 @@
-
 import theme from "./theme";
 import { withTheme } from "./withTheme";
 import ColorPicker from "./ColorPicker";
 import IconButton from "./iconButton";
 import Link from "./link";
-import { Severity, severity, Snacks } from "./Snacks"
+import { Severity, severity, Snacks } from "./Snacks";
 import TextField from "./TextField";
 import { withFade } from "./withFade";
 import { withLoading } from "./withLoading";
@@ -25,4 +24,4 @@ export {
     withLoading,
     Card,
     withPull,
-}
+};

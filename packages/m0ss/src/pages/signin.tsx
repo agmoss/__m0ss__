@@ -99,7 +99,7 @@ export default function SignInSide() {
             })
             .catch((error: { response: any }) => {
                 console.log("An error occurred:", error.response);
-                setOpenSnack(true)
+                setOpenSnack(true);
             });
     };
 

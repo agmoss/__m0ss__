@@ -9,7 +9,9 @@
   },
   "scripts": {
     "bootstrap": "lerna bootstrap --use-workspaces",
-    "bootstrap:clean": "lerna clean -y && lerna bootstrap --use-workspaces"
+    "bootstrap:clean": "lerna clean -y && lerna bootstrap --use-workspaces",
+    "lint": "lerna run lint --stream --parallel  --scope={m0ss,three-ui}",
+    "format": "lerna run format --stream --parallel  --scope={m0ss,three-ui}"
   },
   "engines": {
     "node": "12.X",
