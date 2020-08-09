@@ -1,1 +1,5 @@
 node_modules
+lerna-debug.log
+.env
+dist
+yarn-error.log
