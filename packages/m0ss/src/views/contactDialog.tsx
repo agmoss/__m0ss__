@@ -19,8 +19,8 @@ import {
 import { Person, Email, Close as CloseIcon } from "@material-ui/icons";
 
 import emailjs from "emailjs-com";
-import TextField from "../components/TextField";
-import { Snacks, Severity } from "../components/Snacks";
+
+import { Snacks, Severity, TextField } from "three-ui";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({

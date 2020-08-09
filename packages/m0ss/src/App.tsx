@@ -10,11 +10,11 @@ import {
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
 import Circles from "react-circles";
+import {theme as customTheme, withFade} from "three-ui"
+
 import OffCircleWeb from "./pages/offcircleweb";
 
 import { ITargetProfile } from "./models";
-import { withFade } from "./components/withFade";
-import customTheme from "./components/theme";
 
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";

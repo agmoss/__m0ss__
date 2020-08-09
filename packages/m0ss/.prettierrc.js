@@ -3,6 +3,5 @@ module.exports = {
     trailingComma: "es5",
     tabWidth: 4,
     singleQuote: false,
-    useTabs: false,
-    endOfLine: "auto",
+    useTabs: false
 };

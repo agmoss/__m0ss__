@@ -18,7 +18,7 @@ import {
 } from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 
-import IconButton from "../components/iconButton";
+import { IconButton } from "three-ui";
 import { IArticleTarget } from "../models";
 
 const useStyles = makeStyles((theme: Theme) =>

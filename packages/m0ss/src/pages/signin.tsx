@@ -16,7 +16,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { Snacks, Severity } from "../components/Snacks";
+import { Snacks, Severity } from "three-ui";
 
 function Copyright() {
     return (

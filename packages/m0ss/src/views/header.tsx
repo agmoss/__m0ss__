@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import IconButton from "../components/iconButton";
+import { IconButton } from "three-ui";
 
 import { ContactDialog } from "./contactDialog";
 
