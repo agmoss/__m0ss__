@@ -6,16 +6,25 @@ const APP_PATH = path.resolve(__dirname, "src");
 const PUBLIC_PATH = path.resolve(__dirname, "public");
 
 module.exports = {
-    entry: APP_PATH,
+    entry:
+        APP_PATH,
+
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
     devtool: 'inline-source-map',
     devServer: {
+        port: 3000,
         compress: true,
         hot: true,
-        historyApiFallback: true
+        historyApiFallback: true,
+        stats: { colors: true },
+        contentBase: path.join(__dirname, 'public'),
+        disableHostCheck: true,
+        host: 'localhost',
+        overlay: true,
+        watchContentBase: true,
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],

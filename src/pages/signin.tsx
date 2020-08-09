@@ -87,15 +87,13 @@ export default function SignInSide() {
                 password: password,
             })
             .then((response: { data: { user: any; jwt: any } }) => {
-                // Handle success.
-                cookies.set("ahhhh", response.data.jwt, { path: "/" });
+                cookies.set("ahhhh", response.data.jwt, {
+                    path: "/",
+                    sameSite: "strict",
+                });
                 history.push("/media");
-                // console.log('Well done!');
-                // console.log('User profile', response.data.user);
-                // console.log('User token', response.data.jwt);
             })
             .catch((error: { response: any }) => {
-                // Handle error.
                 console.log("An error occurred:", error.response);
             });
     };

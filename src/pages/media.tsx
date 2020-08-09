@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 import Header from "../views/header";
 import { Footer } from "../views/footer";
@@ -50,9 +51,11 @@ const useStyles = makeStyles((theme) => ({
 
 interface IMediaPage {
     media: IMedia;
+    downloader: (url: string) => Promise<void>;
+    loading: boolean;
 }
 
-export default function Media({ media }: IMediaPage) {
+export default function Media({ media, downloader, loading }: IMediaPage) {
     const classes = useStyles();
 
     return (
@@ -102,9 +105,20 @@ export default function Media({ media }: IMediaPage) {
                                             {m.title}
                                         </Typography>
                                     </CardContent>
+                                    {loading ? <LinearProgress /> : null}
                                     <CardActions>
-                                        <Button size="small" color="primary">
-                                            Download
+                                        <Button
+                                            disabled={loading}
+                                            size="small"
+                                            color="primary"
+                                        >
+                                            <a
+                                                href={m.asset.url}
+                                                title={"Download"}
+                                                download
+                                            >
+                                                Download
+                                            </a>
                                         </Button>
                                     </CardActions>
                                 </Card>
