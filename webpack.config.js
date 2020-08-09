@@ -20,11 +20,12 @@ module.exports = {
         hot: true,
         historyApiFallback: true,
         stats: { colors: true },
-        contentBase: path.join(__dirname, 'public'),
+        contentBase: path.join(__dirname, '/dist'),
         disableHostCheck: true,
         host: 'localhost',
         overlay: true,
         watchContentBase: true,
+        writeToDisk: true
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],

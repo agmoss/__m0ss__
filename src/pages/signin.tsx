@@ -69,7 +69,7 @@ export default function SignInSide() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [openSnack, setOpenSnack] = useState(false);
-    const [message, setMessage] = useState("Password Error");
+    const [message] = useState("Password Error");
 
     const history = useHistory();
     const cookies = new Cookies();
