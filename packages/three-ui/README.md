@@ -10,5 +10,5 @@ import {
     withTheme,
     TextField,
     Card
-} from "@vividtheory/yd-ui";
+} from "three-ui";
 ```
