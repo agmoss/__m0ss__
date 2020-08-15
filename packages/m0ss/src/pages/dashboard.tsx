@@ -19,7 +19,7 @@ import {
 import { Close } from "@material-ui/icons";
 
 import { IconButton } from "three-ui";
-import { IArticleTarget } from "../models";
+import { IArticleTarget } from "blog-types";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

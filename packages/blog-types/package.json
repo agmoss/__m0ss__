@@ -1,0 +1,51 @@
+{
+    "name": "blog-types",
+    "version": "1.0.0",
+    "description": "Interfaces for blog data structures",
+    "author": "Andrew Moss <andrew@m0ss.dev>",
+    "homepage": "https://github.com/agmoss/m0ss#readme",
+    "license": "MIT",
+    "main": "dist/blog-types.js",
+    "module": "dist/blog-types.js",
+    "types": "dist/blog-types.d.ts",
+    "directories": {
+        "src": "src",
+        "test": "__tests__",
+        "dist": "dist"
+    },
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "remote",
+        "blog",
+        "ts"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/agmoss/m0ss.git"
+    },
+    "scripts": {
+        "prepare": "yarn run build",
+        "lint": "eslint --fix --ext .ts,.tsx .",
+        "pkg-ok": "pkg-ok",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prebuild": "rimraf dist",
+        "build": "tsc"
+    },
+    "bugs": {
+        "url": "https://github.com/agmoss/m0ss/issues"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^3.9.0",
+        "@typescript-eslint/parser": "^3.9.0",
+        "eslint": "^7.7.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "pkg-ok": "^2.3.1",
+        "typescript": "^3.9.7"
+    }
+}

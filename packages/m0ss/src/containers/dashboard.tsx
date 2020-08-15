@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import useSWR from "swr";
 
+import { IArticleTarget, IArticles } from "blog-types";
+
 import { queryArticles, convertArticleToTarget } from "../gqlQuery";
-import { IArticleTarget, IArticles } from "../models";
 import { client } from "../gqlClient";
 
 import DashboardPresentation from "../pages/dashboard";

@@ -4,9 +4,9 @@ import Cookies from "universal-cookie";
 import axios from "axios";
 import FileDownload from "js-file-download";
 
+import { IMedia } from "blog-types";
 import { client } from "../gqlClient";
 import { queryMedia } from "../gqlQuery";
-import { IMedia } from "../models";
 
 import { Loading, Error } from "../pages/placeholders";
 import MediaPage from "../pages/media";

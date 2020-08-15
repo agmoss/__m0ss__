@@ -11,10 +11,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LinearProgress from "@material-ui/core/LinearProgress";
 
+import { IMedia } from "blog-types";
+
 import Header from "../views/header";
 import { Footer } from "../views/footer";
 
-import { IMedia } from "../models";
 
 const useStyles = makeStyles((theme) => ({
     root: {

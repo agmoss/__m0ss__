@@ -11,16 +11,14 @@ import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 
 import Circles from "react-circles";
 import { theme as customTheme, withFade } from "three-ui";
-
-import OffCircleWeb from "./pages/offcircleweb";
-
-import { ITargetProfile } from "./models";
+import { ITargetProfile } from "blog-types";
 
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
 import ArticleContainer from "./containers/article";
 import MediaContainer from "./containers/media";
 
+import OffCircleWeb from "./pages/offcircleweb";
 import { ColorPage } from "./pages/color";
 import ProjectReadme from "./pages/ProjectReadme";
 import Signin from "./pages/signin";

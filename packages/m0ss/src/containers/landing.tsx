@@ -1,9 +1,11 @@
 import React from "react";
 
 import useSWR from "swr";
+import { IProfile, ITargetProfile } from "blog-types";
+
 import { Landing as LandingPage } from "../pages/landing";
 import { Loading, Error } from "../pages/placeholders";
-import { IProfile, ITargetProfile } from "../models";
+
 import { client } from "../gqlClient";
 import { queryProfile } from "../gqlQuery";
 import { getImgs, getText } from "../getData";
