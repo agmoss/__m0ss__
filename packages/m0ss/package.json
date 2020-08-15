@@ -1,6 +1,6 @@
 {
   "name": "m0ss",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Personal Site",
   "private": true,
   "dependencies": {
@@ -8,7 +8,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
-    "blog-types": "^1.0.1",
+    "blog-types": "^1.0.2",
     "emailjs-com": "^2.4.1",
     "graphql-request": "^2.0.0",
     "js-file-download": "^0.4.12",
@@ -31,7 +31,7 @@
     "react-transition-group": "^4.4.1",
     "react-with-gesture": "^4.0.8",
     "swr": "^0.2.3",
-    "three-ui": "^1.0.4",
+    "three-ui": "^1.0.5",
     "typescript": "^3.9.5",
     "universal-cookie": "^4.0.3"
   },
