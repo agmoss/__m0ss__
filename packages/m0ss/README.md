@@ -3,20 +3,10 @@
 <div align="center">
   <img src="https://m0ss.blob.core.windows.net/media/m0ss_v1.svg" alt="Logo" width="150" height="150"/>
 </div>
-<div align="center">
-  <strong>Personal Website</strong>
-</div>
-<div align="center">
-  <i>A compelling tell all</i>
-</div>
 
 <br />
 
 <div align="center">
-  <!--CircleCI Build -->
-  <a>
-    <img src="https://img.shields.io/circleci/build/github/agmoss/m0ss/master" alt="Built Status">
-  </a>
   <!-- Dependencies -->
   <a>
     <img src="https://img.shields.io/david/agmoss/m0ss" alt="Dependencies" />
@@ -37,13 +27,21 @@
   <a>
     <img alt="code style: prettier" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
   </a>
-  <!-- Airbnb -->
+    <!-- Lerna -->
   <a>
-    <img alt="code style: airbnb" src="https://badgen.net/badge/code%20style/Airbnb/ff5a5f?icon=airbnb">
+    <img alt="Lerna" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg">
   </a>
-    <!-- Up -->
-  <a>
-    <img alt="up" src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fm0ss.dev%2F">
+    <!-- three-ui -->
+  <a href="https://www.npmjs.com/package/three-ui">
+    <img alt="blog-types" src="https://img.shields.io/npm/v/three-ui?label=three-ui">
+  </a>
+   <!-- blog-types -->
+  <a href="https://www.npmjs.com/package/blog-types">
+    <img alt="blog-types" src="https://img.shields.io/npm/v/blog-types?label=blog-types">
+  </a>
+    <!-- website -->
+  <a href="https://m0ss.dev">
+    <img alt="site" src="https://img.shields.io/website?url=https%3A%2F%2Fm0ss.dev">
   </a>
   <!-- Language -->
   <a>
