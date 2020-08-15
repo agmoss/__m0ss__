@@ -11,6 +11,10 @@
   <a>
     <img src="https://img.shields.io/david/agmoss/m0ss" alt="Dependencies" />
   </a>
+  <!-- Version -->
+  <a href="https://github.com/agmoss/m0ss">
+    <img src="https://img.shields.io/github/package-json/v/agmoss/m0ss" alt="Version" />
+  </a>
   <!-- Size -->
   <a>
     <img src="https://img.shields.io/github/languages/code-size/agmoss/m0ss" alt="Code Size" />
