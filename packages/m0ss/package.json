@@ -30,7 +30,7 @@
     "react-syntax-highlighter": "^12.2.1",
     "react-transition-group": "^4.4.1",
     "react-with-gesture": "^4.0.8",
-    "swr": "^0.2.3",
+    "swr": "^0.3.0",
     "three-ui": "^1.0.5",
     "typescript": "^3.9.5",
     "universal-cookie": "^4.0.3"
