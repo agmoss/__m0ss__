@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { IProfile } from "blog-types";
 
 import { Landing as LandingPage } from "../pages/landing";
@@ -6,20 +6,18 @@ import { Loading } from "../pages/placeholders";
 
 interface ILanding {
     setColor: (color: string) => void;
+    fetchData: () => void;
+    loading: boolean;
+    text: string;
 }
 
-const LandingContainer = ({ setColor }: ILanding) => {
-    const [md, setMd] = useState("");
-    const [loading, setLoading] = useState(true);
+const LandingContainer = ({ text, fetchData, loading, setColor }: ILanding) => {
 
     useEffect(() => {
-        fetch(
-            "https://honeyyy.s3.us-west-2.amazonaws.com/landing_d2bb8f5328.markdown"
-        )
-            .then((response) => response.text())
-            .then((text) => setMd(text))
-            .then(() => setLoading(false));
-    }, []);
+        if (text.length < 10) {
+            fetchData()
+        }
+    },[text, fetchData]);
 
     const profile: IProfile = {
         profile: {
@@ -33,7 +31,7 @@ const LandingContainer = ({ setColor }: ILanding) => {
             email: "",
             rant: {
                 url: "",
-                content: md,
+                content: text,
             },
             bio:
                 "Hi, I'm a full stack developer with a focus on web applications, infrastructure, data visualization, and creative programming. I am currently hard at work on the next big thing. You'll be hearing about it soon...",

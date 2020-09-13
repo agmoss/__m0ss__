@@ -26,7 +26,18 @@ interface IMatchParams {
 type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
+    const [loading, setLoading] = useState(true);
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
+    const [state, setState] = useState({ text: "" });
+
+    const dataGetter = () => {
+        fetch(
+            "https://honeyyy.s3.us-west-2.amazonaws.com/landing_d2bb8f5328.markdown"
+        )
+            .then((response) => response.text())
+            .then((text) => setState({...state,text:text}))
+            .then(() => setLoading(false));
+    };
 
     const setColor = (color: string) => {
         setTheme({
@@ -61,7 +72,7 @@ const App = () => {
     };
 
     const LandingWProps = () => {
-        return <Landing setColor={setColor} />;
+        return <Landing  loading={loading} setColor={setColor} text={state.text} fetchData={dataGetter} />;
     };
 
     const WrappedProjectReadme = withHelmet({
