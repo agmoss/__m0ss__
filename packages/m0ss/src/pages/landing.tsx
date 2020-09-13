@@ -1,6 +1,6 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core";
-import { ITargetProfile } from "blog-types";
+import { IProfile } from "blog-types";
 
 import Header from "../views/header";
 import { Footer } from "../views/footer";
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() =>
 );
 
 interface ILanding {
-    profile: ITargetProfile;
+    profile: IProfile;
     setColor: (color: string) => void;
 }
 
@@ -31,7 +31,8 @@ export const Landing = ({ profile, setColor }: ILanding) => {
         <div className={classes.root}>
             <Header />
             <Hero
-                img={profile.profile.profilePhoto.blobs}
+                primary={profile.profile.profilePhoto.urlPrimary}
+                secondary={profile.profile.profilePhoto.urlSecondary}
                 bio={profile.profile.bio}
             />
             <MainContent

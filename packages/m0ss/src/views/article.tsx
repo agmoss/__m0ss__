@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
     Container,
     createStyles,
@@ -7,10 +6,12 @@ import {
     makeStyles,
     Theme,
 } from "@material-ui/core";
+import { IArticleTarget } from "blog-types";
 
 import MarkdownComponent from "../components/markdown";
 import Header from "./header";
 import { Footer } from "./footer";
+import { Helmet } from "react-helmet";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -50,14 +51,21 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface IArticleView {
-    content: string;
+    article: IArticleTarget;
 }
 
-export const Article = ({ content }: IArticleView) => {
+export const Article = ({ article }: IArticleView) => {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
+            <Helmet>
+                <title>{article.article.title}</title>
+                <meta
+                    name="description"
+                    content={article.article.description}
+                />
+            </Helmet>
             <Header />
             <Container maxWidth="lg">
                 <main>
@@ -69,7 +77,11 @@ export const Article = ({ content }: IArticleView) => {
                         className={classes.mainGrid}
                     >
                         <Grid item xs={12}>
-                            {MarkdownComponent(content)}
+                            {MarkdownComponent(
+                                article.article.markdown.content
+                                    ? article.article.markdown.content
+                                    : "No Content for this article :("
+                            )}
                         </Grid>
                     </Grid>
                 </main>

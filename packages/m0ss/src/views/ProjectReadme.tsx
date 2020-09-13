@@ -1,3 +1,4 @@
+import { IArticleTarget } from "blog-types";
 import React, { useState, useEffect } from "react";
 
 import { Article } from "./article";
@@ -11,5 +12,17 @@ export const README = () => {
             .then((text) => setMd(text));
     }, []);
 
-    return <Article content={md} />;
+    const a: IArticleTarget = {
+        article:{
+            id:"1",
+            title: "Andrew Moss README",
+            description: "Project Readme",
+            internalLink: null,
+            markdown: {content: md},
+            externalLink: null,
+        }
+        
+    }
+
+    return <Article article={a} />;
 };

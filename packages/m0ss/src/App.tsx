@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-
+import React, { useState} from "react";
 import {
     BrowserRouter,
     Route,
     Switch,
     RouteComponentProps,
 } from "react-router-dom";
-
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
-
 import Circles from "react-circles";
 import { theme as customTheme, withFade } from "three-ui";
-import { ITargetProfile } from "blog-types";
+
 
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
@@ -22,6 +19,7 @@ import OffCircleWeb from "./pages/offcircleweb";
 import { ColorPage } from "./pages/color";
 import ProjectReadme from "./pages/ProjectReadme";
 import Signin from "./pages/signin";
+import { withHelmet } from "./components/withHelmet";
 
 interface IMatchParams {
     id: string;
@@ -30,7 +28,6 @@ type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
     const [theme, setTheme] = useState(createMuiTheme(customTheme));
-    const [profile, setProfile] = useState<ITargetProfile | null>(null);
 
     const setColor = (color: string) => {
         setTheme({
@@ -45,8 +42,6 @@ const App = () => {
             },
         });
     };
-
-    const WrappedProjectReadme = withFade(1000, 1000)(ProjectReadme);
 
     const ReactCirclesDemo = () => {
         return (
@@ -66,20 +61,65 @@ const App = () => {
         );
     };
 
+    const LandingWProps = () => {
+        return (
+            <Landing
+                setColor={setColor}
+            />
+        );
+    };
+
+    const WrappedProjectReadme = withHelmet({
+        title: "README - Andrew Moss",
+        meta: { name: "m0ss site readme", content: "Andrew Moss Readme" },
+    })(withFade(1000, 1000)(ProjectReadme));
+    const WrappedDashboard = withHelmet({
+        title: "Dashboard - Andrew Moss",
+        meta: { name: "Dashboard", content: "Andrew Moss articles" },
+    })(Dashboard);
+    const WrappedOffCircleWeb = withHelmet({
+        title: "offcircle - Andrew Moss",
+        meta: { name: "offcircle README", content: "Andrew Moss offcircle" },
+    })(OffCircleWeb);
+    const WrappedReactCirclesDemo = withHelmet({
+        title: "Andrew Moss - React Circles",
+        meta: {
+            name: "React Circles Demo",
+            content: "Andrew Moss React Circles",
+        },
+    })(ReactCirclesDemo);
+    const WrappedLanding = withHelmet({
+        title: "Andrew Moss",
+        meta: {
+            name: "Andrew Moss",
+            content: "Andrew Moss Personal Website",
+        },
+    })(LandingWProps);
+    const WrappedSignin = withHelmet({
+        title: "Signin - Andrew Moss",
+        meta: {
+            name: "Signin page",
+            content: "Signin",
+        },
+    })(Signin);
+    const WrappedMedia = withHelmet({
+        title: "Media - Andre Moss",
+        meta: {
+            name: "Media Share Location",
+            content: "Andrew Moss Media",
+        },
+    })(MediaContainer);
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/">
-                        <Landing
-                            profile={profile}
-                            setProfile={setProfile}
-                            setColor={setColor}
-                        />
+                        <WrappedLanding/>
                     </Route>
                     <Route path="/content">
-                        <Dashboard />
+                        <WrappedDashboard />
                     </Route>
                     <Route path="/react-circles">
                         <ReactCirclesDemo />
@@ -91,7 +131,7 @@ const App = () => {
                                 overflowY: "hidden",
                             }}
                         >
-                            <OffCircleWeb />
+                            <WrappedOffCircleWeb />
                         </div>
                     </Route>
                     <Route path="/color">
@@ -101,10 +141,10 @@ const App = () => {
                         <WrappedProjectReadme />
                     </Route>
                     <Route path="/signin">
-                        <Signin />
+                        <WrappedSignin />
                     </Route>
                     <Route path="/media">
-                        <MediaContainer />
+                        <WrappedMedia />
                     </Route>
                     <Route
                         path="/article/:id"
@@ -113,7 +153,7 @@ const App = () => {
                         }}
                     />
                     <Route>
-                        <ReactCirclesDemo />
+                        <WrappedReactCirclesDemo />
                     </Route>
                 </Switch>
             </BrowserRouter>

@@ -42,7 +42,7 @@ const ArticleContainer = ({ id }: IArticleContainer) => {
     }
 
     return React.createElement(Article, {
-        content: article.article.markdown.content,
+        article: article,
     });
 };
 

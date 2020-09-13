@@ -39,11 +39,12 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface IProps {
-    img: Blob[];
+    primary:string;
+    secondary:string;
     bio: string;
 }
 
-export const Hero = ({ img, bio }: IProps) => {
+export const Hero = ({ primary, secondary, bio }: IProps) => {
     const classes = useStyles();
 
     const CtaCard = () => (
@@ -66,7 +67,7 @@ export const Hero = ({ img, bio }: IProps) => {
                 <Grid container spacing={5}>
                     <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Box className={classes.main}>
-                            <Card primary={img[0]} secondary={img[1]} />
+                            <Card primary={primary} secondary={secondary} />
                         </Box>
                     </Grid>
                     <Grid item xs={12} sm={12} md={6} lg={8}>

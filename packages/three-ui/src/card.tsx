@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useSpring, animated as a } from 'react-spring';
 
 interface IProps {
-    primary: Blob;
-    secondary: Blob;
+    primary: string;
+    secondary: string;
 }
 
 export const Card = ({ primary, secondary }: IProps) => {
@@ -38,7 +38,7 @@ export const Card = ({ primary, secondary }: IProps) => {
             return 1 - on;
           }),
           transform,
-          backgroundImage: `url(${URL.createObjectURL(primary)})`,
+          backgroundImage: `url(${primary})`,
         }}
       />
       <a.div
@@ -49,7 +49,7 @@ export const Card = ({ primary, secondary }: IProps) => {
           transform: transform.interpolate(
             (t) => `${t} rotateX(180deg)`,
           ),
-          backgroundImage: `url(${URL.createObjectURL(secondary)})`,
+          backgroundImage: `url(${secondary})`,
         }}
       />
     </div>

@@ -21,11 +21,13 @@ export interface IProfile {
         firstName: string;
         lastName: string;
         profilePhoto: {
-            url: string;
+            urlPrimary: string;
+            urlSecondary: string;
         };
         email: string;
         rant: {
             url: string;
+            content: string;
         };
         bio: string;
         color: string;
