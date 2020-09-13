@@ -1,6 +1,6 @@
 {
     "name": "blog-types",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Interfaces for blog data structures",
     "author": "Andrew Moss <andrew@m0ss.dev>",
     "homepage": "https://github.com/agmoss/m0ss#readme",
