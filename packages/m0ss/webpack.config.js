@@ -2,30 +2,29 @@ const path = require("path");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const APP_PATH = path.resolve(__dirname, "src");
 const PUBLIC_PATH = path.resolve(__dirname, "public");
 
 module.exports = {
-    entry:
-        APP_PATH,
-
+    entry: APP_PATH,
     output: {
         filename: "bundle.js",
         path: path.resolve(__dirname, "dist"),
     },
-    devtool: 'inline-source-map',
+    devtool: "inline-source-map",
     devServer: {
         port: 3000,
         compress: true,
         hot: true,
         historyApiFallback: true,
         stats: { colors: true },
-        contentBase: path.join(__dirname, '/dist'),
+        contentBase: path.join(__dirname, "/dist"),
         disableHostCheck: true,
-        host: 'localhost',
+        host: "localhost",
         overlay: true,
         watchContentBase: true,
-        writeToDisk: true
+        writeToDisk: true,
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"],
@@ -49,9 +48,13 @@ module.exports = {
         ],
     },
     performance: {
-        hints: false,
+        hints: "warning",
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
     },
     plugins: [
         new HtmlWebpackPlugin({

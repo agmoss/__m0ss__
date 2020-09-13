@@ -39,8 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface IProps {
-    primary:string;
-    secondary:string;
+    primary: string;
+    secondary: string;
     bio: string;
 }
 

@@ -16,7 +16,6 @@ import { IMedia } from "blog-types";
 import Header from "../views/header";
 import { Footer } from "../views/footer";
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         display: "flex",

@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import {
     BrowserRouter,
     Route,
@@ -8,7 +8,6 @@ import {
 import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
 import Circles from "react-circles";
 import { theme as customTheme, withFade } from "three-ui";
-
 
 import Landing from "./containers/landing";
 import Dashboard from "./containers/dashboard";
@@ -62,11 +61,7 @@ const App = () => {
     };
 
     const LandingWProps = () => {
-        return (
-            <Landing
-                setColor={setColor}
-            />
-        );
+        return <Landing setColor={setColor} />;
     };
 
     const WrappedProjectReadme = withHelmet({
@@ -116,7 +111,7 @@ const App = () => {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/">
-                        <WrappedLanding/>
+                        <WrappedLanding />
                     </Route>
                     <Route path="/content">
                         <WrappedDashboard />

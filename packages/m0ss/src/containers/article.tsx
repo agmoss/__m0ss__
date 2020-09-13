@@ -19,7 +19,7 @@ const ArticleContainer = ({ id }: IArticleContainer) => {
         return client.request<IArticle>(query, { id: _id });
     }
 
-    const { data, error } = useSWR<IArticle,any>([queryArticle, id], fetcher);
+    const { data, error } = useSWR<IArticle, any>([queryArticle, id], fetcher);
 
     const dataFormatter = async (art: IArticle) => {
         const targetArticle = await convertArticleToTarget(art);

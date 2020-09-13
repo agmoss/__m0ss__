@@ -7,7 +7,6 @@ import { Footer } from "../views/footer";
 import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
 
-
 const useStyles = makeStyles(() =>
     createStyles({
         root: {

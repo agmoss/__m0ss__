@@ -13,16 +13,15 @@ export const README = () => {
     }, []);
 
     const a: IArticleTarget = {
-        article:{
-            id:"1",
+        article: {
+            id: "1",
             title: "Andrew Moss README",
             description: "Project Readme",
             internalLink: null,
-            markdown: {content: md},
+            markdown: { content: md },
             externalLink: null,
-        }
-        
-    }
+        },
+    };
 
     return <Article article={a} />;
 };
