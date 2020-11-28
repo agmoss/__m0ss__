@@ -24,6 +24,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const withPull = <P extends object>(
     WrappedComponent: ComponentType<P>
 ): React.FC<P> => ({ ...props }) => {

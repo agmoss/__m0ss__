@@ -10,17 +10,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import MarkdownComponent from "../components/markdown";
-import { Footer } from "./footer";
-import Header from "./header";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "100vh",
-            overflowX: "hidden",
-        },
         mainGrid: {
             "@global": {
                 h1: {
@@ -58,7 +50,7 @@ export const Article = ({ article }: IArticleView) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div>
             <Helmet>
                 <title>{article.article.title}</title>
                 <meta
@@ -66,7 +58,6 @@ export const Article = ({ article }: IArticleView) => {
                     content={article.article.description}
                 />
             </Helmet>
-            <Header />
             <Container maxWidth="lg">
                 <main>
                     <Grid
@@ -86,7 +77,6 @@ export const Article = ({ article }: IArticleView) => {
                     </Grid>
                 </main>
             </Container>
-            <Footer />
         </div>
     );
 };

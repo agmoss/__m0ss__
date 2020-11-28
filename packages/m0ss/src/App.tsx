@@ -7,17 +7,20 @@ import {
     RouteComponentProps,
     Switch,
 } from "react-router-dom";
-import { theme as customTheme, withFade } from "three-ui";
+import { theme as customTheme } from "three-ui";
 
 import { withHelmet } from "./components/withHelmet";
+import withPage from "./components/withPage";
 import ArticleContainer from "./containers/article";
-import Dashboard from "./containers/dashboard";
 import Landing from "./containers/landing";
-import MediaContainer from "./containers/media";
-import { ColorPage } from "./pages/color";
-import OffCircleWeb from "./pages/offcircleweb";
-import ProjectReadme from "./pages/ProjectReadme";
-import Signin from "./pages/signin";
+import {
+    WrappedMedia,
+    WrappedProjectReadme,
+    WrappedDashboard,
+    WrappedOffCircleWeb,
+    WrappedReactCirclesDemo,
+    WrappedSignin,
+} from "./pages";
 
 interface IMatchParams {
     id: string;
@@ -26,8 +29,25 @@ type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
     const [loading, setLoading] = useState(true);
-    const [theme, setTheme] = useState(createMuiTheme(customTheme));
     const [state, setState] = useState({ text: "" });
+    const [color, setColor] = useState("#e91e63");
+
+    const [dark, setDark] = useState(true);
+
+    const theme = React.useMemo(
+        () =>
+            createMuiTheme({
+                ...customTheme,
+                palette: {
+                    type: dark ? "dark" : "light",
+                    primary: {
+                        ...customTheme.palette.primary,
+                        main: color,
+                    },
+                },
+            }),
+        [dark, color]
+    );
 
     const dataGetter = () => {
         fetch(
@@ -36,20 +56,6 @@ const App = () => {
             .then((response) => response.text())
             .then((text) => setState({ ...state, text: text }))
             .then(() => setLoading(false));
-    };
-
-    const setColor = (color: string) => {
-        setTheme({
-            ...theme,
-            palette: {
-                ...theme.palette,
-                type: "light",
-                primary: {
-                    ...theme.palette.primary,
-                    main: color,
-                },
-            },
-        });
     };
 
     const ReactCirclesDemo = () => {
@@ -81,46 +87,13 @@ const App = () => {
         );
     };
 
-    const WrappedProjectReadme = withHelmet({
-        title: "README - Andrew Moss",
-        meta: { name: "m0ss site readme", content: "Andrew Moss Readme" },
-    })(withFade(1000, 1000)(ProjectReadme));
-    const WrappedDashboard = withHelmet({
-        title: "Dashboard - Andrew Moss",
-        meta: { name: "Dashboard", content: "Andrew Moss articles" },
-    })(Dashboard);
-    const WrappedOffCircleWeb = withHelmet({
-        title: "offcircle - Andrew Moss",
-        meta: { name: "offcircle README", content: "Andrew Moss offcircle" },
-    })(OffCircleWeb);
-    const WrappedReactCirclesDemo = withHelmet({
-        title: "Andrew Moss - React Circles",
-        meta: {
-            name: "React Circles Demo",
-            content: "Andrew Moss React Circles",
-        },
-    })(ReactCirclesDemo);
     const WrappedLanding = withHelmet({
         title: "Andrew Moss",
         meta: {
             name: "Andrew Moss",
             content: "Andrew Moss Personal Website",
         },
-    })(LandingWProps);
-    const WrappedSignin = withHelmet({
-        title: "Signin - Andrew Moss",
-        meta: {
-            name: "Signin page",
-            content: "Signin",
-        },
-    })(Signin);
-    const WrappedMedia = withHelmet({
-        title: "Media - Andrew Moss",
-        meta: {
-            name: "Media Share Location",
-            content: "Andrew Moss Media",
-        },
-    })(MediaContainer);
+    })(withPage(LandingWProps));
 
     return (
         <ThemeProvider theme={theme}>
@@ -145,9 +118,6 @@ const App = () => {
                         >
                             <WrappedOffCircleWeb />
                         </div>
-                    </Route>
-                    <Route path="/color">
-                        <ColorPage setColor={setColor} />
                     </Route>
                     <Route path="/README">
                         <WrappedProjectReadme />

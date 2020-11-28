@@ -11,16 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { IMedia } from "blog-types";
 import React from "react";
 
-import { Footer } from "../views/footer";
-import Header from "../views/header";
-
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        overflowX: "hidden",
-    },
     icon: {
         marginRight: theme.spacing(2),
     },
@@ -57,9 +48,7 @@ export default function Media({ media, downloader, loading }: IMediaPage) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <Header />
-
+        <div>
             <main>
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
@@ -125,7 +114,6 @@ export default function Media({ media, downloader, loading }: IMediaPage) {
                     </Grid>
                 </Container>
             </main>
-            <Footer />
         </div>
     );
 }

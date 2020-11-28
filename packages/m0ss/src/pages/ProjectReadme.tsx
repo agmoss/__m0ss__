@@ -3,16 +3,10 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 import { withMarkdownView } from "../components/withMarkdownView";
-import { Footer } from "../views/footer";
-import Header from "../views/header";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            display: "flex",
-            flexDirection: "column",
-            minHeight: "100vh",
-            overflowX: "hidden",
             "@global": {
                 h1: {
                     ...theme.typography.h4,
@@ -38,7 +32,6 @@ const ProjectReadme = () => {
 
     return (
         <div className={classes.root}>
-            <Header />
             <ProjectReadmeView />
             <Grid
                 container
@@ -47,7 +40,6 @@ const ProjectReadme = () => {
                 alignItems="center"
                 justify="center"
             ></Grid>
-            <Footer />
         </div>
     );
 };
