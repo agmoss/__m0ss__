@@ -30,6 +30,7 @@
     "scripts": {
         "prebuild": "rimraf dist",
         "build": "rollup -c",
+        "build:dev": "rollup -c",
         "format": "prettier --write \"src/**/*.tsx\"",
         "lint": "eslint --fix --ext .ts,.tsx .",
         "pkg-ok": "pkg-ok",

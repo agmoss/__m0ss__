@@ -115,7 +115,7 @@ const App = () => {
         },
     })(Signin);
     const WrappedMedia = withHelmet({
-        title: "Media - Andre Moss",
+        title: "Media - Andrew Moss",
         meta: {
             name: "Media Share Location",
             content: "Andrew Moss Media",

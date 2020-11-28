@@ -104,7 +104,7 @@ export const MainContent = ({ md, setColor }: IMainContent) => {
                     </Grid>
                 </Paper>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item style={{ width: "100%" }} xs={12}>
                 <ColorPicker setColor={setColor} />
             </Grid>
         </Grid>

@@ -20,8 +20,6 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundSize: "cover",
             color: theme.palette.common.white,
             height: "100%",
-            marginBottom: theme.spacing(4),
-            minHeight: "30vmin",
             position: "relative",
             [theme.breakpoints.down("sm")]: {
                 minHeight: "40vmin",
@@ -62,13 +60,25 @@ export const Hero = ({ primary, secondary, bio }: IProps) => {
         <>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Grid container spacing={5}>
+                <Grid
+                    container
+                    // alignItems="stretch"
+                    // direction="row"
+                    spacing={5}
+                >
                     <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Box className={classes.main}>
                             <Card primary={primary} secondary={secondary} />
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={8}>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={6}
+                        lg={8}
+                        style={{ height: "100%" }}
+                    >
                         <PullCtaCard />
                     </Grid>
                 </Grid>

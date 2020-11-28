@@ -1,6 +1,6 @@
 import { useTheme } from "@material-ui/core";
 import React from "react";
-import { CirclePicker, ColorResult } from "react-color";
+import { BlockPicker, ColorResult } from "react-color";
 
 interface IColorPicker {
     setColor: Function;
@@ -58,11 +58,11 @@ const ColorPicker = ({ setColor }: IColorPicker) => {
         "#CCCC00",
         "#66E64D",
         "#4D80CC",
-        "#9900B3",
     ];
 
     return (
-        <CirclePicker
+        <BlockPicker
+            triangle="hide"
             width="100%"
             colors={colorSelections}
             color={theme.palette.primary.main}
