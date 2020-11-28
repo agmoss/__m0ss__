@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-
 import {
+    AppBar,
     Container,
-    createStyles,
     CssBaseline,
     Link,
-    makeStyles,
+    SvgIcon,
     Theme,
     Toolbar,
     Typography,
-    AppBar,
-    SvgIcon,
+    createStyles,
+    makeStyles,
 } from "@material-ui/core";
-import { GitHub, LinkedIn, Mail, Apps } from "@material-ui/icons";
+import { Apps, GitHub, LinkedIn, Mail } from "@material-ui/icons";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IconButton } from "three-ui";
 

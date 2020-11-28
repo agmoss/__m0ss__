@@ -1,4 +1,4 @@
-import { Typography, Link } from "@material-ui/core";
+import { Link, Typography } from "@material-ui/core";
 import ReactMarkdown, { MarkdownOptions } from "markdown-to-jsx";
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";

@@ -1,17 +1,17 @@
-import React from "react";
 import {
     Container,
-    createStyles,
     Grid,
-    makeStyles,
     Theme,
+    createStyles,
+    makeStyles,
 } from "@material-ui/core";
 import { IArticleTarget } from "blog-types";
+import React from "react";
+import { Helmet } from "react-helmet";
 
 import MarkdownComponent from "../components/markdown";
-import Header from "./header";
 import { Footer } from "./footer";
-import { Helmet } from "react-helmet";
+import Header from "./header";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

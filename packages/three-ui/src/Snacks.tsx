@@ -1,6 +1,6 @@
-import React from "react";
 import { Snackbar } from "@material-ui/core";
 import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import React from "react";
 
 export enum Severity {
     error = "error",

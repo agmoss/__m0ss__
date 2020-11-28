@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-
 import {
     Container,
-    createStyles,
     CssBaseline,
     Divider,
     Grid,
-    makeStyles,
     Paper,
     Theme,
     Typography,
+    createStyles,
+    makeStyles,
 } from "@material-ui/core";
-
 import { ThumbUp } from "@material-ui/icons";
+import React, { useState } from "react";
+import { ColorPicker, IconButton, Snacks, severity } from "three-ui";
 
-import { IconButton, Snacks, severity, ColorPicker } from "three-ui";
 import MarkdownComponent from "../components/markdown";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires

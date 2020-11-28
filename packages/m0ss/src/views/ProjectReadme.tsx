@@ -1,5 +1,5 @@
 import { IArticleTarget } from "blog-types";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Article } from "./article";
 

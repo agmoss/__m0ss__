@@ -1,13 +1,11 @@
+import { IArticleTarget, IArticles } from "blog-types";
 import React, { useState } from "react";
 import useSWR from "swr";
 
-import { IArticleTarget, IArticles } from "blog-types";
-
-import { queryArticles, convertArticleToTarget } from "../gqlQuery";
 import { client } from "../gqlClient";
-
+import { convertArticleToTarget, queryArticles } from "../gqlQuery";
 import DashboardPresentation from "../pages/dashboard";
-import { Loading, Error } from "../pages/placeholders";
+import { Error, Loading } from "../pages/placeholders";
 
 const Dashboard = () => {
     const [articles, setArticles] = useState<IArticleTarget[] | null>(null);

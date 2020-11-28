@@ -1,6 +1,7 @@
+import { IArticle, IArticleTarget } from "blog-types";
+
 import { getText } from "./getData";
 import { getEndpoint } from "./gqlClient";
-import { IArticle, IArticleTarget } from "blog-types";
 
 export const queryProfile = `
     query {

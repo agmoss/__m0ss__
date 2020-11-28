@@ -2,39 +2,45 @@
     "name": "three-ui",
     "version": "1.1.0",
     "description": "React UI Component Library",
-    "author": "Andrew Moss <andrew@m0ss.dev>",
-    "homepage": "https://github.com/agmoss/m0ss#readme",
-    "license": "MIT",
-    "main": "dist/index.js",
-    "module": "dist/index.es.js",
-    "types": "dist/index.d.ts",
-    "directories": {
-        "src": "src",
-        "test": "__tests__"
-    },
-    "files": [
-        "dist"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/agmoss/m0ss.git"
-    },
     "keywords": [
         "ui",
         "library",
         "material"
     ],
-    "scripts": {
-        "prepare": "yarn run build",
-        "lint": "eslint --fix --ext .ts,.tsx .",
-        "pkg-ok": "pkg-ok",
-        "format": "prettier --write \"src/**/*.tsx\"",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prebuild": "rimraf dist",
-        "build": "rollup -c"
-    },
+    "homepage": "https://github.com/agmoss/m0ss#readme",
     "bugs": {
         "url": "https://github.com/agmoss/m0ss/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/agmoss/m0ss.git"
+    },
+    "license": "MIT",
+    "author": "Andrew Moss <andrew@m0ss.dev>",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "directories": {
+        "test": "__tests__",
+        "src": "src"
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "rollup -c",
+        "format": "prettier --write \"src/**/*.tsx\"",
+        "lint": "eslint --fix --ext .ts,.tsx .",
+        "pkg-ok": "pkg-ok",
+        "prepare": "yarn run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "lodash-es": "^4.17.15",
+        "react-color": "^2.18.1",
+        "react-spring": "^8.0.27",
+        "react-with-gesture": "^4.0.8"
     },
     "devDependencies": {
         "@types/react": "^16.9.36",
@@ -75,11 +81,5 @@
     "engines": {
         "node": "12.X",
         "yarn": ">=1.19.1"
-    },
-    "dependencies": {
-        "lodash-es": "^4.17.15",
-        "react-color": "^2.18.1",
-        "react-spring": "^8.0.27",
-        "react-with-gesture": "^4.0.8"
     }
 }

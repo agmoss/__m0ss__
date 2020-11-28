@@ -1,15 +1,14 @@
-import React from "react";
-
 import {
-    createStyles,
-    makeStyles,
     Container,
-    Grid,
     CssBaseline,
+    Grid,
+    LinearProgress,
     Theme,
     Typography,
-    LinearProgress,
+    createStyles,
+    makeStyles,
 } from "@material-ui/core";
+import React from "react";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

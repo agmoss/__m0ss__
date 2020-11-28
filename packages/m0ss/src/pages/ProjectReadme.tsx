@@ -1,10 +1,10 @@
+import { Grid, Theme, createStyles, makeStyles } from "@material-ui/core";
 import React, { useEffect } from "react";
-import { createStyles, makeStyles, Theme, Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
-import Header from "../views/header";
 import { withMarkdownView } from "../components/withMarkdownView";
 import { Footer } from "../views/footer";
-import { useHistory } from "react-router-dom";
+import Header from "../views/header";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

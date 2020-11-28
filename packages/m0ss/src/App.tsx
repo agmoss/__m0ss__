@@ -1,24 +1,23 @@
+import { CssBaseline, ThemeProvider, createMuiTheme } from "@material-ui/core";
 import React, { useState } from "react";
+import Circles from "react-circles";
 import {
     BrowserRouter,
     Route,
-    Switch,
     RouteComponentProps,
+    Switch,
 } from "react-router-dom";
-import { createMuiTheme, ThemeProvider, CssBaseline } from "@material-ui/core";
-import Circles from "react-circles";
 import { theme as customTheme, withFade } from "three-ui";
 
-import Landing from "./containers/landing";
-import Dashboard from "./containers/dashboard";
+import { withHelmet } from "./components/withHelmet";
 import ArticleContainer from "./containers/article";
+import Dashboard from "./containers/dashboard";
+import Landing from "./containers/landing";
 import MediaContainer from "./containers/media";
-
-import OffCircleWeb from "./pages/offcircleweb";
 import { ColorPage } from "./pages/color";
+import OffCircleWeb from "./pages/offcircleweb";
 import ProjectReadme from "./pages/ProjectReadme";
 import Signin from "./pages/signin";
-import { withHelmet } from "./components/withHelmet";
 
 interface IMatchParams {
     id: string;
@@ -35,7 +34,7 @@ const App = () => {
             "https://honeyyy.s3.us-west-2.amazonaws.com/landing_d2bb8f5328.markdown"
         )
             .then((response) => response.text())
-            .then((text) => setState({...state,text:text}))
+            .then((text) => setState({ ...state, text: text }))
             .then(() => setLoading(false));
     };
 
@@ -72,7 +71,14 @@ const App = () => {
     };
 
     const LandingWProps = () => {
-        return <Landing  loading={loading} setColor={setColor} text={state.text} fetchData={dataGetter} />;
+        return (
+            <Landing
+                loading={loading}
+                setColor={setColor}
+                text={state.text}
+                fetchData={dataGetter}
+            />
+        );
     };
 
     const WrappedProjectReadme = withHelmet({

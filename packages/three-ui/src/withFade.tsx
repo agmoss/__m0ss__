@@ -1,5 +1,5 @@
-import React, { ComponentType } from "react";
 import { Fade } from "@material-ui/core";
+import React, { ComponentType } from "react";
 
 export const withFade = (enterTimeout: number, exitTimeout: number) => <
     T extends object

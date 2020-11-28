@@ -1,16 +1,14 @@
-import React from "react";
-
 import {
-    Grid,
-    Container,
-    Typography,
-    makeStyles,
-    createStyles,
-    Theme,
-    CssBaseline,
     Button,
+    Container,
+    CssBaseline,
+    Grid,
+    Theme,
+    Typography,
+    createStyles,
+    makeStyles,
 } from "@material-ui/core";
-
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme: Theme) =>

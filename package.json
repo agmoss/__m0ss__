@@ -1,21 +1,31 @@
 {
-  "name": "root",
-  "version": "2.0.1",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "devDependencies": {
-    "lerna": "^3.22.1"
-  },
-  "scripts": {
-    "bootstrap": "lerna bootstrap --use-workspaces",
-    "bootstrap:clean": "lerna clean -y && lerna bootstrap --use-workspaces",
-    "lint": "lerna run lint --stream --parallel  --scope={m0ss,three-ui}",
-    "format": "lerna run format --stream --parallel  --scope={m0ss,three-ui}"
-  },
-  "engines": {
-    "node": "12.X",
-    "yarn": ">=1.19.1"
-  }
+    "name": "root",
+    "version": "2.0.1",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "import-sort-cli": "^6.0.0",
+        "import-sort-parser-babylon": "^6.0.0",
+        "import-sort-parser-typescript": "^6.0.0",
+        "import-sort-style-module": "^6.0.0",
+        "lerna": "^3.22.1",
+        "markdownlint-cli": "^0.25.0",
+        "sort-package-json": "^1.48.0"
+    },
+    "scripts": {
+        "bootstrap": "lerna bootstrap --use-workspaces",
+        "bootstrap:clean": "lerna clean -y && lerna bootstrap --use-workspaces",
+        "build": "lerna run build --stream --scope={m0ss,three-ui,blog-types}",
+        "lint": "lerna run lint --stream --parallel  --scope={m0ss,three-ui,blog-types}",
+        "format": "lerna run format --stream --parallel  --scope={m0ss,three-ui,blog-types}",
+        "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
+        "format-package-json": "sort-package-json 'packages/*/package.json'",
+        "lint-markdown": "markdownlint --ignore coverage --ignore dist --ignore **/node_modules/** '**/*.md' '.**/**/*.md'"
+    },
+    "engines": {
+        "node": "12.X",
+        "yarn": ">=1.19.1"
+    }
 }

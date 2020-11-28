@@ -24,30 +24,33 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: "module",
     },
-    plugins: ["react", "@typescript-eslint","jsx-a11y", "prettier",  "react-hooks"],
+    plugins: [
+        "react",
+        "@typescript-eslint",
+        "jsx-a11y",
+        "prettier",
+        "react-hooks",
+    ],
     settings: {
         "import/resolver": {
             node: {
                 paths: ["src"],
-                extensions: [".js", ".jsx", ".ts", ".tsx"]
+                extensions: [".js", ".jsx", ".ts", ".tsx"],
             },
         },
     },
     rules: {
         "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "react/prop-types": "off",
         "react/jsx-filename-extension": "off",
         "react/jsx-props-no-spreading": "off",
         "import/prefer-default-export": "off",
         "react-hooks/rules-of-hooks": "error",
-        'no-plusplus': 'off',
-        'no-shadow':'off',
-        "@typescript-eslint/interface-name-prefix": [
-            "error",
-            {
-                prefixWithI: "always",
-            },
-        ],
+        "no-plusplus": "off",
+        "no-shadow": "off",
+        "@typescript-eslint/interface-name-prefix": "off",
+        "@typescript-eslint/camelcase": "off",
         "import/extensions": [
             "error",
             "ignorePackages",

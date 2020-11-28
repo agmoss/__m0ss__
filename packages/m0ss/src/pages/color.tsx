@@ -1,9 +1,9 @@
+import { Grid, createStyles, makeStyles, useTheme } from "@material-ui/core";
 import React from "react";
-import { createStyles, makeStyles, Grid, useTheme } from "@material-ui/core";
 import { ChromePicker, ColorResult } from "react-color";
 
-import Header from "../views/header";
 import { Footer } from "../views/footer";
+import Header from "../views/header";
 
 const useStyles = makeStyles(() =>
     createStyles({

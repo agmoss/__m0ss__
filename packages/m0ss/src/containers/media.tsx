@@ -1,15 +1,14 @@
+import axios from "axios";
+import { IMedia } from "blog-types";
+import FileDownload from "js-file-download";
 import React, { useState } from "react";
 import useSWR from "swr";
 import Cookies from "universal-cookie";
-import axios from "axios";
-import FileDownload from "js-file-download";
 
-import { IMedia } from "blog-types";
 import { client } from "../gqlClient";
 import { queryMedia } from "../gqlQuery";
-
-import { Loading, Error } from "../pages/placeholders";
 import MediaPage from "../pages/media";
+import { Error, Loading } from "../pages/placeholders";
 
 const MediaContainer = () => {
     const cookies = new Cookies();

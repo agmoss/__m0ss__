@@ -2,39 +2,39 @@
     "name": "blog-types",
     "version": "1.1.0",
     "description": "Interfaces for blog data structures",
-    "author": "Andrew Moss <andrew@m0ss.dev>",
-    "homepage": "https://github.com/agmoss/m0ss#readme",
-    "license": "MIT",
-    "main": "dist/blog-types.js",
-    "module": "dist/blog-types.js",
-    "types": "dist/blog-types.d.ts",
-    "directories": {
-        "src": "src",
-        "test": "__tests__",
-        "dist": "dist"
-    },
-    "files": [
-        "dist"
-    ],
     "keywords": [
         "remote",
         "blog",
         "ts"
     ],
+    "homepage": "https://github.com/agmoss/m0ss#readme",
+    "bugs": {
+        "url": "https://github.com/agmoss/m0ss/issues"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/agmoss/m0ss.git"
     },
+    "license": "MIT",
+    "author": "Andrew Moss <andrew@m0ss.dev>",
+    "main": "dist/blog-types.js",
+    "module": "dist/blog-types.js",
+    "types": "dist/blog-types.d.ts",
+    "directories": {
+        "test": "__tests__",
+        "dist": "dist",
+        "src": "src"
+    },
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "prepare": "yarn run build",
+        "prebuild": "rimraf dist",
+        "build": "tsc",
         "lint": "eslint --fix --ext .ts,.tsx .",
         "pkg-ok": "pkg-ok",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prebuild": "rimraf dist",
-        "build": "tsc"
-    },
-    "bugs": {
-        "url": "https://github.com/agmoss/m0ss/issues"
+        "prepare": "yarn run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^3.9.0",

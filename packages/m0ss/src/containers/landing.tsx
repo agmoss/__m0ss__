@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
 import { IProfile } from "blog-types";
+import React, { useEffect } from "react";
 
 import { Landing as LandingPage } from "../pages/landing";
 import { Loading } from "../pages/placeholders";
@@ -12,12 +12,11 @@ interface ILanding {
 }
 
 const LandingContainer = ({ text, fetchData, loading, setColor }: ILanding) => {
-
     useEffect(() => {
         if (text.length < 10) {
-            fetchData()
+            fetchData();
         }
-    },[text, fetchData]);
+    }, [text, fetchData]);
 
     const profile: IProfile = {
         profile: {

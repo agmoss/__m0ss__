@@ -1,11 +1,10 @@
+import { IArticle, IArticleTarget } from "blog-types";
 import React, { useState } from "react";
 import useSWR from "swr";
 
-import { IArticleTarget, IArticle } from "blog-types";
 import { client } from "../gqlClient";
-import { queryArticle, convertArticleToTarget } from "../gqlQuery";
-
-import { Loading, Error } from "../pages/placeholders";
+import { convertArticleToTarget, queryArticle } from "../gqlQuery";
+import { Error, Loading } from "../pages/placeholders";
 import { Article } from "../views/article";
 
 interface IArticleContainer {

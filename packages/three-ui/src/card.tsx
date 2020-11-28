@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSpring, animated as a } from "react-spring";
+import { animated as a, useSpring } from "react-spring";
 
 interface IProps {
     primary: string;

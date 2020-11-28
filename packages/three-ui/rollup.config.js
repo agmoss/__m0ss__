@@ -1,12 +1,13 @@
-import typescript from "rollup-plugin-typescript2";
-import commonjs from "rollup-plugin-commonjs";
-import external from "rollup-plugin-peer-deps-external";
-import resolve from "rollup-plugin-node-resolve";
-import pkg from "./package.json";
-import postcss from "rollup-plugin-postcss";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import autoprefixer from "autoprefixer";
+import commonjs from "rollup-plugin-commonjs";
 import embedCSS from "rollup-plugin-embed-css";
+import resolve from "rollup-plugin-node-resolve";
+import external from "rollup-plugin-peer-deps-external";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import postcss from "rollup-plugin-postcss";
+import typescript from "rollup-plugin-typescript2";
+
+import pkg from "./package.json";
 
 export default {
     input: "src/index.tsx",

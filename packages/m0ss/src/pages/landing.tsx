@@ -1,9 +1,9 @@
-import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core";
 import { IProfile } from "blog-types";
+import React from "react";
 
-import Header from "../views/header";
 import { Footer } from "../views/footer";
+import Header from "../views/header";
 import { Hero } from "../views/hero";
 import { MainContent } from "../views/mainContent";
 

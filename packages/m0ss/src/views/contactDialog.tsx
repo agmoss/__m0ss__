@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-
 import {
     Button,
     Dialog,
+    FormControl,
+    IconButton,
+    InputAdornment,
     DialogActions as MuiDialogActions,
     DialogContent as MuiDialogContent,
     DialogTitle as MuiDialogTitle,
-    IconButton,
-    Typography,
-    FormControl,
-    InputAdornment,
-    createStyles,
     Theme,
-    withStyles,
+    Typography,
+    createStyles,
     makeStyles,
+    withStyles,
 } from "@material-ui/core";
-
-import { Person, Email, Close as CloseIcon } from "@material-ui/icons";
-
+import { Close as CloseIcon, Email, Person } from "@material-ui/icons";
 import emailjs from "emailjs-com";
-
-import { Snacks, Severity, TextField } from "three-ui";
+import React, { useState } from "react";
+import { Severity, Snacks, TextField } from "three-ui";
 
 export const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -113,9 +109,7 @@ export const ContactDialog = ({ open, setOpen }: IDialogProps) => {
     const sendFeedback = () => {
         const templateParams = {
             message,
-            // eslint-disable-next-line @typescript-eslint/camelcase
             reply_to: email,
-            // eslint-disable-next-line @typescript-eslint/camelcase
             from_name: fromName,
         };
 

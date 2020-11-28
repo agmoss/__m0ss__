@@ -1,14 +1,14 @@
-import theme from "./theme";
-import { withTheme } from "./withTheme";
+import { Card } from "./card";
 import ColorPicker from "./ColorPicker";
 import IconButton from "./iconButton";
 import Link from "./link";
-import { Severity, severity, Snacks } from "./Snacks";
+import { Severity, Snacks, severity } from "./Snacks";
 import TextField from "./TextField";
+import theme from "./theme";
 import { withFade } from "./withFade";
 import { withLoading } from "./withLoading";
-import { Card } from "./card";
 import { withPull } from "./withPull";
+import { withTheme } from "./withTheme";
 
 export {
     theme,
