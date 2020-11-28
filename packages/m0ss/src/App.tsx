@@ -1,6 +1,5 @@
 import { CssBaseline, ThemeProvider, createMuiTheme } from "@material-ui/core";
 import React, { useState } from "react";
-import Circles from "react-circles";
 import {
     BrowserRouter,
     Route,
@@ -21,6 +20,7 @@ import {
     WrappedReactCirclesDemo,
     WrappedSignin,
 } from "./pages";
+import { useThemeSelection } from "./theme/redux/hooks";
 
 interface IMatchParams {
     id: string;
@@ -32,21 +32,21 @@ const App = () => {
     const [state, setState] = useState({ text: "" });
     const [color, setColor] = useState("#e91e63");
 
-    const [dark, setDark] = useState(true);
+    const __theme__ = useThemeSelection();
 
     const theme = React.useMemo(
         () =>
             createMuiTheme({
                 ...customTheme,
                 palette: {
-                    type: dark ? "dark" : "light",
+                    type: __theme__.theme === "dark" ? "dark" : "light",
                     primary: {
                         ...customTheme.palette.primary,
                         main: color,
                     },
                 },
             }),
-        [dark, color]
+        [__theme__.theme, color]
     );
 
     const dataGetter = () => {
@@ -56,24 +56,6 @@ const App = () => {
             .then((response) => response.text())
             .then((text) => setState({ ...state, text: text }))
             .then(() => setLoading(false));
-    };
-
-    const ReactCirclesDemo = () => {
-        return (
-            <div
-                style={{
-                    height: window.innerHeight,
-                    width: window.innerWidth,
-                    maxWidth: "100%",
-                    maxHeight: "100%",
-                    overflowX: "hidden",
-                    overflowY: "hidden",
-                    backgroundColor: "black",
-                }}
-            >
-                <Circles numCircles={60} speed="slow" />
-            </div>
-        );
     };
 
     const LandingWProps = () => {
@@ -107,7 +89,7 @@ const App = () => {
                         <WrappedDashboard />
                     </Route>
                     <Route path="/react-circles">
-                        <ReactCirclesDemo />
+                        <WrappedReactCirclesDemo />
                     </Route>
                     <Route path="/offcircle">
                         <div

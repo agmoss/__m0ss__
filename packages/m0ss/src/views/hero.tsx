@@ -60,12 +60,7 @@ export const Hero = ({ primary, secondary, bio }: IProps) => {
         <>
             <CssBaseline />
             <Container maxWidth="lg">
-                <Grid
-                    container
-                    // alignItems="stretch"
-                    // direction="row"
-                    spacing={5}
-                >
+                <Grid container spacing={5}>
                     <Grid item xs={12} sm={12} md={6} lg={4}>
                         <Box className={classes.main}>
                             <Card primary={primary} secondary={secondary} />

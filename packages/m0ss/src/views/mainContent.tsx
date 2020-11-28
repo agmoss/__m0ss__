@@ -84,7 +84,7 @@ export const MainContent = ({ md, setColor }: IMainContent) => {
     const AboutPaper = () => (
         <Grid container spacing={2}>
             <Grid item xs={12}>
-                <Paper elevation={0} className={classes.sidebarAboutBox}>
+                <Paper className={classes.sidebarAboutBox}>
                     <Grid container justify="space-between">
                         <Grid item>
                             <Typography variant="h5" gutterBottom>

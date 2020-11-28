@@ -9,13 +9,19 @@ import {
     Typography,
     createStyles,
     makeStyles,
+    Switch,
 } from "@material-ui/core";
 import { Apps, GitHub, LinkedIn, Mail } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { IconButton } from "three-ui";
+import { useDispatch } from "react-redux";
+import { compose } from "redux";
 
 import { ContactDialog } from "./contactDialog";
+
+import { actions as themeActions } from "../theme/redux/model";
+import { useThemeSelection } from "../theme/redux/hooks";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -29,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
             outline: 0,
         },
         appBar: {
-            backgroundColor: "#303030",
+            backgroundColor: theme.palette.background.default,
         },
         root: {
             paddingBottom: theme.spacing(2),
@@ -54,7 +60,17 @@ const useStyles = makeStyles((theme: Theme) =>
 const Header = () => {
     const classes = useStyles();
     const history = useHistory();
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
+
+    const __theme__ = useThemeSelection();
+    const setTheme = compose(dispatch, themeActions.setTheme);
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const handleChange = (_event: React.ChangeEvent<HTMLInputElement>) => {
+        __theme__.theme === "dark" ? setTheme("light") : setTheme("dark");
+    };
+
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -85,6 +101,12 @@ const Header = () => {
                                 m0ss
                             </Typography>
                         </div>
+                        <Switch
+                            checked={__theme__.theme !== "dark"}
+                            onChange={handleChange}
+                            name="checkedA"
+                            inputProps={{ "aria-label": "secondary checkbox" }}
+                        />
                         <IconButton
                             onClick={() => {
                                 history.push("/content");
