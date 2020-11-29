@@ -1,3 +1,4 @@
+import { CircularProgress } from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -9,11 +10,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { compose } from "redux";
 import { Severity, Snacks } from "three-ui";
-import Cookies from "universal-cookie";
+
+import { useToken } from "../redux/hooks";
+import { actions as userActions } from "../redux/model";
 
 function Copyright() {
     return (
@@ -68,37 +72,21 @@ export default function SignInSide() {
     const [openSnack, setOpenSnack] = useState(false);
     const [message] = useState("Password Error");
 
+    const token = useToken();
+
+    const dispatch = useDispatch();
+    const login = compose(dispatch, userActions.userLogin);
+
     const history = useHistory();
-    const cookies = new Cookies();
 
-    const getEndpoint = () => {
-        let ENDPOINT = "";
-        if (process.env.NODE_ENV === "development") {
-            ENDPOINT = "http://localhost:1337/auth/local";
-        } else if (process.env.NODE_ENV === "production") {
-            ENDPOINT = "https://honeyy.azurewebsites.net/auth/local";
+    useEffect(() => {
+        if (token === "Fail") {
+            setOpenSnack(true);
         }
-        return ENDPOINT;
-    };
-
-    const onClick = () => {
-        axios
-            .post(getEndpoint(), {
-                identifier: email,
-                password: password,
-            })
-            .then((response: { data: { user: any; jwt: any } }) => {
-                cookies.set("ahhhh", response.data.jwt, {
-                    path: "/",
-                    sameSite: "strict",
-                });
-                history.push("/media");
-            })
-            .catch((error: { response: any }) => {
-                console.log("An error occurred:", error.response);
-                setOpenSnack(true);
-            });
-    };
+        if (token !== "Init" && token !== "Pend" && token !== "Fail") {
+            history.push("/media");
+        }
+    }, [token, history]);
 
     return (
         <Grid container component="main" className={classes.root}>
@@ -159,15 +147,25 @@ export default function SignInSide() {
                                 setPassword(event.target.value);
                             }}
                         />
-                        <Button
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className={classes.submit}
-                            onClick={onClick}
-                        >
-                            Sign In
-                        </Button>
+                        {token === "Pend" ? (
+                            <CircularProgress />
+                        ) : (
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                color="primary"
+                                className={classes.submit}
+                                onClick={() =>
+                                    login({
+                                        password: password,
+                                        identifier: email,
+                                    })
+                                }
+                            >
+                                Sign In
+                            </Button>
+                        )}
+
                         <Box mt={5}>
                             <Copyright />
                         </Box>

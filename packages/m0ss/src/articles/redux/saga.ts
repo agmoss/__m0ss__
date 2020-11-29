@@ -1,10 +1,10 @@
-import { IArticle, IArticles, IArticleTarget } from "blog-types";
-
-import { all, put, takeLatest, call } from "redux-saga/effects";
-import { createAsyncAction } from "typesafe-actions";
-import { client, getEndpoint } from "../../gqlClient";
-import { getText } from "../../getData";
+import { IArticle, IArticleTarget, IArticles } from "blog-types";
 import { Variables } from "graphql-request/dist/types";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { createAsyncAction } from "typesafe-actions";
+
+import { getText } from "../../getData";
+import { client, getEndpoint } from "../../gqlClient";
 
 const fetcher = <F, P>(q: string, a?: F) => client.request<P>(q, a);
 const fetcher2 = <F, P>(q: string, a: Variables) => client.request<P>(q, a);

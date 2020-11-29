@@ -89,6 +89,18 @@ export const Footer = () => {
                                                 README
                                             </Button>
                                         </li>
+                                        <li>
+                                            <Button
+                                                size="large"
+                                                className={classes.button}
+                                                onClick={() =>
+                                                    history.push("/signin")
+                                                }
+                                                role="link"
+                                            >
+                                                SIGNIN
+                                            </Button>
+                                        </li>
                                     </ul>
                                 </Grid>
                             </Grid>

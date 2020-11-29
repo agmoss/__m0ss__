@@ -1,4 +1,5 @@
 import { ActionType, action } from "typesafe-actions";
+import Cookies from "universal-cookie";
 
 type __Theme__ = "dark" | "light";
 
@@ -19,17 +20,27 @@ export const actions = {
 
 type ThemeActionType = ActionType<typeof actions>;
 
+const cookies = new Cookies();
+
 export const reducer = (
     state: IModel = initialState,
     action: ThemeActionType
 ): IModel => {
     switch (action.type) {
         case "SET_THEME":
+            cookies.set("theme", action.payload.theme, {
+                path: "/",
+                sameSite: "strict",
+            });
             return {
                 ...state,
                 theme: action.payload.theme,
             };
         case "SET_COLOR":
+            cookies.set("color", action.payload.color, {
+                path: "/",
+                sameSite: "strict",
+            });
             return {
                 ...state,
                 color: action.payload.color,

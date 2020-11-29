@@ -1,13 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { compose } from "redux";
 
 import withPage from "../../components/withPage";
 import { Error, Loading } from "../../pages/placeholders";
 import { Article } from "../../views/article";
-
-import { useDispatch } from "react-redux";
-import { compose } from "redux";
-import { actions as articleActions } from "../redux/model";
 import { useArticle } from "../redux/hooks";
+import { actions as articleActions } from "../redux/model";
 
 interface IArticleContainer {
     id: string;

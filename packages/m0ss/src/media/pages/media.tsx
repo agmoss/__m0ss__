@@ -5,7 +5,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { IMedia } from "blog-types";
@@ -40,11 +39,9 @@ const useStyles = makeStyles((theme) => ({
 
 interface IMediaPage {
     media: IMedia;
-    downloader: (url: string) => Promise<void>;
-    loading: boolean;
 }
 
-export default function Media({ media, downloader, loading }: IMediaPage) {
+export default function Media({ media }: IMediaPage) {
     const classes = useStyles();
 
     return (
@@ -92,7 +89,6 @@ export default function Media({ media, downloader, loading }: IMediaPage) {
                                             {m.title}
                                         </Typography>
                                     </CardContent>
-                                    {loading ? <LinearProgress /> : null}
                                     <CardActions>
                                         <a
                                             href={m.asset.url}
@@ -100,7 +96,6 @@ export default function Media({ media, downloader, loading }: IMediaPage) {
                                             download
                                         >
                                             <Button
-                                                disabled={loading}
                                                 size="small"
                                                 color="primary"
                                             >

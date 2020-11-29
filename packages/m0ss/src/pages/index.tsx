@@ -2,13 +2,13 @@ import React from "react";
 import Circles from "react-circles";
 import { withFade } from "three-ui";
 
+import Dashboard from "../articles/containers/dashboard";
 import { withHelmet } from "../components/withHelmet";
 import withPage from "../components/withPage";
-import Dashboard from "../articles/containers/dashboard";
-import MediaContainer from "../containers/media";
+import MediaContainer from "../media/containers/media";
+import Signin from "../user/pages/signin";
 import OffCircleWeb from "./offcircleweb";
 import ProjectReadme from "./ProjectReadme";
-import Signin from "./signin";
 
 const ReactCirclesDemo = () => {
     return (

@@ -14,6 +14,7 @@ const initialState: IArticleModel = {
 };
 
 export const actions = {
+    resetArticleState: () => action("RESET_ARTICLE_STATE"),
     fetchArticle: (id: string) => action("FETCH_ARTICLE", id),
     receiveArticle: (v: IArticleTarget) => action("RECEIVE_ARTICLE", v),
     fetchArticleError: (e: string) => action("FETCH_ARTICLE_ERROR", { e }),
@@ -29,6 +30,12 @@ export const reducer = (
     action: ArticlesActionType
 ): IArticleModel => {
     switch (action.type) {
+        case "RESET_ARTICLE_STATE": {
+            return {
+                ...state,
+                art: "Init",
+            };
+        }
         case "FETCH_ARTICLE":
             return {
                 ...state,
