@@ -11,9 +11,12 @@ import {
 } from "@material-ui/core";
 import { ThumbUp } from "@material-ui/icons";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { compose } from "redux";
 import { ColorPicker, IconButton, Snacks, severity } from "three-ui";
 
 import MarkdownComponent from "../components/markdown";
+import { actions as themeActions } from "../theme/redux/model";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const randomWords = require("random-words");
@@ -56,13 +59,16 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface IMainContent {
     md: string;
-    setColor: (color: string) => void;
 }
 
-export const MainContent = ({ md, setColor }: IMainContent) => {
+export const MainContent = ({ md }: IMainContent) => {
     const classes = useStyles();
-
     const [openSnack, setOpenSnack] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const setColor = compose(dispatch, themeActions.setColor);
+
     const [message, setMessage] = useState(
         randomWords({ exactly: 5, join: " " })
     );

@@ -3,6 +3,7 @@ import ColorPicker from "./ColorPicker";
 import IconButton from "./iconButton";
 import Link from "./link";
 import { Severity, Snacks, severity } from "./Snacks";
+import { Switch } from "./Switch";
 import TextField from "./TextField";
 import theme from "./theme";
 import { withFade } from "./withFade";
@@ -24,4 +25,5 @@ export {
     withLoading,
     Card,
     withPull,
+    Switch,
 };

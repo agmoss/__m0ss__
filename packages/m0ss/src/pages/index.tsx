@@ -1,6 +1,5 @@
 import React from "react";
 import Circles from "react-circles";
-
 import { withFade } from "three-ui";
 
 import { withHelmet } from "../components/withHelmet";

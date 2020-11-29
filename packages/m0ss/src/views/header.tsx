@@ -9,19 +9,17 @@ import {
     Typography,
     createStyles,
     makeStyles,
-    Switch,
 } from "@material-ui/core";
 import { Apps, GitHub, LinkedIn, Mail } from "@material-ui/icons";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { IconButton } from "three-ui";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { compose } from "redux";
+import { IconButton, Switch } from "three-ui";
 
-import { ContactDialog } from "./contactDialog";
-
-import { actions as themeActions } from "../theme/redux/model";
 import { useThemeSelection } from "../theme/redux/hooks";
+import { actions as themeActions } from "../theme/redux/model";
+import { ContactDialog } from "./contactDialog";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({

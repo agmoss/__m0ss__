@@ -1,8 +1,8 @@
 import { IArticle, IArticleTarget } from "blog-types";
 import React, { useState } from "react";
 import useSWR from "swr";
-import withPage from "../components/withPage";
 
+import withPage from "../components/withPage";
 import { client } from "../gqlClient";
 import { convertArticleToTarget, queryArticle } from "../gqlQuery";
 import { Error, Loading } from "../pages/placeholders";

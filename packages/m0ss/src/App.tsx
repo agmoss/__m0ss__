@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider, createMuiTheme } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import {
     BrowserRouter,
     Route,
@@ -11,15 +11,15 @@ import { theme as customTheme } from "three-ui";
 import { withHelmet } from "./components/withHelmet";
 import withPage from "./components/withPage";
 import ArticleContainer from "./containers/article";
-import Landing from "./containers/landing";
 import {
-    WrappedMedia,
-    WrappedProjectReadme,
     WrappedDashboard,
+    WrappedMedia,
     WrappedOffCircleWeb,
+    WrappedProjectReadme,
     WrappedReactCirclesDemo,
     WrappedSignin,
 } from "./pages";
+import Landing from "./profile/containers/landing";
 import { useThemeSelection } from "./theme/redux/hooks";
 
 interface IMatchParams {
@@ -28,10 +28,6 @@ interface IMatchParams {
 type IMatchProps = RouteComponentProps<IMatchParams>;
 
 const App = () => {
-    const [loading, setLoading] = useState(true);
-    const [state, setState] = useState({ text: "" });
-    const [color, setColor] = useState("#e91e63");
-
     const __theme__ = useThemeSelection();
 
     const theme = React.useMemo(
@@ -42,31 +38,15 @@ const App = () => {
                     type: __theme__.theme === "dark" ? "dark" : "light",
                     primary: {
                         ...customTheme.palette.primary,
-                        main: color,
+                        main: __theme__.color,
                     },
                 },
             }),
-        [__theme__.theme, color]
+        [__theme__.theme, __theme__.color]
     );
 
-    const dataGetter = () => {
-        fetch(
-            "https://honeyyy.s3.us-west-2.amazonaws.com/landing_d2bb8f5328.markdown"
-        )
-            .then((response) => response.text())
-            .then((text) => setState({ ...state, text: text }))
-            .then(() => setLoading(false));
-    };
-
     const LandingWProps = () => {
-        return (
-            <Landing
-                loading={loading}
-                setColor={setColor}
-                text={state.text}
-                fetchData={dataGetter}
-            />
-        );
+        return <Landing />;
     };
 
     const WrappedLanding = withHelmet({

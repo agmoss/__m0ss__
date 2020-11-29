@@ -1,12 +1,6 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core";
-// import * as colors from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
-    // palette: {
-    //     primary: {
-    //         main: colors.pink[500],
-    //     },
-    // },
     typography: {
         fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
         fontWeightLight: 300,
