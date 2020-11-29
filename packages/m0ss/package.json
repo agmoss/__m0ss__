@@ -1,6 +1,6 @@
 {
   "name": "m0ss",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Personal Site",
   "keywords": [],
@@ -38,7 +38,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.56",
     "axios": "^0.19.2",
-    "blog-types": "^1.1.0",
+    "blog-types": "^1.1.1",
     "connected-react-router": "^6.8.0",
     "emailjs-com": "^2.4.1",
     "graphql": "^15.4.0",
@@ -69,7 +69,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.1.3",
     "swr": "^0.2.3",
-    "three-ui": "^1.1.0",
+    "three-ui": "^1.1.1",
     "typescript": "^3.9.5",
     "universal-cookie": "^4.0.3"
   },
