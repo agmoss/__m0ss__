@@ -155,6 +155,7 @@ export default function SignInSide() {
                                 variant="contained"
                                 color="primary"
                                 className={classes.submit}
+                                disabled={token === "Pend"}
                                 onClick={() =>
                                     login({
                                         password: password,

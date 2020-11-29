@@ -2,6 +2,7 @@ import { IMedia } from "blog-types";
 import React, { useState } from "react";
 import useSWR from "swr";
 import Cookies from "universal-cookie";
+import withPage from "../../components/withPage";
 
 import { client } from "../../gqlClient";
 import { queryMedia } from "../../gqlQuery";
@@ -37,4 +38,4 @@ const MediaContainer = () => {
     return <MediaPage media={media} />;
 };
 
-export default MediaContainer;
+export default withPage(MediaContainer);

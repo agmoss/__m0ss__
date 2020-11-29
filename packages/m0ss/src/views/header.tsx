@@ -75,7 +75,7 @@ const Header = () => {
             <ContactDialog open={open} setOpen={setOpen} />
             <AppBar className={classes.appBar} position="fixed" elevation={0}>
                 <Container maxWidth="lg">
-                    <Toolbar>
+                    <Toolbar disableGutters={true}>
                         <div
                             role="menuitem"
                             tabIndex={0}
@@ -103,7 +103,9 @@ const Header = () => {
                             checked={__theme__.theme !== "dark"}
                             onChange={handleChange}
                             name="checkedA"
-                            inputProps={{ "aria-label": "secondary checkbox" }}
+                            inputProps={{
+                                "aria-label": "secondary checkbox",
+                            }}
                         />
                         <IconButton
                             onClick={() => {
