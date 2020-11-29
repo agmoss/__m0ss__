@@ -4,7 +4,7 @@ import { withFade } from "three-ui";
 
 import { withHelmet } from "../components/withHelmet";
 import withPage from "../components/withPage";
-import Dashboard from "../containers/dashboard";
+import Dashboard from "../articles/containers/dashboard";
 import MediaContainer from "../containers/media";
 import OffCircleWeb from "./offcircleweb";
 import ProjectReadme from "./ProjectReadme";

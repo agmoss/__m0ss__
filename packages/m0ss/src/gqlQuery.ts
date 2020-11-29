@@ -1,9 +1,10 @@
 import { IArticle, IArticleTarget } from "blog-types";
+import gql from "graphql-tag";
 
 import { getText } from "./getData";
 import { getEndpoint } from "./gqlClient";
 
-export const queryProfile = `
+export const queryProfile = gql`
     query {
         profile(id: "5eb836852461d119fd37aada") {
             firstName
@@ -22,17 +23,17 @@ export const queryProfile = `
     }
 `;
 
-export const queryArticles = `
+export const queryArticles = gql`
     query {
-        articles{
+        articles {
             id
             title
             description
             internalLink
-            image{
+            image {
                 url
             }
-            markdown{
+            markdown {
                 url
             }
             markdownLink
@@ -41,27 +42,26 @@ export const queryArticles = `
     }
 `;
 
-export const queryArticle = `
-    query article($id:ID!){
-        article(id:$id){
+export const queryArticle = gql`
+    query article($id: ID!) {
+        article(id: $id) {
             id
             title
             description
             internalLink
-            image{
+            image {
                 url
             }
-            markdown{
+            markdown {
                 url
             }
             markdownLink
             externalLink
         }
     }
-
 `;
 
-export const queryMedia = `
+export const queryMedia = gql`
     query {
         images {
             title
