@@ -27,14 +27,14 @@ export class Article {
     markdown: string;
 
     @Field()
-    @Column()
-    internal_link: string;
+    @Column({name:"internal_link"})
+    internalLink: string;
 
     @Field()
-    @Column()
-    external_link: string;
+    @Column({name:"external_link"})
+    externalLink: string;
 
     @Field()
-    @Column({ default: true })
+    @Column({ default: true, name:"is_active" })
     isActive: boolean;
 }

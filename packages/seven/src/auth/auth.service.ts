@@ -1,6 +1,7 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { JwtService } from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
+import { User } from "../users/user.entity";
 import { UsersService } from "../users/users.service";
 
 @Injectable()
@@ -10,8 +11,8 @@ export class AuthService {
         private jwtService: JwtService
     ) {}
 
-    async validateUser(username: string, pass: string): Promise<any> {
-        const user = await this.usersService.findOne(username);
+    async validateUser(userName: string, pass: string): Promise<User> {
+        const user = await this.usersService.findOne(userName);
 
         if (!user) {
             throw new ForbiddenException("User not found!");
@@ -27,9 +28,13 @@ export class AuthService {
     }
 
     async login(user: any) {
-        const payload = { username: user.username, sub: user.userId };
+        // const payload = { username: user.username, sub: user.userId };
+
+        const _user = await this.validateUser(user.userName, user.password)
+
+        const payload = { username: _user.userName, sub: _user.id }
         return {
-            access_token: this.jwtService.sign(payload),
+            accessToken: this.jwtService.sign(payload),
         };
     }
 }

@@ -5,7 +5,7 @@ import { Length, MaxLength } from "class-validator";
 export class UserInput {
     @Field()
     @MaxLength(30)
-    user_name: string;
+    userName: string;
 
     @Field()
     @Length(30, 50)

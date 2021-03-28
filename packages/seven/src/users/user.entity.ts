@@ -1,5 +1,6 @@
 import { Field, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Roles } from "../roles/roles.entity";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({
     name: "users",
@@ -11,14 +12,23 @@ export class User {
     id: number;
 
     @Field()
-    @Column()
-    user_name: string;
+    @Column({name:"user_name"})
+    userName: string;
 
     @Field()
     @Column()
     password: string;
 
-    @Field()
-    @Column({ default: true })
+    @Field({name:"is_active" })
+    @Column({ default: true, name:"is_active" })
     isActive: boolean;
+
+    @ManyToMany(type => Roles, role => role.role, {
+        nullable: false,
+        eager: true,
+    })
+    @JoinTable()
+    roles: Roles[];
 }
+
+

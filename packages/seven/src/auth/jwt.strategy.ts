@@ -12,14 +12,14 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     constructor(private readonly usersService: UsersService) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-            ignoreExpiration: false,
+            ignoreExpiration: true,
             secretOrKey: SECRET,
         });
     }
 
     async validate(payload: any) {
+        console.log(payload)
         const user = await this.usersService.findById(payload.sub);
-
         return pipe(
             user,
             E.fold<ForbiddenException, User, ForbiddenException | User>(

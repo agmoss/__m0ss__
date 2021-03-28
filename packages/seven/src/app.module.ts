@@ -11,6 +11,7 @@ import { MediaModule } from "./media/media.module";
 import { UsersModule } from "./users/users.module";
 import { AuthModule } from "./auth/auth.module";
 import { AuthController } from "./auth/auth.controller";
+import { RolesModule } from "./roles/roles.module";
 
 @Module({
     imports: [
@@ -25,6 +26,7 @@ import { AuthController } from "./auth/auth.controller";
         MediaModule,
         UsersModule,
         AuthModule,
+        RolesModule
     ],
     controllers: [AppController, AuthController],
     providers: [AppService],

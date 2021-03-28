@@ -19,9 +19,9 @@ export class ArticleInput {
     @Length(1, 255)
     markdown: string;
 
-    @Field({ name: "internal_link" })
+    @Field()
     internalLink: string;
 
-    @Field({ name: "external_link" })
+    @Field()
     externalLink: string;
 }

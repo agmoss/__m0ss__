@@ -8,7 +8,7 @@ export class UsersResolver {
     constructor(private readonly usersService: UsersService) {}
 
     @Query((returns) => User)
-    async Users(@Args("user_name") userName: string): Promise<User> {
+    async Users(@Args("userName") userName: string): Promise<User> {
         return await this.usersService.findOne(userName);
     }
 

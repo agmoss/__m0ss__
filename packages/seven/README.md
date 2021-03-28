@@ -8,6 +8,7 @@
 curl 'http://localhost:3000/graphql' \
 -X POST \
 -H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJpYXQiOjE2MTY5NTg1ODksImV4cCI6MTYxNjk1ODY0OX0.ttMRtlG_5F4kSPSDhVKelkXuHLIrFZeiP4HMg3MDE4I" \
 --data '{
     "query": "mutation addArticle($newArticle:ArticleInput!){addArticle(newArticle:$newArticle){title} } ",
      "variables": {
@@ -16,8 +17,8 @@ curl 'http://localhost:3000/graphql' \
              "description":"sample",
              "image":"sample.jpeg",
              "markdown":"sample.md",
-             "internal_link":"/sample",
-             "external_link":"/sample"
+             "internalLink":"/sample",
+             "externalLink":"/sample"
         }
     }
 }'
@@ -40,11 +41,11 @@ curl 'http://localhost:3000/graphql' \
 -X POST \
 -H "Content-Type: application/json" \
 --data '{
-    "query": "mutation addUser($newUser:UserInput!){addUser(newUser:$newUser){user_name} } ",
+    "query": "mutation addUser($newUser:UserInput!){addUser(newUser:$newUser){userName} } ",
      "variables": {
          "newUser":{
-             "user_name":"sample",
-             "password":"XXXXXXXXXXXXXXX"
+             "userName":"sample",
+             "password":"XXXXXXX"
         }
     }
 }'
@@ -63,11 +64,11 @@ curl 'http://localhost:3000/graphql' \
 -X POST \
 -H "Content-Type: application/json" \
 --data '{
-    "query": "mutation login($loginInput:LoginInput!){login(loginInput:$loginInput){access_token} } ",
+    "query": "mutation login($loginInput:LoginInput!){login(loginInput:$loginInput){accessToken} } ",
      "variables": {
          "loginInput":{
-             "user_name":"sample",
-             "password":"XXXXXXXXXXXXXXX"
+             "userName":"sample",
+             "password":"XXXXXXX"
         }
     }
 }'

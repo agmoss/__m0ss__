@@ -23,6 +23,6 @@ export class Media {
     asset: string;
 
     @Field()
-    @Column({ default: true })
+    @Column({ default: true, name: "is_active" })
     isActive: boolean;
 }

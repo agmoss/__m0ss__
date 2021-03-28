@@ -5,7 +5,7 @@ import { MaxLength, Length } from "class-validator";
 export class LoginInput {
     @Field()
     @MaxLength(30)
-    user_name: string;
+    userName: string;
 
     @Field()
     @Length(30, 50)
@@ -16,6 +16,6 @@ export class LoginInput {
 @ObjectType()
 export class AccessToken {
     @Field()
-    access_token:string
+    accessToken:string
 
 }

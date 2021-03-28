@@ -14,10 +14,10 @@ export class UsersService {
         private readonly usersRepository: Repository<User>
     ) {}
 
-    async findOne(user_name: string): Promise<User> {
+    async findOne(userName: string): Promise<User> {
         return this.usersRepository.findOne({
             where: {
-                user_name: user_name,
+                userName: userName,
             },
         });
     }
@@ -30,7 +30,7 @@ export class UsersService {
         });
 
         if (!user) {
-            return E.left(new ForbiddenException("User not found"));
+            return E.left(new ForbiddenException("User not found!"));
         }
         return E.right(user);
     }

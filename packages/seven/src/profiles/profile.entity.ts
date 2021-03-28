@@ -11,16 +11,16 @@ export class Profile {
     id: number;
 
     @Field()
-    @Column()
+    @Column({name: "first_name"})
     firstName: string;
 
     @Field()
-    @Column()
+    @Column({name:"last_name"})
     lastName: string;
 
     @Field()
-    @Column()
-    profile_photo: string;
+    @Column({name: "profile_photo"})
+    profilePhoto: string;
 
     @Field()
     @Column()
@@ -31,6 +31,6 @@ export class Profile {
     bio: string;
 
     @Field()
-    @Column({ default: true })
+    @Column({ default: true, name: "is_active" })
     isActive: boolean;
 }
