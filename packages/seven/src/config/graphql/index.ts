@@ -6,11 +6,11 @@ import { join } from "path";
 export class GraphqlOptions implements GqlOptionsFactory {
     createGqlOptions(): Promise<GqlModuleOptions> | GqlModuleOptions {
         return {
-            autoSchemaFile:true,
+            autoSchemaFile: true,
             sortSchema: true,
             context: ({ req, res }) => ({ req, res }),
             debug: true,
-            playground: false,
+            playground: true,
         };
     }
 }

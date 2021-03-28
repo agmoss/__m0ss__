@@ -2,37 +2,21 @@ import { Field, ObjectType } from "@nestjs/graphql";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({
-    name: "articles",
+    name: "users",
 })
 @ObjectType()
-export class Article {
+export class User {
     @Field()
     @PrimaryGeneratedColumn()
     id: number;
 
     @Field()
     @Column()
-    title: string;
+    user_name: string;
 
     @Field()
     @Column()
-    description: string;
-
-    @Field()
-    @Column()
-    image: string;
-
-    @Field()
-    @Column()
-    markdown: string;
-
-    @Field()
-    @Column()
-    internal_link: string;
-
-    @Field()
-    @Column()
-    external_link: string;
+    password: string;
 
     @Field()
     @Column({ default: true })

@@ -2,10 +2,10 @@ import { Field, ObjectType } from "@nestjs/graphql";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({
-    name: "articles",
+    name: "media",
 })
 @ObjectType()
-export class Article {
+export class Media {
     @Field()
     @PrimaryGeneratedColumn()
     id: number;
@@ -16,23 +16,11 @@ export class Article {
 
     @Field()
     @Column()
-    description: string;
+    preview: string;
 
     @Field()
     @Column()
-    image: string;
-
-    @Field()
-    @Column()
-    markdown: string;
-
-    @Field()
-    @Column()
-    internal_link: string;
-
-    @Field()
-    @Column()
-    external_link: string;
+    asset: string;
 
     @Field()
     @Column({ default: true })
