@@ -1,0 +1,1 @@
+{"version":3,"file":"CurrentUser.js","sourceRoot":"","sources":["../../src/auth/CurrentUser.ts"],"names":[],"mappings":";;;AACA,yCAAwE;AACxE,2CAAsD;AAEzC,QAAA,WAAW,GAAG,6BAAoB,CAC3C,UAAC,IAAa,EAAE,OAAyB;IACrC,IAAM,GAAG,GAAG,6BAAmB,CAAC,MAAM,CAAC,OAAO,CAAC,CAAC;IAChD,OAAO,GAAG,CAAC,UAAU,EAAE,CAAC,GAAG,CAAC,IAAI,CAAC;AACrC,CAAC,CACJ,CAAC"}
