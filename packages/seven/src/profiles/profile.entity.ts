@@ -11,15 +11,15 @@ export class Profile {
     id: number;
 
     @Field()
-    @Column({name: "first_name"})
+    @Column({ name: "first_name" })
     firstName: string;
 
     @Field()
-    @Column({name:"last_name"})
+    @Column({ name: "last_name" })
     lastName: string;
 
     @Field()
-    @Column({name: "profile_photo"})
+    @Column({ name: "profile_photo" })
     profilePhoto: string;
 
     @Field()

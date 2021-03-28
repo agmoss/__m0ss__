@@ -1,4 +1,5 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+
 import { ProfileInput } from "./dto/profile.dto";
 import { Profile } from "./profile.entity";
 import { ProfilesService } from "./profiles.service";

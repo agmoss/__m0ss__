@@ -1,4 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
+
 import { ProfilesResolver } from "./profiles.resolver";
 
 describe("ProfilesResolver", () => {

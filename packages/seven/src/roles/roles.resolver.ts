@@ -1,7 +1,8 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+
+import { RolesInput } from "./dto/roles.dto";
 import { Roles } from "./roles.entity";
 import { RolesService } from "./roles.service";
-import { RolesInput } from "./dto/roles.dto";
 
 @Resolver((of) => Roles)
 export class RolesResolver {

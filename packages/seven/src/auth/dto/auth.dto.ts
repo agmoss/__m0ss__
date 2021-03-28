@@ -1,5 +1,5 @@
 import { Field, InputType, ObjectType } from "@nestjs/graphql";
-import { MaxLength, Length } from "class-validator";
+import { Length, MaxLength } from "class-validator";
 
 @InputType()
 export class LoginInput {
@@ -12,10 +12,8 @@ export class LoginInput {
     password: string;
 }
 
-
 @ObjectType()
 export class AccessToken {
     @Field()
-    accessToken:string
-
+    accessToken: string;
 }

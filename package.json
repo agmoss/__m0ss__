@@ -17,9 +17,9 @@
     "scripts": {
         "bootstrap": "lerna bootstrap --use-workspaces",
         "bootstrap:clean": "lerna clean -y && lerna bootstrap --use-workspaces",
-        "build": "lerna run build --stream --scope={m0ss,three-ui,blog-types}",
-        "lint": "lerna run lint --stream --parallel  --scope={m0ss,three-ui,blog-types}",
-        "format": "lerna run format --stream --parallel  --scope={m0ss,three-ui,blog-types}",
+        "build": "lerna run build --stream --scope={m0ss,three-ui,blog-types,seven}",
+        "lint": "lerna run lint --stream --parallel  --scope={m0ss,three-ui,blog-types,seven}",
+        "format": "lerna run format --stream --parallel  --scope={m0ss,three-ui,blog-types,seven}",
         "format-imports": "import-sort --write '**/*.{js,jsx,ts,tsx}'",
         "format-package-json": "sort-package-json 'packages/*/package.json'",
         "lint-markdown": "markdownlint --ignore coverage --ignore dist --ignore **/node_modules/** '**/*.md' '.**/**/*.md'"

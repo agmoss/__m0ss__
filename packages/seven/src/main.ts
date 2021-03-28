@@ -1,10 +1,11 @@
+import { RATE_LIMIT_MAX } from "@environments";
 import { NestFactory } from "@nestjs/core";
-import { AppModule } from "./app.module";
 import * as bodyParser from "body-parser";
 import * as compression from "compression";
-import * as helmet from "helmet";
 import * as rateLimit from "express-rate-limit";
-import { RATE_LIMIT_MAX } from "@environments";
+import * as helmet from "helmet";
+
+import { AppModule } from "./app.module";
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);

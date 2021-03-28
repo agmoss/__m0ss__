@@ -5,7 +5,7 @@ import {
     DEV_USERNAME,
 } from "@environments";
 import { Injectable } from "@nestjs/common";
-import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from "@nestjs/typeorm";
 
 @Injectable()
 export class TypeOrmService implements TypeOrmOptionsFactory {

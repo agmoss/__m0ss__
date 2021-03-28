@@ -1,4 +1,5 @@
 import { Test, TestingModule } from "@nestjs/testing";
+
 import { MediaResolver } from "./media.resolver";
 
 describe("MediaResolver", () => {

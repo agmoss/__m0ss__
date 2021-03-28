@@ -1,8 +1,8 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import * as E from "fp-ts/lib/Either";
 import * as bcrypt from "bcrypt";
+import * as E from "fp-ts/lib/Either";
+import { Repository } from "typeorm";
 
 import { UserInput } from "./dto/user.dto";
 import { User } from "./user.entity";

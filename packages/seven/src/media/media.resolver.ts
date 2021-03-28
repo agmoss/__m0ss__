@@ -1,4 +1,5 @@
 import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
+
 import { MediaInput } from "./dto/media.dto";
 import { Media } from "./media.entity";
 import { MediaService } from "./media.service";

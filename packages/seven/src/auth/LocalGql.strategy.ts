@@ -1,8 +1,9 @@
-import { Strategy } from "passport-local";
-import { PassportStrategy } from "@nestjs/passport";
 import { ExecutionContext, Injectable } from "@nestjs/common";
-import { AuthService } from "./auth.service";
 import { GqlExecutionContext } from "@nestjs/graphql";
+import { PassportStrategy } from "@nestjs/passport";
+import { Strategy } from "passport-local";
+
+import { AuthService } from "./auth.service";
 
 @Injectable()
 export class LocalGqlStrategy extends PassportStrategy(Strategy) {

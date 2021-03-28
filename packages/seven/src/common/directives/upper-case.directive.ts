@@ -1,5 +1,5 @@
 import { SchemaDirectiveVisitor } from "apollo-server";
-import { defaultFieldResolver, GraphQLField } from "graphql";
+import { GraphQLField, defaultFieldResolver } from "graphql";
 
 export class UpperCaseDirective extends SchemaDirectiveVisitor {
     visitFieldDefinition(field: GraphQLField<any, any>) {

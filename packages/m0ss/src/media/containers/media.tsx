@@ -2,8 +2,8 @@ import { IMedia } from "blog-types";
 import React, { useState } from "react";
 import useSWR from "swr";
 import Cookies from "universal-cookie";
-import withPage from "../../components/withPage";
 
+import withPage from "../../components/withPage";
 import { client } from "../../gqlClient";
 import { queryMedia } from "../../gqlQuery";
 import { Error, Loading } from "../../pages/placeholders";
